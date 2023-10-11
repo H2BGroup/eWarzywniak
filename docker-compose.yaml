@@ -1,0 +1,51 @@
+version: '3'
+services:
+  mysql:
+    container_name: some-mysql
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: prestashop
+    networks:
+      - prestashop_network
+    volumes:
+      - ./dbInit:/docker-entrypoint-initdb.d
+
+  prestashop:
+    container_name: prestashop
+    image: prestashop/prestashop:latest
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    ports:
+      - 8080:80
+    environment:
+      DB_SERVER: some-mysql
+      DB_NAME: prestashop
+      DB_USER: root
+      DB_PASSWD: admin
+      PS_DOMAIN: localhost:8080
+      PS_FOLDER_ADMIN: admin2137
+      PS_FOLDER_INSTALL: install2137
+    networks:
+      - prestashop_network
+    volumes:
+      - ./src:/var/www/html
+
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      container_name: phpmyadmin
+      links:
+        - mysql
+      environment:
+        PMA_HOST: some-mysql
+        PMA_PORT: 3306
+        PMA_ARBITRARY: 1
+      restart: unless-stopped
+      ports:
+        - 8081:80
+      networks:
+      - prestashop_network
+networks:
+    prestashop_network:
