@@ -4,7 +4,7 @@ class WarzywniakSpider(scrapy.Spider):
     name = "warzywniak"
 
     def start_requests(self):
-       urls = ["https://skladwarzywiowocow.pl/sklep/warzywa/"]
+       urls = ["https://skladwarzywiowocow.pl/sklep/majonezy-musztardy-ketchupy-sosy/"]
 
        for url in urls:
            yield scrapy.Request(url=url, callback=self.parse)
@@ -24,3 +24,10 @@ class WarzywniakSpider(scrapy.Spider):
            }
 
            yield product_data
+
+       next_page_link = response.css('a.next ::attr(href)').extract_first()
+
+       if next_page_link:
+           yield response.follow(next_page_link, callback=self.parse)
+
+
