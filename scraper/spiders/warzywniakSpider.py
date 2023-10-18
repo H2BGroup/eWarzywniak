@@ -1,5 +1,6 @@
 import scrapy
 
+from .. import items
 class WarzywniakSpider(scrapy.Spider):
     name = "warzywniak"
 
@@ -12,7 +13,7 @@ class WarzywniakSpider(scrapy.Spider):
        urls = ["https://skladwarzywiowocow.pl"]
 
        for url in urls:
-           yield scrapy.Request(url=url, callback=self.parse)
+           yield scrapy.Request(url=url, callback=self.parse_category)
 
     def parse(self, response):
        products = response.css('div.product')
@@ -28,33 +29,26 @@ class WarzywniakSpider(scrapy.Spider):
            yield response.follow(next_page, callback=self.parse)
 
     def parse_category(self, response):
-        categories = response.css('li.menu-item-type-taxonomy a ::attr(href)').getall()
+        categories = response.css('div.primary-navigation li.menu-item-type-taxonomy a ::attr(href)').getall()
+
+        container = {'items': []}
 
         for category in categories:
-            yield {
-                'category_name': str(category),
-            }
 
+            # yield {
+            #     'category_name': str(category),
+            # }
             yield response.follow(category, callback=self.parse)
 
     def parse_product_page(self, response):
-        title = response.css('h1 ::text').get()
-        price = response.css('bdi ::text').get()
-        image = response.css('img.wp-post-image ::attr(src)').get()
-        large_image = response.css('img.wp-post-image ::attr(data-large_image)').get()
-        short_description = response.css('div.woocommerce-product-details__short-description ::text').get()
-        description = response.css('div#tab-description ::text').getall()
 
-        product_data = {
-            'title': str(title),
-            'price': str(price),
-            'image': str(image),
-            'large_image': str(large_image),
-            'short_description': str(short_description),
-            'description': str(description),
-        }
+        product = items.Product()
 
-        if 'https' in image:
-            yield product_data
+        product['title'] = response.css('h1 ::text').get()
+        product['price'] = response.css('bdi ::text').get()
+        product['image'] = response.css('img.wp-post-image ::attr(src)').get()
+        product['large_image'] = response.css('img.wp-post-image ::attr(data-large_image)').get()
+        product['short_description'] = response.css('div.woocommerce-product-details__short-description ::text').get()
+        product['description'] = response.css('div#tab-description ::text').getall()
 
-        return
+        yield product
