@@ -1,0 +1,4 @@
+__pycache__
+.idea
+spiders/__pycache__
+*.json
