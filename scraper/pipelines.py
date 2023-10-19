@@ -10,4 +10,9 @@ from itemadapter import ItemAdapter
 
 class ScraperPipeline:
     def process_item(self, item, spider):
+        adapter = ItemAdapter(item)
+        if adapter.get("image"):
+            if "http" not in adapter["image"]:
+                adapter["image"] = None
+
         return item
