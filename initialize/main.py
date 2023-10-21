@@ -1,6 +1,7 @@
 from prestapyt import PrestaShopWebServiceDict
 from pprint import pprint
 import json
+import random
 
 def getCategoryId(prestashop, category):
     ids = prestashop.search('categories', options={'filter[name]': category})
@@ -27,6 +28,15 @@ def addCategory(prestashop, categoryName, parentId):
 
     return response['prestashop']['category']['id']
 
+def setProductQuantity(prestashop, productId, quantity):
+    id = prestashop.search('stock_availables', options={'filter[id_product]': productId})
+    schema = prestashop.get('stock_availables', resource_id=id[0])
+
+    schema['stock_available']['depends_on_stock'] = 0
+    schema['stock_available']['quantity'] = quantity
+
+    return prestashop.edit('stock_availables', schema)
+
 def addProduct(prestashop, product, categoryId):
     schema = prestashop.get('products', options={'schema': 'synopsis'})
 
@@ -39,15 +49,18 @@ def addProduct(prestashop, product, categoryId):
     schema['product']['description']['language'][0]['value'] = '\n'.join(product['description'])
     schema['product']['description_short']['language'][0]['value'] = product['short_description']
 
-    schema['product']['id_category_default']['value'] = categoryId
+    schema['product']['id_category_default']['value'] = 1
+    schema['product']['associations']['categories']['category']['id']['value'] = categoryId
     schema['product']['name']['language'][0]['value'] = product['title']
     schema['product']['price']['value'] = float(product['price'].replace(',', '.'))
     schema['product']['show_price']['value'] = 1
-    
+    schema['product']['minimal_quantity'] = 1
+    schema['product']['available_for_order'] = 1
 
-    pprint(schema)
+    response =  prestashop.add('products', schema)
+    id = response['prestashop']['product']['id']
 
-    return prestashop.add('products', schema)
+    return setProductQuantity(prestashop, id, random.randint(1, 200))
 
 
 WEBSERVICE_KEY = 'IK9V9749QYEE5V1QIASHG729V7YJQLEH'
@@ -73,4 +86,4 @@ if parentCategoryId is None:
 
 product = {"title": "Ekologiczna kostka rosołowa wołowa", "category": ["Przyprawy, sól, cukier"], "price": "6,49", "image": "https://skladwarzywiowocow.pl/wp-content/uploads/2022/11/ekologiczna-kostka-rosolowa-wolowa-416x416.png", "large_image": "https://skladwarzywiowocow.pl/wp-content/uploads/2022/11/ekologiczna-kostka-rosolowa-wolowa.png", "short_description": "Kostki rosołowe to kompozycja ekologicznych ziół i przypraw polecana do przyrządzania zup, rosołów, sosów, makaronów i innych potraw. Kostki nie zawierają glutaminianu sodu czy oleju palmowego. Z ich pomocą łatwo przygotujesz zdrową zupę dla całej rodziny.", "description": ["Opis", "Skład:", "\nsól morska, masło shea*, pomidory*, skrobia kukurydziana*, prażona cebula*, seler*, 2,5% sproszkowane mięso wołowe*, skarmelizowany cukier*, kurkuma*, ekstrakt z drożdży,  naturalny aromat, lubczyk liście*, czosnek*, pieprz*.", "\n* produkty pochodzące z kontrolowanych, certyfikowanych upraw ekologicznych"]}
 
-pprint(addProduct(prestashop, product, 3))
+addProduct(prestashop, product, 3)
