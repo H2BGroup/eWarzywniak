@@ -27,7 +27,7 @@ categories = {}
 
 productSchema = prestashop.get('products', options={'schema': 'synopsis'})
 
-f = open('../scraper/warzywniak.json')
+f = open(os.getenv('SCRAPPED_DATA_PATH'))
 data = json.load(f)
 
 parentCategoryId = getCategoryId(prestashop, "Kategorie")
