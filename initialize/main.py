@@ -1,7 +1,9 @@
-from prestapyt import PrestaShopWebServiceDict
+from prestapyt import PrestaShopWebServiceDict, PrestaShopWebServiceError
 from pprint import pprint
 import json
 import random
+from io import BytesIO
+import requests
 
 def getCategoryId(prestashop, category):
     ids = prestashop.search('categories', options={'filter[name]': category})
@@ -37,7 +39,7 @@ def setProductQuantity(prestashop, productId, quantity):
 
     return prestashop.edit('stock_availables', schema)
 
-def addProduct(prestashop, product, categoryId):
+def addProduct(prestashop, product, categoryIds):
     schema = prestashop.get('products', options={'schema': 'synopsis'})
 
     schema['product'].pop('position_in_category')
@@ -48,19 +50,33 @@ def addProduct(prestashop, product, categoryId):
     schema['product']['active'] = 1
     schema['product']['description']['language'][0]['value'] = '\n'.join(product['description'])
     schema['product']['description_short']['language'][0]['value'] = product['short_description']
-
-    schema['product']['id_category_default']['value'] = 1
-    schema['product']['associations']['categories']['category']['id']['value'] = categoryId
     schema['product']['name']['language'][0]['value'] = product['title']
     schema['product']['price']['value'] = float(product['price'].replace(',', '.'))
     schema['product']['show_price']['value'] = 1
     schema['product']['minimal_quantity'] = 1
     schema['product']['available_for_order'] = 1
 
+    schema['product']['id_category_default']['value'] = 1
+    schema['product']['associations']['categories']['category'] = []
+    for id in categoryIds:
+        schema['product']['associations']['categories']['category'].append({'id': id})
+
     response =  prestashop.add('products', schema)
     id = response['prestashop']['product']['id']
 
-    return setProductQuantity(prestashop, id, random.randint(1, 200))
+    setProductQuantity(prestashop, id, random.randint(1, 200))
+
+    return id
+
+def addProductImage(prestashop, productId, imageURL):
+    data = requests.get(imageURL).content
+    buffer = BytesIO(data)
+
+    divided = imageURL.split('/')
+    imageName = divided[len(divided)-1]
+
+    return prestashop.add(f'/images/products/{productId}', files=[('image', imageName, buffer.getvalue())])
+
 
 
 WEBSERVICE_KEY = 'IK9V9749QYEE5V1QIASHG729V7YJQLEH'
@@ -77,13 +93,29 @@ parentCategoryId = getCategoryId(prestashop, "Kategorie")
 if parentCategoryId is None:
     parentCategoryId = addCategory(prestashop, "Kategorie", 2)
 
-# for entry in data:
-#     if 'category_name' in entry:
-#         id = addCategory(prestashop, entry['category_name'], parentCategoryId)
-#         categories[entry['category_name']] = id
-#     else:
-#         pass
+for i, entry in enumerate(data):
+    if 'category_name' in entry: #add category
+        id = addCategory(prestashop, entry['category_name'], parentCategoryId)
+        categories[entry['category_name']] = id
 
-product = {"title": "Ekologiczna kostka rosołowa wołowa", "category": ["Przyprawy, sól, cukier"], "price": "6,49", "image": "https://skladwarzywiowocow.pl/wp-content/uploads/2022/11/ekologiczna-kostka-rosolowa-wolowa-416x416.png", "large_image": "https://skladwarzywiowocow.pl/wp-content/uploads/2022/11/ekologiczna-kostka-rosolowa-wolowa.png", "short_description": "Kostki rosołowe to kompozycja ekologicznych ziół i przypraw polecana do przyrządzania zup, rosołów, sosów, makaronów i innych potraw. Kostki nie zawierają glutaminianu sodu czy oleju palmowego. Z ich pomocą łatwo przygotujesz zdrową zupę dla całej rodziny.", "description": ["Opis", "Skład:", "\nsól morska, masło shea*, pomidory*, skrobia kukurydziana*, prażona cebula*, seler*, 2,5% sproszkowane mięso wołowe*, skarmelizowany cukier*, kurkuma*, ekstrakt z drożdży,  naturalny aromat, lubczyk liście*, czosnek*, pieprz*.", "\n* produkty pochodzące z kontrolowanych, certyfikowanych upraw ekologicznych"]}
+        
+    else: #add product
+        categoryIds = []
+        for category in entry['category']:
+            if category in categories.keys():
+                categoryIds.append(categories[category])
 
-addProduct(prestashop, product, 3)
+        try:
+            id = addProduct(prestashop, entry, categoryIds)
+        except PrestaShopWebServiceError:
+            print(f'Error with: {entry}')
+
+        if entry['large_image'] is not None:
+            try:
+                addProductImage(prestashop, id, entry['large_image'])
+            except PrestaShopWebServiceError:
+                print(f'Error with: {entry}')
+
+    print(f'{i}/{len(data)}')
+
+
