@@ -15,4 +15,11 @@ class ScraperPipeline:
             if "http" not in adapter["image"]:
                 adapter["image"] = None
 
+        if adapter.get("description"):
+            adapter["description"] = ''.join(adapter["description"])
+            adapter["description"] = adapter["description"].replace('\n', '<br>')
+        
+        if '<' in adapter["title"]:
+            adapter["title"] = adapter["title"].replace('<', 'mniej niż ')
+
         return item
