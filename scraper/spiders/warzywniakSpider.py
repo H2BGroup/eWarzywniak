@@ -51,6 +51,6 @@ class WarzywniakSpider(scrapy.Spider):
         product['image'] = response.css('img.wp-post-image ::attr(src)').get()
         product['large_image'] = response.css('img.wp-post-image ::attr(data-large_image)').get()
         product['short_description'] = response.css('div.woocommerce-product-details__short-description ::text').get()
-        product['description'] = response.css('div#tab-description ::text').getall()
+        product['description'] = response.css('div#tab-description p ::text').getall()
 
         yield product
