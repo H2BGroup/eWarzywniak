@@ -21,7 +21,8 @@ class ScraperPipeline:
         else:
             adapter['description'] = ''
         
-        if '<' in adapter["title"]:
-            adapter["title"] = adapter["title"].replace('<', 'mniej niż ')
+        if adapter.get('title'):
+            if '<' in adapter["title"]:
+                adapter["title"] = adapter["title"].replace('<', 'mniej niż ')
 
         return item

@@ -19,7 +19,7 @@ def addProduct(prestashop, product, categoryIds, schema):
 
     schema['product']['state'] = 1
     schema['product']['active'] = 1
-    schema['product']['description']['language'][0]['value'] = '\n'.join(product['description'])
+    schema['product']['description']['language'][0]['value'] = product['description']
     schema['product']['description_short']['language'][0]['value'] = product['short_description']
     schema['product']['name']['language'][0]['value'] = product['title']
     schema['product']['price']['value'] = float(product['price'].replace(',', '.'))

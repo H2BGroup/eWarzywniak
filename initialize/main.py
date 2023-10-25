@@ -11,13 +11,16 @@ def handleProduct(prestashop, product, categoryIds, schema):
     try:
         id = addProduct(prestashop, product, categoryIds, schema)
     except PrestaShopWebServiceError:
-        print(f'Error with: {product}')
+        print(f'Error loading: {product}')
 
     if product['large_image'] is not None:
         try:
             addProductImage(prestashop, id, product['large_image'])
         except PrestaShopWebServiceError:
-            print(f'Error with: {product}')
+            try: 
+                addProductImage(prestashop, id, product['image'])
+            except PrestaShopWebServiceError:
+                print(f'Error loading photo for: {product}')
 
 load_dotenv()
 
