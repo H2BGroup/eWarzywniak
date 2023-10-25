@@ -18,6 +18,8 @@ class ScraperPipeline:
         if adapter.get("description"):
             adapter["description"] = ''.join(adapter["description"])
             adapter["description"] = adapter["description"].replace('\n', '<br>')
+        else:
+            adapter['description'] = ''
         
         if '<' in adapter["title"]:
             adapter["title"] = adapter["title"].replace('<', 'mniej niż ')
