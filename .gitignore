@@ -2,4 +2,4 @@ dbData
 src/cache/*
 src/var/cache/*
 src/var/logs/*
-src/img/tmp/*
+
