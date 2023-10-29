@@ -10,11 +10,12 @@ services:
     networks:
       - prestashop_network
     volumes:
+      - ./db_dump:/docker-entrypoint-initdb.d
       - ./dbData:/var/lib/mysql
 
   prestashop:
     container_name: prestashop
-    image: prestashop/prestashop:1.7
+    image: prestashop/prestashop:1.7.8-apache
     restart: unless-stopped
     depends_on:
       - mysql
@@ -31,6 +32,7 @@ services:
       PS_INSTALL_AUTO: 1
       PS_LANGUAGE: pl
       PS_COUNTRY: PL
+      PS_DEV_MODE: 1
     networks:
       - prestashop_network
     volumes:
