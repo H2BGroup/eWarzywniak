@@ -21,6 +21,7 @@ services:
       - mysql
     ports:
       - 8080:80
+      - 443:443
     environment:
       DB_SERVER: mysql
       DB_NAME: prestashop
