@@ -925,7 +925,7 @@ CREATE TABLE `ps_address` (
   KEY `id_manufacturer` (`id_manufacturer`),
   KEY `id_supplier` (`id_supplier`),
   KEY `id_warehouse` (`id_warehouse`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1230,7 +1230,7 @@ CREATE TABLE `ps_admin_filter` (
   `filter_id` varchar(191) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `admin_filter_search_id_idx` (`employee`,`shop`,`controller`,`action`,`filter_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1286,7 +1286,7 @@ CREATE TABLE `ps_alias` (
   `active` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_alias`),
   UNIQUE KEY `alias` (`alias`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1545,7 +1545,7 @@ CREATE TABLE `ps_authorization_role` (
   `slug` varchar(191) NOT NULL,
   PRIMARY KEY (`id_authorization_role`),
   UNIQUE KEY `slug` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=852 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=857 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1659,6 +1659,10 @@ INSERT INTO `ps_authorization_role` VALUES
 (584,'ROLE_MOD_MODULE_PS_DATAPRIVACY_DELETE'),
 (582,'ROLE_MOD_MODULE_PS_DATAPRIVACY_READ'),
 (583,'ROLE_MOD_MODULE_PS_DATAPRIVACY_UPDATE'),
+(853,'ROLE_MOD_MODULE_PS_EMAILALERTS_CREATE'),
+(856,'ROLE_MOD_MODULE_PS_EMAILALERTS_DELETE'),
+(854,'ROLE_MOD_MODULE_PS_EMAILALERTS_READ'),
+(855,'ROLE_MOD_MODULE_PS_EMAILALERTS_UPDATE'),
 (585,'ROLE_MOD_MODULE_PS_EMAILSUBSCRIPTION_CREATE'),
 (588,'ROLE_MOD_MODULE_PS_EMAILSUBSCRIPTION_DELETE'),
 (586,'ROLE_MOD_MODULE_PS_EMAILSUBSCRIPTION_READ'),
@@ -2458,7 +2462,7 @@ CREATE TABLE `ps_carrier` (
   KEY `deleted` (`deleted`,`active`),
   KEY `id_tax_rules_group` (`id_tax_rules_group`),
   KEY `reference` (`id_reference`,`deleted`,`active`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2597,23 +2601,7 @@ INSERT INTO `ps_carrier_lang` VALUES
 (14,1,1,'5-7 dni'),
 (15,1,1,'3-5 dni'),
 (17,1,1,'5-7 dni'),
-(18,1,1,'3-5 dni'),
-(1,1,2,'Pick up in-store'),
-(2,1,2,'Delivery next day!'),
-(3,1,2,'Buy more to pay less!'),
-(4,1,2,'The lighter the cheaper!'),
-(6,1,2,'3'),
-(7,1,2,'Pick up in-store'),
-(8,1,2,'5'),
-(9,1,2,'3'),
-(10,1,2,'5'),
-(11,1,2,'5'),
-(12,1,2,'5'),
-(13,1,2,'3'),
-(14,1,2,'5'),
-(15,1,2,'3'),
-(17,1,2,'5'),
-(18,1,2,'3');
+(18,1,1,'3-5 dni');
 /*!40000 ALTER TABLE `ps_carrier_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2858,7 +2846,7 @@ CREATE TABLE `ps_cart` (
   KEY `id_shop_group` (`id_shop_group`),
   KEY `id_shop_2` (`id_shop`,`date_upd`),
   KEY `id_shop` (`id_shop`,`date_add`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2877,7 +2865,11 @@ INSERT INTO `ps_cart` VALUES
 (8,1,1,0,'',1,7,7,3,3,3,'e046d855a8ad88f8474385d003fddf2f',0,0,'',0,0,'2023-10-24 22:59:21','2023-10-24 23:30:15','{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checkout-payment-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checksum\":\"a23aacd7b5385d467800ff31d01e08144fb3a242\"}'),
 (10,1,1,0,'',1,12,12,3,6,6,'63bfdf255fee65756e4806e70e047298',0,0,'',0,0,'2023-10-25 23:13:11','2023-10-25 23:17:05','{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checkout-payment-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checksum\":\"164600faa5d3ab9a304d36c10a00200a9157f102\"}'),
 (11,1,1,0,'',1,12,12,3,6,6,'63bfdf255fee65756e4806e70e047298',0,0,'',0,0,'2023-10-25 23:17:20','2023-10-25 23:17:43',NULL),
-(13,1,1,0,'',1,12,12,3,6,10,'63bfdf255fee65756e4806e70e047298',0,0,'',0,0,'2023-11-04 12:43:42','2023-11-04 12:43:42',NULL);
+(13,1,1,0,'',1,12,12,3,6,10,'63bfdf255fee65756e4806e70e047298',0,0,'',0,0,'2023-11-04 12:43:42','2023-11-04 12:43:42',NULL),
+(15,1,1,7,'{\"12\":\"7,\"}',1,12,12,3,6,6,'63bfdf255fee65756e4806e70e047298',0,0,'',0,0,'2023-11-07 11:14:02','2023-11-07 11:14:12','{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"237ae39fb44c048fd12a51a67bdcfdb04cb1a5da\"}'),
+(16,1,1,18,'{\"12\":\"18,\"}',1,12,12,3,6,6,'63bfdf255fee65756e4806e70e047298',0,0,'',0,0,'2023-11-07 11:55:01','2023-11-07 11:55:08','{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"237ae39fb44c048fd12a51a67bdcfdb04cb1a5da\"}'),
+(17,1,1,17,'{\"12\":\"17,\"}',1,12,12,3,6,6,'63bfdf255fee65756e4806e70e047298',0,0,'',0,0,'2023-11-07 12:09:26','2023-11-07 12:09:37','{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"237ae39fb44c048fd12a51a67bdcfdb04cb1a5da\"}'),
+(18,1,1,18,'{\"12\":\"18,\"}',1,12,12,3,6,6,'63bfdf255fee65756e4806e70e047298',0,0,'',0,0,'2023-11-07 12:23:52','2023-11-07 12:23:59','{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"237ae39fb44c048fd12a51a67bdcfdb04cb1a5da\"}');
 /*!40000 ALTER TABLE `ps_cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2933,6 +2925,11 @@ CREATE TABLE `ps_cart_product` (
 
 LOCK TABLES `ps_cart_product` WRITE;
 /*!40000 ALTER TABLE `ps_cart_product` DISABLE KEYS */;
+INSERT INTO `ps_cart_product` VALUES
+(15,1001,12,1,0,0,1,'2023-11-07 11:14:02'),
+(16,1001,12,1,0,0,1,'2023-11-07 11:55:01'),
+(17,1001,12,1,0,0,1,'2023-11-07 12:09:26'),
+(18,1001,12,1,0,0,1,'2023-11-07 12:23:52');
 /*!40000 ALTER TABLE `ps_cart_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3234,7 +3231,7 @@ CREATE TABLE `ps_category` (
   KEY `nright` (`nright`),
   KEY `activenleft` (`active`,`nleft`),
   KEY `activenright` (`active`,`nright`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3320,15 +3317,10 @@ LOCK TABLES `ps_category_lang` WRITE;
 /*!40000 ALTER TABLE `ps_category_lang` DISABLE KEYS */;
 INSERT INTO `ps_category_lang` VALUES
 (1,1,1,'Baza','','baza','','',''),
-(1,1,2,'Root','','root','','',''),
 (2,1,1,'Warzywniak online','','warzywniak-online','','',''),
-(2,1,2,'Home','','home','','',''),
 (3,1,1,'Kategorie','','kategorie','','',''),
-(3,1,2,'Clothes','<p>Discover our favorites fashionable discoveries, a selection of cool items to integrate in your wardrobe. Compose a unique style with personality which matches your own.</p>','clothes','','',''),
 (6,1,1,'Promocje','','promocje','','',''),
-(6,1,2,'Accessories','<p>Items and accessories for your desk, kitchen or living room. Make your house a home with our eye-catching designs.</p>','accessories','','',''),
-(9,1,1,'Nowości','','nowosci','','',''),
-(9,1,2,'Art','<p>Framed poster and vector images, all you need to give personality to your walls or bring your creative projects to life.</p>','art','','','');
+(9,1,1,'Nowości','','nowosci','','','');
 /*!40000 ALTER TABLE `ps_category_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3355,6 +3347,9 @@ CREATE TABLE `ps_category_product` (
 
 LOCK TABLES `ps_category_product` WRITE;
 /*!40000 ALTER TABLE `ps_category_product` DISABLE KEYS */;
+INSERT INTO `ps_category_product` VALUES
+(2,1001,1),
+(3,1001,1);
 /*!40000 ALTER TABLE `ps_category_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3402,7 +3397,7 @@ CREATE TABLE `ps_cms` (
   `active` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `indexation` tinyint(1) unsigned NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_cms`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3436,7 +3431,7 @@ CREATE TABLE `ps_cms_category` (
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_cms_category`),
   KEY `category_parent` (`id_parent`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3479,8 +3474,7 @@ CREATE TABLE `ps_cms_category_lang` (
 LOCK TABLES `ps_cms_category_lang` WRITE;
 /*!40000 ALTER TABLE `ps_cms_category_lang` DISABLE KEYS */;
 INSERT INTO `ps_cms_category_lang` VALUES
-(1,1,1,'Strona główna','','strona-glowna','','',''),
-(1,2,1,'Home','','home','','','');
+(1,1,1,'Strona główna','','strona-glowna','','','');
 /*!40000 ALTER TABLE `ps_cms_category_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3496,7 +3490,7 @@ CREATE TABLE `ps_cms_category_shop` (
   `id_shop` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id_cms_category`,`id_shop`),
   KEY `id_shop` (`id_shop`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3539,13 +3533,9 @@ LOCK TABLES `ps_cms_lang` WRITE;
 /*!40000 ALTER TABLE `ps_cms_lang` DISABLE KEYS */;
 INSERT INTO `ps_cms_lang` VALUES
 (1,1,1,'Dostawa i płatność','','Our terms and conditions of delivery','conditions, delivery, delay, shipment, pack','<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;font-weight:400;vertical-align:baseline;background-color:#ffffff;text-align:justify;\"><span style=\"font-weight:600;\"></span></p>\n<h1 class=\"entry-title\" style=\"margin:0px 0px 0.540791em;font-size:2.61792em;clear:both;font-weight:300;color:#333333;line-height:1.214;letter-spacing:-1px;font-family:Nunito, sans-serif;background-color:#ffffff;\">Dostawa i płatność</h1>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;font-weight:400;vertical-align:baseline;background-color:#ffffff;text-align:justify;\"><span style=\"font-weight:600;\">Dostawy realizowane są w każdy dzień roboczy. Zamówienia złożone do godz. 18:00 dostarczane są już w następnym dniu roboczym do godz. 20:00.</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;font-weight:400;vertical-align:baseline;background-color:#ffffff;text-align:justify;\"><span style=\"font-weight:600;\">Zakupy dostarczamy naszym własnym transportem na terenie całego Poznania i okolic.</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;font-weight:400;vertical-align:baseline;background-color:#ffffff;\"><span style=\"font-weight:600;\">Gwarantujemy darmową dostawę dla zamówień już od 150 zł!</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;font-weight:400;vertical-align:baseline;background-color:#ffffff;text-align:justify;\"><span style=\"font-weight:600;\">Minimalna wartość zamówienia to jedyne 50 zł, a koszt dostawy zależy od miejsca, w którym mieszkasz:</span><span style=\"font-weight:600;\"></span></p>\n<p><iframe width=\"940\" height=\"480\" src=\"https://www.google.com/maps/d/embed?mid=19w98CDaOAesBsw64avLyzO-X3cdkAJEf&amp;ehbc=2E312F\"></iframe></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;vertical-align:baseline;background-color:#ffffff;text-align:justify;\"><span style=\"font-weight:600;\">STREFA 1 – 4,99 zł</span><br />POZNAŃ, Babki, Borówiec, Czapury, Dachowa, Daszewice, Gądki, Jaryszki, Kamionki, Koninko , Robakowo, Skrzynki, Szczytniki, Wiórek.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;vertical-align:baseline;background-color:#ffffff;text-align:justify;\"><span style=\"font-weight:600;\">STREFA 2 – 8,99 zł</span><br />Baranowo, Bogucin, Chyby, Czerwonak, Dąbrówka, Dopiewiec, Dopiewo, Garby, Głuchowo, Gołuski, Gowarzewo, Jasin, Jelonek, Kiekrz, Komorniki gm. Kleszczewo, Komorniki gm. Komorniki, Koziegłowy, Kórnik, Kruszewnia, Luboń, Łęczyca, Palędzie, Plewiska, Przeźmierowo, Puszczykowo, Rabowice, Rogalinek, Rosnowo, Sasinowo, Skórzewo, Suchy Las, Swadzim, Swarzędz, Szewce, Tanibórz, Tulce, Wiry, Wysogotowo, Zalasewo, Złotniki, Żerniki.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;vertical-align:baseline;background-color:#ffffff;text-align:justify;\"> </p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;vertical-align:baseline;background-color:#ffffff;text-align:justify;\"> </p>\n<h2 style=\"clear:both;font-weight:300;color:#333333;font-size:2em;line-height:1.214;font-family:Nunito, sans-serif;background-color:#ffffff;text-align:justify;margin:20px 0px 0.540791em 0px;\">Metody płatności</h2>\n<ul style=\"margin:0px 0px 1.41575em 3em;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;vertical-align:baseline;background-color:#ffffff;text-align:justify;\">\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">PŁATNOŚĆ ONLINE (Przelewy24)</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">PŁATNOŚĆ GOTÓWKĄ PRZY ODBIORZE (istnieje także możliwość płatności w formie “przelew na telefon”)</li>\n</ul>\n<h2 style=\"margin:2.29068em 0px 0.540791em;clear:both;font-weight:300;color:#333333;font-size:2em;line-height:1.214;font-family:Nunito, sans-serif;background-color:#ffffff;text-align:justify;\">Uwagi do zamówienia</h2>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;vertical-align:baseline;background-color:#ffffff;text-align:justify;\">W polu „Uwagi do zamówienia” mogą Państwo dodać informację, gdzie mamy zostawić zakupy, np. przy furtce lub pod drzwiami. Nie ma wówczas konieczności bezpośredniego kontaktu z dostawcą. O czekających we wskazanym miejscu zakupach poinformuje on Państwa telefonicznie. Jeśli w danych godzinach nie będzie Państwa w domu również prosimy o podanie tej informacji w polu “Uwagi do zamówienia”.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;font-weight:400;vertical-align:baseline;background-color:#ffffff;text-align:justify;\"><span style=\"font-weight:600;\"></span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;vertical-align:baseline;background-color:#ffffff;\">Istnieje możliwość wystawienia faktury VAT. Prosimy o dołączenie informacji do uwag.</p>','dostawa-i-platnosc'),
-(1,2,1,'Delivery','','Our terms and conditions of delivery','conditions, delivery, delay, shipment, pack','<h2>Shipments and returns</h2>\n<h3>Your pack shipment</h3>\n<p>Packages are generally dispatched within 2 days after receipt of payment and are shipped via UPS with tracking and drop-off without signature. If you prefer delivery by UPS Extra with required signature, an additional cost will be applied, so please contact us before choosing this method. Whichever shipment choice you make, we will provide you with a link to track your package online.</p>\n<p>Shipping fees include handling and packing fees as well as postage costs. Handling fees are fixed, whereas transport fees vary according to total weight of the shipment. We advise you to group your items in one order. We cannot group two distinct orders placed separately, and shipping fees will apply to each of them. Your package will be dispatched at your own risk, but special care is taken to protect fragile objects.<br /><br />Boxes are amply sized and your items are well-protected.</p>','delivery'),
 (2,1,1,'Regulamin sklepu','','Legal notice','notice, legal, credits','<h1 class=\"entry-title\" style=\"margin:0px 0px 0.540791em;font-size:2.61792em;clear:both;font-weight:300;color:#333333;line-height:1.214;letter-spacing:-1px;\">Regulamin sklepu</h1>\n<div class=\"entry-content\" style=\"margin:0px;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;font-weight:400;vertical-align:baseline;background-color:#ffffff;\">\n<p class=\"has-text-align-center\" style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:center;\"><span style=\"font-weight:600;\">REGULAMIN SKLEPU INTERNETOWEGO<br />SKLADWARZYWIOWOCOW.PL</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">SPIS TREŚCI:</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1. POSTANOWIENIA OGÓLNE<br />2. USŁUGI ELEKTRONICZNE W SKLEPIE INTERNETOWYM<br />3. WARUNKI ZAWIERANIA UMOWY SPRZEDAŻY<br />4. SPOSOBY I TERMINY PŁATNOŚCI ZA PRODUKT<br />5. KOSZT, SPOSOBY I TERMIN DOSTAWY PRODUKTU<br />6. REKLAMACJA PRODUKTU<br />7. POZASĄDOWE SPOSOBY ROZPATRYWANIA REKLAMACJI I DOCHODZENIA ROSZCZEŃ ORAZ ZASADY DOSTĘPU DO TYCH PROCEDUR<br />8. PRAWO ODSTĄPIENIA OD UMOWY<br />9. POSTANOWIENIA DOTYCZĄCE PRZEDSIĘBIORCÓW<br />10. POSTANOWIENIA KOŃCOWE<br />11. WZÓR FORMULARZA ODSTĄPIENIA OD UMOWY</p>\n<p class=\"has-text-align-center\" style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:center;\"><em>Sklep Internetowy www.skladwarzywiowocow.pl dba o prawa konsumenta. Konsument nie może zrzec się praw przyznanych mu w Ustawie o Prawach Konsumenta. Postanowienia umów mniej korzystne dla konsumenta niż postanowienia Ustawy o Prawach Konsumenta są nieważne, a w ich miejsce stosuje się przepisy Ustawy o Prawach Konsumenta. Dlatego też postanowienia niniejszego Regulaminu nie mają na celu wyłączać ani ograniczać jakichkolwiek praw konsumentów przysługujących im na mocy bezwzględnie wiążących przepisów prawa, a wszelkie ewentualne wątpliwości należy tłumaczyć na korzyść konsumenta. W przypadku ewentualnej niezgodności postanowień niniejszego Regulaminu z powyższymi przepisami, pierwszeństwo mają te przepisy i należy je stosować.</em></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">1. POSTANOWIENIA OGÓLNE</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.1. Sklep Internetowy dostępny pod adresem internetowym www.skladwarzywiowocow.pl prowadzony jest przez Roberta Skowronka prowadzącego działalność gospodarczą pod firmą SWORS Robert Skowronek wpisanego do Centralnej Ewidencji i Informacji o Działalności Gospodarczej Rzeczypospolitej Polskiej prowadzonej przez ministra właściwego do spraw gospodarki, posiadającego: adres miejsca wykonywania działalności i adres do doręczeń: ul. Przybrodzka 17, 60-427 Poznań, NIP 7831552295, REGON 300764751, adres poczty elektronicznej: kontakt@sklawarzywiowocow.pl.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.2. Niniejszy Regulamin skierowany jest zarówno do konsumentów, jak i do przedsiębiorców korzystających ze Sklepu Internetowego, chyba że dane postanowienie Regulaminu stanowi inaczej i jest skierowane wyłącznie do konsumentów albo do przedsiębiorców.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.3. Administratorem danych osobowych przetwarzanych w Sklepie Internetowym w związku z realizacją postanowień niniejszego Regulaminu jest Sprzedawca. Dane osobowe przetwarzane są w celach, przez okres i w oparciu o podstawy i zasady wskazane w polityce prywatności opublikowanej na stronie Sklepu Internetowego. Polityka prywatności zawiera przede wszystkim zasady dotyczące przetwarzania danych osobowych przez Administratora w Sklepie Internetowym, w tym podstawy, cele i okres przetwarzania danych osobowych oraz prawa osób, których dane dotyczą, a także informacje w zakresie stosowania w Sklepie Internetowym plików cookies oraz narzędzi analitycznych. Korzystanie ze Sklepu Internetowego, w tym dokonywanie zakupów jest dobrowolne. Podobnie związane z tym podanie danych osobowych przez korzystającego ze Sklepu Internetowego Usługobiorcę lub Klienta jest dobrowolne, z zastrzeżeniem wyjątków wskazanych w polityce prywatności (zawarcie umowy oraz obowiązki ustawowe Sprzedawcy).</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4. Definicje:</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4.1. DZIEŃ ROBOCZY – jeden dzień od poniedziałku do soboty z wyłączeniem dni ustawowo wolnych od pracy.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4.2. FORMULARZ REJESTRACJI – formularz dostępny w Sklepie Internetowym umożliwiający utworzenie Konta.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4.3. FORMULARZ ZAMÓWIENIA – Usługa Elektroniczna, interaktywny formularz dostępny w Sklepie Internetowym umożliwiający złożenie Zamówienia, w szczególności poprzez dodanie Produktów do elektronicznego koszyka oraz określenie warunków Umowy Sprzedaży, w tym sposobu dostawy i płatności.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4.4. KLIENT – (1) osoba fizyczna posiadająca pełną zdolność do czynności prawnych, a w wypadkach przewidzianych przez przepisy powszechnie obowiązujące także osoba fizyczna posiadająca ograniczoną zdolność do czynności prawnych; (2) osoba prawna; albo (3) jednostka organizacyjna nieposiadająca osobowości prawnej, której ustawa przyznaje zdolność prawną – która zawarła lub zamierza zawrzeć Umowę Sprzedaży ze Sprzedawcą.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4.5. KODEKS CYWILNY – ustawa Kodeks cywilny z dnia 23 kwietnia 1964 r. (Dz.U. 1964 nr 16, poz. 93 ze zm.).</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4.6. KONTO – Usługa Elektroniczna, oznaczony indywidualną nazwą (loginem) i hasłem podanym przez Usługobiorcę zbiór zasobów w systemie teleinformatycznym Usługodawcy, w którym gromadzone są dane podane przez Usługobiorcę oraz informacje o złożonych przez niego Zamówieniach w Sklepie Internetowym.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4.7. PRODUKT – dostępna w Sklepie Internetowym rzecz ruchoma będąca przedmiotem Umowy Sprzedaży między Klientem a Sprzedawcą.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4.8. REGULAMIN – niniejszy regulamin Sklepu Internetowego.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4.9. SKLEP INTERNETOWY – sklep internetowy Usługodawcy dostępny pod adresem internetowym: www.skladwarzywiowocow.pl.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4.10. SPRZEDAWCA; USŁUGODAWCA – Robert Skowronek prowadzący działalność gospodarczą pod firmą SWORS Robert Skowronek wpisany do Centralnej Ewidencji i Informacji o Działalności Gospodarczej Rzeczypospolitej Polskiej prowadzonej przez ministra właściwego do spraw gospodarki, posiadający: adres miejsca wykonywania działalności i adres do doręczeń: ul. Przybrodzka 17, 60-427 Poznań, NIP 7831552295, REGON 300764751, adres poczty elektronicznej: kontakt@sklawarzywiowocow.pl.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4.11. UMOWA SPRZEDAŻY – umowa sprzedaży Produktu zawierana albo zawarta między Klientem a Sprzedawcą za pośrednictwem Sklepu Internetowego.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4.12. USŁUGA ELEKTRONICZNA – usługa świadczona drogą elektroniczną przez Usługodawcę na rzecz Usługobiorcy za pośrednictwem Sklepu Internetowego.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4.13. USŁUGOBIORCA – (1) osoba fizyczna posiadająca pełną zdolność do czynności prawnych, a w wypadkach przewidzianych przez przepisy powszechnie obowiązujące także osoba fizyczna posiadająca ograniczoną zdolność do czynności prawnych; (2) osoba prawna; albo (3) jednostka organizacyjna nieposiadająca osobowości prawnej, której ustawa przyznaje zdolność prawną –korzystająca lub zamierzająca korzystać z Usługi Elektronicznej.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4.14. USTAWA O PRAWACH KONSUMENTA, USTAWA – ustawa z dnia 30 maja 2014 r. o prawach konsumenta (Dz.U. 2014 poz. 827 ze zm.)</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">1.4.15. ZAMÓWIENIE – oświadczenie woli Klienta składane za pomocą Formularza Zamówienia i zmierzające bezpośrednio do zawarcia Umowy Sprzedaży Produktu ze Sprzedawcą.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">2. USŁUGI ELEKTRONICZNE W SKLEPIE INTERNETOWYM</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">2.1. W Sklepie Internetowym dostępne są następujące Usługi Elektroniczne: Konto, Formularz Zamówienia.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">2.1.1. Konto – korzystanie z Konta możliwe jest po wykonaniu łącznie trzech kolejnych kroków przez Usługobiorcę –</p>\n<ul style=\"margin:0px 0px 1.41575em 3em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(1) wypełnieniu Formularza Rejestracji,</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(2) kliknięciu pola „Załóż konto” oraz</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">(3) potwierdzeniu chęci utworzenia Konta poprzez kliknięcie w link potwierdzający przesłany automatycznie na podany adres poczty elektronicznej. W Formularzu Rejestracji niezbędne jest podanie przez Usługobiorcę następujących danych Usługobiorcy: imię i nazwisko/nazwa firmy, adres (ulica, numer domu/mieszkania, kod pocztowy, miejscowość, kraj), adres poczty elektronicznej, numer telefonu kontaktowego oraz hasło. W wypadku Usługobiorców niebędących konsumentami niezbędne jest także podanie nazwy firmy oraz numeru NIP.</li>\n</ul>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">2.1.1.1. Usługa Elektroniczna Konto świadczona jest nieodpłatnie przez czas nieoznaczony. Usługobiorca ma możliwość, w każdej chwili i bez podania przyczyny, usunięcia Konta (rezygnacji z Konta) poprzez wysłanie stosownego żądania do Usługodawcy, w szczególności za pośrednictwem poczty elektronicznej na adres: kontakt@sklawarzywiowocow.pl lub też pisemnie na adres: ul. Przybrodzka 17, 60-427 Poznań.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">2.1.2. Formularz Zamówienia – korzystanie z Formularza Zamówienia rozpoczyna się z momentem dodania przez Klienta pierwszego Produktu do elektronicznego koszyka w Sklepie Internetowym. Złożenie Zamówienia następuje po wykonaniu przez Klienta łącznie dwóch kolejnych kroków –</p>\n<ul style=\"margin:0px 0px 1.41575em 3em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(1) po wypełnieniu Formularza Zamówienia i</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(2) kliknięciu na stronie Sklepu Internetowego po wypełnieniu Formularza Zamówienia pola „Kupuję i płacę” – do tego momentu istnieje możliwość samodzielnej modyfikacji wprowadzanych danych (w tym celu należy kierować się wyświetlanymi komunikatami oraz informacjami dostępnymi na stronie Sklepu Internetowego). W Formularzu Zamówienia niezbędne jest podanie przez Klienta następujących danych dotyczących Klienta: imię i nazwisko/nazwa firmy, adres (ulica, numer domu/mieszkania, kod pocztowy, miejscowość, kraj), adres poczty elektronicznej, numer telefonu kontaktowego oraz danych dotyczących Umowy Sprzedaży: Produkt/y, ilość Produktu/ów, miejsce dostawy Produktu/ów, sposób płatności. W wypadku Klientów niebędących konsumentami niezbędne jest także podanie nazwy firmy oraz numeru NIP.</li>\n</ul>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">2.1.2.1. Usługa Elektroniczna Formularz Zamówienia świadczona jest nieodpłatnie oraz ma charakter jednorazowy i ulega zakończeniu z chwilą złożenia Zamówienia za jego pośrednictwem albo z chwilą wcześniejszego zaprzestania składania Zamówienia za jego pośrednictwem przez Usługobiorcę.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">2.2. Wymagania techniczne niezbędne do współpracy z systemem teleinformatycznym, którym posługuje się Usługodawca:</p>\n<ul style=\"margin:0px 0px 1.41575em 3em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(1) komputer, laptop lub inne urządzenie multimedialne z dostępem do Internetu;</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(2) dostęp do poczty elektronicznej;</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(3) przeglądarka internetowa: Mozilla Firefox w wersji 84 i wyższej lub Opera w wersji 69 i wyższej, Google Chrome w wersji 87 i wyższej, Safari w wersji 13.1 i wyższej, Microsoft Edge w wersji 88 i wyższej;</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(4) zalecana minimalna rozdzielczość ekranu: 1024×768;</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(5) włączenie w przeglądarce internetowej możliwości zapisu plików Cookies oraz obsługi Javascript.</li>\n</ul>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">2.3. Usługobiorca obowiązany jest do korzystania ze Sklepu Internetowego w sposób zgodny z prawem i dobrymi obyczajami mając na uwadze poszanowanie dóbr osobistych oraz praw autorskich i własności intelektualnej Usługodawcy oraz osób trzecich. Usługobiorca obowiązany jest do wprowadzania danych zgodnych ze stanem faktycznym. Usługobiorcę obowiązuje zakaz dostarczania treści o charakterze bezprawnym.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">2.4. Tryb postępowania reklamacyjnego dotyczący Usług Elektronicznych:</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">2.4.1. Reklamacje związane ze świadczeniem Usług Elektronicznych przez Usługodawcę oraz pozostałe reklamacje związane z działaniem Sklepu Internetowego (z wyłączeniem procedury reklamacji Produktu, która została wskazana w pkt. 6 Regulaminu) Usługobiorca może składać na przykład:</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">2.4.1.1. pisemnie na adres: ul. Przybrodzka 17, 60-427 Poznań;</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">2.4.1.2. w formie elektronicznej za pośrednictwem poczty elektronicznej na adres: kontakt@sklawarzywiowocow.pl.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">2.4.2. Zaleca się podanie przez Usługobiorcę w opisie reklamacji:</p>\n<ul style=\"margin:0px 0px 1.41575em 3em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(1) informacji i okoliczności dotyczących przedmiotu reklamacji, w szczególności rodzaju i daty wystąpienia nieprawidłowości;</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(2) żądania Usługobiorcy; oraz</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(3) danych kontaktowych składającego reklamację – ułatwi to i przyspieszy rozpatrzenie reklamacji przez Usługodawcę. Wymogi podane w zdaniu poprzednim mają formę jedynie zalecenia i nie wpływają na skuteczność reklamacji złożonych z pominięciem zalecanego opisu reklamacji.</li>\n</ul>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">2.4.3. Ustosunkowanie się do reklamacji przez Usługodawcę następuje niezwłocznie, nie później niż w terminie 14 dni kalendarzowych od dnia jej złożenia.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">3. WARUNKI ZAWIERANIA UMOWY SPRZEDAŻY</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">3.1. Zawarcie Umowy Sprzedaży między Klientem a Sprzedawcą następuje po uprzednim złożeniu przez Klienta Zamówienia za pomocą Formularza Zamówienia w Sklepie Internetowym zgodnie z pkt. 2.1.2 Regulaminu.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">3.2. Cena Produktu uwidoczniona na stronie Sklepu Internetowego podana jest w złotych polskich i zawiera podatki. O łącznej cenie wraz z podatkami Produktu będącego przedmiotem Zamówienia, a także o kosztach dostawy (w tym opłatach za transport, dostarczenie i usługi pocztowe) oraz o innych kosztach, a gdy nie można ustalić wysokości tych opłat – o obowiązku ich uiszczenia, Klient jest informowany na stronach Sklepu Internetowego w trakcie składania Zamówienia, w tym także w chwili wyrażenia przez Klienta woli związania się Umową Sprzedaży.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">3.3. Procedura zawarcia Umowy Sprzedaży w Sklepie Internetowym za pomocą Formularza Zamówienia</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">3.3.1. Zawarcie Umowy Sprzedaży między Klientem a Sprzedawcą następuje po uprzednim złożeniu przez Klienta Zamówienia w Sklepie Internetowym zgodnie z pkt. 2.1.2 Regulaminu.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">3.3.2. Po złożeniu Zamówienia Sprzedawca niezwłocznie potwierdza jego otrzymanie oraz jednocześnie przyjmuje Zamówienie do realizacji. Potwierdzenie otrzymania Zamówienia i jego przyjęcie do realizacji następuje poprzez przesłanie przez Sprzedawcę Klientowi stosownej wiadomości e-mail na podany w trakcie składania Zamówienia adres poczty elektronicznej Klienta, która zawiera co najmniej oświadczenia Sprzedawcy o otrzymaniu Zamówienia i o jego przyjęciu do realizacji oraz potwierdzenie zawarcia Umowy Sprzedaży. Z chwilą otrzymania przez Klienta powyższej wiadomości e-mail zostaje zawarta Umowa Sprzedaży między Klientem a Sprzedawcą.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">3.4. Utrwalenie, zabezpieczenie oraz udostępnienie Klientowi treści zawieranej Umowy Sprzedaży następuje poprzez</p>\n<ul style=\"margin:0px 0px 1.41575em 3em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(1) udostępnienie niniejszego Regulaminu na stronie Sklepu Internetowego oraz</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(2) przesłanie Klientowi wiadomości e-mail, o której mowa w pkt. 3.3.2. Regulaminu. Treść Umowy Sprzedaży jest dodatkowo utrwalona i zabezpieczona w systemie informatycznym Sklepu Internetowego Sprzedawcy.</li>\n</ul>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">4. SPOSOBY I TERMINY PŁATNOŚCI ZA PRODUKT</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">4.1. Sprzedawca udostępnia Klientowi następujące sposoby płatności z tytułu Umowy Sprzedaży:</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">4.1.1. Płatność kartą płatniczą przy odbiorze przesyłki.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">4.1.2. Płatności elektroniczne i płatności kartą płatniczą za pośrednictwem serwisu Przelewy24.pl – możliwe aktualne sposoby płatności określone są na stronie Sklepu Internetowego w zakładce informacyjnej dotyczącej sposobów płatności oraz na stronie internetowej https://www.przelewy24.pl/.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">4.1.2.1. Rozliczenia transakcji płatnościami elektronicznymi i kartą płatniczą przeprowadzane są zgodnie z wyborem Klienta za pośrednictwem serwisu Przelewy24.pl. Obsługę płatności elektronicznych i kartą płatniczą prowadzi:</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">4.1.2.1.1. Przelewy24.pl – spółka PayPro S.A. z siedzibą w Poznaniu (adres siedziby: ul. Kanclerska 15, 60-327 Poznań), wpisana do Rejestru Przedsiębiorców Krajowego Rejestru Sądowego prowadzonego przez Sąd Rejonowy Poznań – Nowe Miasto i Wilda w Poznaniu, VIII Wydział Gospodarczy Krajowego Rejestru Sądowego pod numerem KRS 0000347935, kapitał zakładowy: 4 500 000,00 zł, NIP 7792369887, REGON 301345068</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">4.2. Termin płatności:</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">4.2.1. W przypadku wyboru przez Klienta płatności przelewem, płatności elektronicznych albo płatności kartą płatniczą, Klient obowiązany jest do dokonania płatności w terminie 1 dnia kalendarzowego od dnia zawarcia Umowy Sprzedaży.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">4.2.2. W przypadku wyboru przez Klienta płatności kartą płatniczą przy odbiorze przesyłki, Klient obowiązany jest do dokonania płatności przy odbiorze przesyłki.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">5. KOSZT, SPOSOBY I TERMIN DOSTAWY PRODUKTU</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">5.1. Dostawa Produktu dostępna jest na terytorium następujących miejscowości: POZNAŃ, Babki, Baranowo, Bogucin, Borówiec, Chyby, Czapury, Czerwonak, Dachowa, Daszewice, Dąbrówka, Dopiewiec, Dopiewo, Garby, Gądki, Głuchowo, Gołuski, Gowarzewo, Jaryszki, Jasin, Jelonek, Kamionki, Kiekrz, Komorniki gm. Kleszczewo, Komorniki gm. Komorniki, Koninko, Koziegłowy, Kórnik, Kruszewnia, Luboń, Łęczyca, Palędzie, Plewiska, Przeźmierowo, Puszczykowo, Rabowice, Robakowo, Rogalinek, Rosnowo, Sasinowo, Skórzewo, Skrzynki, Suchy Las, Swadzim, Swarzędz, Szczytniki, Szewce, Tanibórz, Tulce, Wiórek, Wiry, Wysogotowo, Zalasewo, Złotniki, Żerniki.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">5.2. Dostawa Produktu do Klienta jest odpłatna, chyba że Umowa Sprzedaży stanowi inaczej. Koszty dostawy Produktu (w tym opłaty za transport, dostarczenie i usługi pocztowe) są wskazywane Klientowi na stronach Sklepu Internetowego w zakładce informacyjnej dotyczącej kosztów dostawy oraz w trakcie składania Zamówienia, w tym także w chwili wyrażenia przez Klienta woli związania się Umową Sprzedaży.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">5.3. Sprzedawca udostępnia Klientowi następujący sposób dostawy Produktu:</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">5.3.1. Dostawa własna Sprzedawcy.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">5.4. Termin dostawy Produktu do Klienta wynosi do 2 Dni Roboczych, tj.: Zamówienia złożone do godziny 19:00 dostarczane są następnego Dnia Roboczego, do godziny 20:00, zamówienia złożone po godzinie 19:00 dostarczane są w ciągu 2 Dni Roboczych, nie później jednak niż do godziny 20:00 drugiego Dnia Roboczego. Początek biegu terminu dostawy Produktu do Klienta liczy się w następujący sposób:</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">5.4.1. W przypadku wyboru przez Klienta sposobu płatności elektronicznych lub kartą płatniczą – od chwili uznania rachunku bankowego lub rachunku rozliczeniowego Sprzedawcy.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">5.4.2. W przypadku wyboru przez Klienta sposobu płatności gotówką za pobraniem – od chwili zawarcia Umowy Sprzedaży.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">6. REKLAMACJA PRODUKTU</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">6.1. Podstawa i zakres odpowiedzialności Sprzedawcy względem Klienta, jeżeli sprzedany Produkt ma wadę fizyczną lub prawną (rękojmia) są określone powszechnie obowiązującymi przepisami prawa, w szczególności w Kodeksie Cywilnym (w tym art. 556-576 Kodeksu Cywilnego).</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">6.2. Sprzedawca obowiązany jest dostarczyć Klientowi Produkt bez wad. Szczegółowe informacje dotyczące odpowiedzialności Sprzedawcy z tytułu wady Produktu oraz uprawnień Klienta są określone na stronie Sklepu Internetowego w zakładce informacyjnej dotyczącej reklamacji.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">6.3. Reklamacja może zostać złożona przez Klienta na przykład:</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">6.3.1. w formie elektronicznej za pośrednictwem poczty elektronicznej na adres: kontakt@sklawarzywiowocow.pl.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">6.4. Zaleca się podanie przez Klienta w opisie reklamacji:</p>\n<ul style=\"margin:0px 0px 1.41575em 3em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(1) informacji i okoliczności dotyczących przedmiotu reklamacji, w szczególności rodzaju i daty wystąpienia wady;</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(2) żądania sposobu doprowadzenia Produktu do zgodności z Umową Sprzedaży lub oświadczenia o obniżeniu ceny albo odstąpieniu od Umowy Sprzedaży; oraz</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(3) danych kontaktowych składającego reklamację – ułatwi to i przyspieszy rozpatrzenie reklamacji przez Sprzedawcę. Wymogi podane w zdaniu poprzednim mają formę jedynie zalecenia i nie wpływają na skuteczność reklamacji złożonych z pominięciem zalecanego opisu reklamacji.</li>\n</ul>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">6.5. Sprzedawca ustosunkuje się do reklamacji Klienta niezwłocznie, nie później niż w terminie 14 dni kalendarzowych od dnia jej złożenia. Jeżeli Klient będący konsumentem zażądał wymiany rzeczy lub usunięcia wady albo złożył oświadczenie o obniżeniu ceny, określając kwotę, o którą cena ma być obniżona, a Sprzedawca nie ustosunkował się do tego żądania w terminie 14 dni kalendarzowych, uważa się, że żądanie to uznał za uzasadnione.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">6.6. Zgodnie z art. 558 § 1 Kodeksu Cywilnego odpowiedzialność Sprzedawcy z tytułu rękojmi za Produkt wobec Klienta niebędącego konsumentem zostaje wyłączona.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">7. POZASĄDOWE SPOSOBY ROZPATRYWANIA REKLAMACJI I DOCHODZENIA ROSZCZEŃ ORAZ ZASADY DOSTĘPU DO TYCH PROCEDUR</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">7.1. Szczegółowe informacje dotyczące możliwości skorzystania przez Klienta będącego konsumentem z pozasądowych sposobów rozpatrywania reklamacji i dochodzenia roszczeń oraz zasady dostępu do tych procedur dostępne są na stronie internetowej Urzędu Ochrony Konkurencji i Konsumentów pod adresem: https://uokik.gov.pl/pozasadowe_rozwiazywanie_sporow_konsumenckich.php.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">7.2. Przy Prezesie Urzędu Ochrony Konkurencji i Konsumentów działa także punkt kontaktowy (telefon: 22 55 60 333, email: kontakt.adr@uokik.gov.pl lub adres pisemny: Pl. Powstańców Warszawy 1, 00-030 Warszawa.), którego zadaniem jest między innymi udzielanie pomocy konsumentom w sprawach dotyczących pozasądowego rozwiązywania sporów konsumenckich.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">7.3. Konsument posiada następujące przykładowe możliwości skorzystania z pozasądowych sposobów rozpatrywania reklamacji i dochodzenia roszczeń:</p>\n<ul style=\"margin:0px 0px 1.41575em 3em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(1) wniosek o rozstrzygnięcie sporu do stałego polubownego sądu konsumenckiego (więcej informacji na stronie: http://www.spsk.wiih.org.pl/);</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(2) wniosek w sprawie pozasądowego rozwiązania sporu do wojewódzkiego inspektora Inspekcji Handlowej (więcej informacji na stronie inspektora właściwego ze względu na miejsce wykonywania działalności gospodarczej przez Sprzedawcę); oraz</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(3) pomoc powiatowego (miejskiego) rzecznika konsumentów lub organizacji społecznej, do której zadań statutowych należy ochrona konsumentów (m. in. Federacja Konsumentów, Stowarzyszenie Konsumentów Polskich). Porady udzielane są między innymi mailowo pod adresem porady@dlakonsumentow.pl oraz pod numerem infolinii konsumenckiej 801 440 220 (infolinia czynna w Dni Robocze, w godzinach 8:00-18:00, opłata za połączenie wg taryfy operatora).</li>\n</ul>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">7.4. Pod adresem http://ec.europa.eu/consumers/odr dostępna jest platforma internetowego systemu rozstrzygania sporów pomiędzy konsumentami i przedsiębiorcami na szczeblu unijnym (platforma ODR). Platforma ODR stanowi interaktywną i wielojęzyczną stronę internetową z punktem kompleksowej obsługi dla konsumentów i przedsiębiorców dążących do pozasądowego rozstrzygnięcia sporu dotyczącego zobowiązań umownych wynikających z internetowej umowy sprzedaży lub umowy o świadczenie usług (więcej informacji na stronie samej platformy lub pod adresem internetowym Urzędu Ochrony Konkurencji i Konsumentów: https://uokik.gov.pl/spory_konsumenckie_faq_platforma_odr.php).</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">8. PRAWO ODSTĄPIENIA OD UMOWY</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.1. Konsument, który zawarł umowę na odległość, może w terminie 14 dni kalendarzowych odstąpić od niej bez podawania przyczyny i bez ponoszenia kosztów, z wyjątkiem kosztów określonych w pkt. 8.8 Regulaminu. Do zachowania terminu wystarczy wysłanie oświadczenia przed jego upływem. Oświadczenie o odstąpieniu od umowy może zostać złożone na przykład w formie elektronicznej za pośrednictwem poczty elektronicznej na adres: kontakt@sklawarzywiowocow.pl.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.2. Przykładowy wzór formularza odstąpienia od umowy zawarty jest w załączniku nr 2 do Ustawy o Prawach Konsumenta oraz dodatkowo dostępny jest w pkt. 11 Regulaminu oraz na stronie Sklepu Internetowego w zakładce dotyczącej odstąpienia od umowy. Konsument może skorzystać z wzoru formularza, jednak nie jest to obowiązkowe.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.3. Bieg terminu do odstąpienia od umowy rozpoczyna się:</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.3.1. dla umowy, w wykonaniu której Sprzedawca wydaje Produkt, będąc zobowiązany do przeniesienia jego własności (np. Umowa Sprzedaży) – od objęcia Produktu w posiadanie przez konsumenta lub wskazaną przez niego osobę trzecią inną niż przewoźnik, a w przypadku umowy, która:</p>\n<ul style=\"margin:0px 0px 1.41575em 3em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(1) obejmuje wiele Produktów, które są dostarczane osobno, partiami lub w częściach – od objęcia w posiadanie ostatniego Produktu, partii lub części albo</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(2) polega na regularnym dostarczaniu Produktów przez czas oznaczony – od objęcia w posiadanie pierwszego z Produktów;</li>\n</ul>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.3.2. dla pozostałych umów – od dnia zawarcia umowy.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.4. W przypadku odstąpienia od umowy zawartej na odległość umowę uważa się za niezawartą.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.5. Sprzedawca ma obowiązek niezwłocznie, nie później niż w terminie 14 dni kalendarzowych od dnia otrzymania oświadczenia konsumenta o odstąpieniu od umowy, zwrócić konsumentowi wszystkie dokonane przez niego płatności, w tym koszty dostawy Produktu (z wyjątkiem dodatkowych kosztów wynikających z wybranego przez konsumenta sposobu dostawy innego niż najtańszy zwykły sposób dostawy dostępny w Sklepie Internetowym). Sprzedawca dokonuje zwrotu płatności przy użyciu takiego samego sposobu płatności, jakiego użył konsument, chyba że konsument wyraźnie zgodził się na inny sposób zwrotu, który nie wiąże się dla niego z żadnymi kosztami. Jeżeli Sprzedawca nie zaproponował, że sam odbierze Produkt od konsumenta, może wstrzymać się ze zwrotem płatności otrzymanych od konsumenta do chwili otrzymania Produktu z powrotem lub dostarczenia przez konsumenta dowodu jego odesłania, w zależności od tego, które zdarzenie nastąpi wcześniej.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.6. Konsument ma obowiązek niezwłocznie, nie później niż w terminie 14 dni kalendarzowych od dnia, w którym odstąpił od umowy, zwrócić Produkt Sprzedawcy na adres: ul. Przybrodzka 17, 60-427 Poznań;</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.7. Konsument ponosi odpowiedzialność za zmniejszenie wartości Produktu będące wynikiem korzystania z niego w sposób wykraczający poza konieczny do stwierdzenia charakteru, cech i funkcjonowania Produktu.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.8. Możliwe koszty związane z odstąpieniem przez konsumenta od umowy, które obowiązany jest ponieść konsument:</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.8.1. Jeżeli konsument wybrał sposób dostawy Produktu inny niż najtańszy zwykły sposób dostawy dostępny w Sklepie Internetowym, Sprzedawca nie jest zobowiązany do zwrotu konsumentowi poniesionych przez niego dodatkowych kosztów.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.8.2. Konsument ponosi bezpośrednie koszty zwrotu Produktu.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.8.3. W przypadku Produktu będącego usługą, której wykonywanie – na wyraźne żądanie konsumenta – rozpoczęło się przed upływem terminu do odstąpienia od umowy, konsument, który wykonuje prawo odstąpienia od umowy po zgłoszeniu takiego żądania, ma obowiązek zapłaty za świadczenia spełnione do chwili odstąpienia od umowy. Kwotę zapłaty oblicza się proporcjonalnie do zakresu spełnionego świadczenia, z uwzględnieniem uzgodnionej w umowie ceny lub wynagrodzenia. Jeżeli cena lub wynagrodzenie są nadmierne, podstawą obliczenia tej kwoty jest wartość rynkowa spełnionego świadczenia.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.9. Prawo odstąpienia od umowy zawartej na odległość nie przysługuje konsumentowi w odniesieniu do umów:</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.9.1. (1) w której przedmiotem świadczenia jest Produkt ulegający szybkiemu zepsuciu lub mająca krótki termin przydatności do użycia<br />(2) o świadczenie usług, jeżeli Sprzedawca wykonał w pełni usługę za wyraźną zgodą konsumenta, który został poinformowany przed rozpoczęciem świadczenia, że po spełnieniu świadczenia przez Sprzedawcę utraci prawo odstąpienia od umowy;<br />(3) w której przedmiotem świadczenia jest Produkt nieprefabrykowany, wyprodukowany według specyfikacji konsumenta lub służący zaspokojeniu jego zindywidualizowanych potrzeb;<br />(4) w której przedmiotem świadczenia jest Produkt dostarczany w zapieczętowanym opakowaniu, którego po otwarciu opakowania nie można zwrócić ze względu na ochronę zdrowia lub ze względów higienicznych, jeżeli opakowanie zostało otwarte po dostarczeniu;<br />(5) w której przedmiotem świadczenia są Produkty, które po dostarczeniu, ze względu na swój charakter, zostają nierozłącznie połączone z innymi rzeczami;<br />(6) o świadczenie usług w zakresie gastronomii, jeżeli w umowie oznaczono dzień lub okres świadczenia usługi.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">8.10 Zawarte w niniejszym punkcie 8. Regulaminu postanowienia dotyczące konsumenta stosuje się od dnia 1 stycznia 2021 r. i dla umów zawartych od tego dnia również do Usługobiorcy lub Klienta będącego osobą fizyczną zawierającą umowę bezpośrednio związaną z jej działalnością gospodarczą, gdy z treści tej umowy wynika, że nie posiada ona dla tej osoby charakteru zawodowego, wynikającego w szczególności z przedmiotu wykonywanej przez nią działalności gospodarczej, udostępnionego na podstawie przepisów o Centralnej Ewidencji i Informacji o Działalności Gospodarczej.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">9. POSTANOWIENIA DOTYCZĄCE PRZEDSIĘBIORCÓW</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">9.1. Niniejszy punkt 9. Regulaminu oraz wszystkie postanowienia w nim zawarte są skierowane i tym samym wiążą wyłącznie Klienta lub Usługobiorcę niebędącego konsumentem, a od dnia 1 stycznia 2021 r. i dla umów zawartych od tego dnia niebędącego także osobą fizyczną zawierającą umowę bezpośrednio związaną z jej działalnością gospodarczą, gdy z treści tej umowy wynika, że nie posiada ona dla tej osoby charakteru zawodowego, wynikającego w szczególności z przedmiotu wykonywanej przez nią działalności gospodarczej, udostępnionego na podstawie przepisów o Centralnej Ewidencji i Informacji o Działalności Gospodarczej.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">9.2. Sprzedawcy przysługuje prawo odstąpienia od Umowy Sprzedaży w terminie 14 dni kalendarzowych od dnia jej zawarcia. Odstąpienie od Umowy Sprzedaży w tym wypadku może nastąpić bez podania przyczyny i nie rodzi po stronie Klienta żadnych roszczeń w stosunku do Sprzedawcy.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">9.3. Sprzedawca ma prawo ograniczyć dostępne sposoby płatności, w tym także wymagać dokonania przedpłaty w całości albo części i to niezależnie od wybranego przez Klienta sposobu płatności oraz faktu zawarcia Umowy Sprzedaży.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">9.4. Usługodawca może wypowiedzieć umowę o świadczenie Usługi Elektronicznej ze skutkiem natychmiastowym i bez wskazywania przyczyn poprzez przesłanie Usługobiorcy stosownego oświadczenia.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">9.5. Odpowiedzialność Usługodawcy/Sprzedawcy w stosunku do Usługobiorcy/Klienta, bez względu na jej podstawę prawną, jest ograniczona – zarówno w ramach pojedynczego roszczenia, jak również za wszelkie roszczenia w sumie – do wysokości zapłaconej ceny oraz kosztów dostawy z tytułu Umowy Sprzedaży, nie więcej jednak niż do kwoty jednego tysiąca złotych. Ograniczenie kwotowe, o którym mowa w zdaniu poprzednim, ma zastosowanie do wszelkich roszczeń kierowanych przez Usługobiorcę/Klienta w stosunku do Usługodawcy/Sprzedawcy, w tym także w przypadku braku zawarcia Umowy Sprzedaży lub niezwiązanych z Umową Sprzedaży. Usługodawca/Sprzedawca ponosi odpowiedzialność w stosunku do Usługobiorcy/Klienta tylko za typowe szkody przewidywalne w momencie zawarcia umowy i nie ponosi odpowiedzialności z tytułu utraconych korzyści. Sprzedawca nie ponosi także odpowiedzialności za opóźnienie w przewozie przesyłki.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">9.6. Wszelkie spory powstałe pomiędzy Sprzedawcą/Usługodawcą a Klientem/Usługobiorcą zostają poddane sądowi właściwemu ze względu na siedzibę Sprzedawcy/Usługodawcy.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">10. POSTANOWIENIA KOŃCOWE</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">10.1. Umowy zawierane poprzez Sklep Internetowy zawierane są w języku polskim.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">10.2. Zmiana Regulaminu:</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">10.2.1. Usługodawca zastrzega sobie prawo do dokonywania zmian Regulaminu z ważnych przyczyn to jest: zmiany przepisów prawa; zmiany sposobów płatności i dostaw – w zakresie, w jakim te zmiany wpływają na realizację postanowień niniejszego Regulaminu.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">10.2.2. W przypadku zawarcia na podstawie niniejszego Regulaminu umów o charakterze ciągłym (np. świadczenie Usługi Elektronicznej – Konto) zmieniony Regulamin wiąże Usługobiorcę, jeżeli zostały zachowane wymagania określone w art. 384 oraz 384[1] Kodeksu Cywilnego, to jest Usługobiorca został prawidłowo powiadomiony o zmianach i nie wypowiedział umowy w terminie 14 dni kalendarzowych od dnia powiadomienia. W wypadku gdyby zmiana Regulaminu skutkowała wprowadzeniem jakichkolwiek nowych opłat lub podwyższeniem obecnych Usługobiorca będący konsumentem ma prawo odstąpienia od umowy.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">10.2.3. W przypadku zawarcia na podstawie niniejszego Regulaminu umów o innym charakterze niż umowy ciągłe (np. Umowa Sprzedaży) zmiany Regulaminu nie będą w żaden sposób naruszać praw nabytych Usługobiorców/Klientów będących konsumentami przed dniem wejścia w życie zmian Regulaminu, w szczególności zmiany Regulaminu nie będą miały wpływu na już składane lub złożone Zamówienia oraz zawarte, realizowane lub wykonane Umowy Sprzedaży.<br />W sprawach nieuregulowanych w niniejszym Regulaminie mają zastosowanie powszechnie obowiązujące przepisy prawa polskiego, w szczególności: Kodeksu Cywilnego; ustawy o świadczeniu usług drogą elektroniczną z dnia 18 lipca 2002 r. (Dz.U. 2002 nr 144, poz. 1204 ze zm.); dla Umów Sprzedaży zawartych do 24 grudnia 2014 roku z Klientami będącymi konsumentami – przepisy ustawy o ochronie niektórych praw konsumentów oraz o odpowiedzialności za szkodę wyrządzoną przez produkt niebezpieczny z dnia 2 marca 2000 r. (Dz.U. 2000 nr 22, poz. 271 ze zm.) oraz ustawy o szczególnych warunkach sprzedaży konsumenckiej oraz o zmianie Kodeksu Cywilnego z dnia 27 lipca 2002 r. (Dz.U. 2002 nr 141, poz. 1176 ze zm.); dla Umów Sprzedaży zawartych od 25 grudnia 2014 roku z Klientami będącymi konsumentami – przepisy Ustawy o Prawach Konsumenta; oraz inne właściwe przepisy powszechnie obowiązującego prawa.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">11. WZÓR FORMULARZA ODSTĄPIENIA OD UMOWY</span><br /><span style=\"font-weight:600;\">(ZAŁĄCZNIK NUMER 2 DO USTAWY O PRAWACH KONSUMENTA)</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">Wzór formularza odstąpienia od umowy (formularz ten należy wypełnić i odesłać tylko w przypadku chęci odstąpienia od umowy)</p>\n<ul style=\"margin:0px 0px 1.41575em 3em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">Adresat:<br />SWORS Robert Skowronek<br />ul. Przybrodzka 17, 60-427 Poznań<br />skladwarzywiowocow.pl<br />kontakt@sklawarzywiowocow.pl</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">Ja/My(*) niniejszym informuję/informujemy(*) o moim/naszym odstąpieniu od umowy sprzedaży następujących rzeczy(*) umowy dostawy następujących rzeczy(*) umowy o dzieło polegającej na wykonaniu następujących rzeczy(*)/o świadczenie następującej usługi(*)</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">Data zawarcia umowy(*)/odbioru(*)</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">Imię i nazwisko konsumenta(-ów)</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">Adres konsumenta(-ów)</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">Podpis konsumenta(-ów) (tylko jeżeli formularz jest przesyłany w wersji papierowej)</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">Data</li>\n</ul>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(*) Niepotrzebne skreślić.</p>\n</div>','regulamin-sklepu'),
-(2,2,1,'Legal Notice','','Legal notice','notice, legal, credits','<h2>Legal</h2>\n<h3>Credits</h3>\n<p>Concept and production:</p>\n<p>This Online store was created using <a href=\"http://www.prestashop.com\">Prestashop Shopping Cart Software</a>,check out PrestaShop\'s <a href=\"http://www.prestashop.com/blog/en/\">ecommerce blog</a> for news and advices about selling online and running your ecommerce website.</p>','legal-notice'),
 (3,1,1,'Polityka prywatności','','Our terms and conditions of use','conditions, terms, use, sell','<h1 class=\"entry-title\" style=\"margin:0px 0px 0.540791em;font-size:2.61792em;clear:both;font-weight:300;color:#333333;line-height:1.214;letter-spacing:-1px;\">Polityka prywatności</h1>\n\n<div class=\"entry-content\" style=\"margin:0px;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;font-weight:400;vertical-align:baseline;background-color:#ffffff;\">\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">1. POSTANOWIENIA OGÓLNE</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">1.1. Niniejsza polityka prywatności Sklepu Internetowego ma charakter informacyjny, co oznacza, że nie jest ona źródłem obowiązków dla Usługobiorców lub Klientów Sklepu Internetowego. Polityka prywatności zawiera przede wszystkim zasady dotyczące przetwarzania danych osobowych przez Administratora w Sklepie Internetowym, w tym podstawy, cele i okres przetwarzania danych osobowych oraz prawa osób, których dane dotyczą, a także informacje w zakresie stosowania w Sklepie Internetowym plików Cookies oraz narzędzi analitycznych.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">1.2. Administratorem danych osobowych zbieranych za pośrednictwem Sklepu Internetowego jest Robert Skowronek prowadzący działalność gospodarczą pod firmą SWORS Robert Skowronek wpisany do Centralnej Ewidencji i Informacji o Działalności Gospodarczej Rzeczypospolitej Polskiej prowadzonej przez ministra właściwego do spraw gospodarki, posiadający: adres miejsca wykonywania działalności i adres do doręczeń: ul. Przybrodzka 17, 60-427 Poznań, NIP 7831552295, REGON 300764751, adres poczty elektronicznej: kontakt@sklawarzywiowocow.pl – zwany dalej „Administratorem” i będący jednocześnie Usługodawcą Sklepu Internetowego i Sprzedawcą.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">1.3. Dane osobowe w Sklepie Internetowym przetwarzane są przez Administratora zgodnie z obowiązującymi przepisami prawa, w szczególności zgodnie z rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych) – zwanym dalej „RODO” lub „Rozporządzeniem RODO”. Oficjalny tekst Rozporządzenia RODO: http://eur-lex.europa.eu/legal-content/PL/TXT/?uri=CELEX%3A32016R0679</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">1.4. Korzystanie ze Sklepu Internetowego, w tym dokonywanie zakupów jest dobrowolne. Podobnie związane z tym podanie danych osobowych przez korzystającego ze Sklepu Internetowego Usługobiorcę lub Klienta jest dobrowolne, z zastrzeżeniem dwóch wyjątków:</p>\n<ul style=\"margin:0px 0px 1.41575em 3em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(1) zawieranie umów z Administratorem – niepodanie w przypadkach i w zakresie wskazanym na stronie Sklepu Internetowego oraz w Regulaminie Sklepu Internetowego i niniejszej polityce prywatności danych osobowych niezbędnych do zawarcia i wykonania Umowy Sprzedaży lub umowy o świadczenie Usługi Elektronicznej z Administratorem skutkuje brakiem możliwości zawarcia tejże umowy. Podanie danych osobowych jest w takim wypadku wymogiem umownym i jeżeli osoba, której dane dotyczą chce zawrzeć daną umowę z Administratorem, to jest zobowiązana do podania wymaganych danych. Każdorazowo zakres danych wymaganych do zawarcia umowy wskazany jest uprzednio na stronie Sklepu Internetowego oraz w Regulaminie Sklepu Internetowego;</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(2) obowiązki ustawowe Administratora – podanie danych osobowych jest wymogiem ustawowym wynikającym z powszechnie obowiązujących przepisów prawa nakładających na Administratora obowiązek przetwarzania danych osobowych (np. przetwarzanie danych w celu prowadzenia ksiąg podatkowych lub rachunkowych) i brak ich podania uniemożliwi Administratorowi wykonanie tychże obowiązków.</li>\n</ul>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">1.5. Administrator dokłada szczególnej staranności w celu ochrony interesów osób, których przetwarzane przez niego dane osobowe dotyczą, a w szczególności jest odpowiedzialny i zapewnia, że zbierane przez niego dane są:</p>\n<ul style=\"margin:0px 0px 1.41575em 3em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(1) przetwarzane zgodnie z prawem;</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(2) zbierane dla oznaczonych, zgodnych z prawem celów i niepoddawane dalszemu przetwarzaniu niezgodnemu z tymi celami;</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(3) merytorycznie poprawne i adekwatne w stosunku do celów, w jakich są przetwarzane;</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(4) przechowywane w postaci umożliwiającej identyfikację osób, których dotyczą, nie dłużej niż jest to niezbędne do osiągnięcia celu przetwarzania oraz…</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(5) przetwarzane w sposób zapewniający odpowiednie bezpieczeństwo danych osobowych, w tym ochronę przed niedozwolonym lub niezgodnym z prawem przetwarzaniem oraz przypadkową utratą, zniszczeniem lub uszkodzeniem, za pomocą odpowiednich środków technicznych lub organizacyjnych.</li>\n</ul>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">1.6. Uwzględniając charakter, zakres, kontekst i cele przetwarzania oraz ryzyko naruszenia praw lub wolności osób fizycznych o różnym prawdopodobieństwie i wadze zagrożenia, Administrator wdraża odpowiednie środki techniczne i organizacyjne, aby przetwarzanie odbywało się zgodnie z niniejszym rozporządzeniem i aby móc to wykazać. Środki te są w razie potrzeby poddawane przeglądom i uaktualniane. Administrator stosuje środki techniczne zapobiegające pozyskiwaniu i modyfikowaniu przez osoby nieuprawnione, danych osobowych przesyłanych drogą elektroniczną.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">1.7. Wszelkie słowa, wyrażenia i akronimy występujące w niniejszej polityce prywatności i rozpoczynające się dużą literą (np. Sprzedawca, Sklep Internetowy, Usługa Elektroniczna) należy rozumieć zgodnie z ich definicją zawartą w Regulaminie Sklepu Internetowego dostępnym na stronach Sklepu Internetowego.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\"><span style=\"font-weight:600;\">2. PODSTAWY PRZETWARZANIA DANYCH</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">2.1. Administrator uprawniony jest do przetwarzania danych osobowych w przypadkach, gdy – i w takim zakresie, w jakim – spełniony jest co najmniej jeden z poniższych warunków:</p>\n<ul style=\"margin:0px 0px 1.41575em 3em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(1) osoba, której dane dotyczą wyraziła zgodę na przetwarzanie swoich danych osobowych w jednym lub większej liczbie określonych celów;</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(2) przetwarzanie jest niezbędne do wykonania umowy, której stroną jest osoba, której dane dotyczą, lub do podjęcia działań na żądanie osoby, której dane dotyczą, przed zawarciem umowy;</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(3) przetwarzanie jest niezbędne do wypełnienia obowiązku prawnego ciążącego na Administratorze; lub</li>\n<li style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">(4) przetwarzanie jest niezbędne do celów wynikających z prawnie uzasadnionych interesów realizowanych przez Administratora lub przez stronę trzecią, z wyjątkiem sytuacji, w których nadrzędny charakter wobec tych interesów mają interesy lub podstawowe prawa i wolności osoby, której dane dotyczą, wymagające ochrony danych osobowych, w szczególności gdy osoba, której dane dotyczą, jest dzieckiem.</li>\n</ul>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">2.2. Przetwarzanie danych osobowych przez Administratora wymaga każdorazowo zaistnienia co najmniej jednej z podstaw wskazanych w pkt. 2.1 polityki prywatności. Konkretne podstawy przetwarzania danych osobowych Usługobiorców i Klientów Sklepu Internetowego przez Administratora są wskazane w kolejnym punkcie polityki prywatności – w odniesieniu do danego celu przetwarzania danych osobowych przez Administratora.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\"><span style=\"font-weight:600;\">3. CEL, PODSTAWA I OKRES PRZETWARZANIA DANYCH W SKLEPIE INTERNETOWYM</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">3.1. Każdorazowo cel, podstawa i okres oraz odbiorcy danych osobowych przetwarzanych przez Administratora wynika z działań podejmowanych przez danego Usługobiorcę lub Klienta w Sklepie Internetowym lub przez Administratora. Przykładowo jeżeli Klient decyduje się na dokonanie zakupów w Sklepie Internetowym i wybierze odbiór osobisty zakupionego Produktu zamiast przesyłki kurierskiej, to jego dane osobowe będą przetwarzane w celu wykonania zawartej Umowy Sprzedaży, ale nie będą już udostępniane przewoźnikowi realizującemu przesyłki na zlecenie Administratora.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">3.2. Administrator może przetwarzać dane osobowe w ramach Sklepu Internetowego w następujących celach, na podstawach oraz w okresach wskazanych w poniższej tabeli:</p>\n</div>\n<h3 style=\"margin:0px 0px 0.540791em;clear:both;font-weight:300;color:#333333;font-size:1.618em;\"><span style=\"font-weight:600;\">Cel przetwarzania danych</span></h3>\n<div class=\"entry-content\" style=\"margin:0px;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;font-weight:400;vertical-align:baseline;background-color:#ffffff;\">\n<table style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;border-spacing:0px;width:1200px;\">\n<tbody style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\"></td>\n</tr>\n</tbody>\n</table>\n</div>\n<h3 style=\"margin:0px 0px 0.540791em;clear:both;font-weight:300;color:#333333;font-size:1.618em;\"><span style=\"font-weight:600;\">Podstawa prawna przetwarzania danych</span></h3>\n<div class=\"entry-content\" style=\"margin:0px;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;font-weight:400;vertical-align:baseline;background-color:#ffffff;\">\n<table style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;border-spacing:0px;width:1200px;\">\n<tbody style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\"></td>\n</tr>\n</tbody>\n</table>\n</div>\n<h3 style=\"margin:0px 0px 0.540791em;clear:both;font-weight:300;color:#333333;font-size:1.618em;\"><span style=\"font-weight:600;\">Okres przechowywania danych</span></h3>\n<div class=\"entry-content\" style=\"margin:0px;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;font-weight:400;vertical-align:baseline;background-color:#ffffff;\">\n<table style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;border-spacing:0px;width:1200px;\">\n<tbody style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\"></td>\n</tr>\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td width=\"198\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fbfbfb;\">Wykonanie Umowy Sprzedaży lub umowy o świadczenie Usługi Elektronicznej lub podjęcie działań na żądanie osoby, której dane dotyczą, przed zawarciem w/w umów</td>\n<td width=\"217\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fbfbfb;\">Artykuł 6 ust. 1 lit. b) Rozporządzenia RODO (wykonanie umowy) – przetwarzanie jest niezbędne do wykonania umowy, której stroną jest osoba, której dane dotyczą, lub do podjęcia działań na żądanie osoby, której dane dotyczą, przed zawarciem umowy</td>\n<td width=\"219\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fbfbfb;\">Dane są przechowywane przez okres niezbędny do wykonania, rozwiązania lub wygaśnięcia w inny sposób zawartej Umowy Sprzedaży lub umowy o świadczenie Usługi Elektronicznej.</td>\n</tr>\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td width=\"198\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\">Marketing bezpośredni</td>\n<td width=\"217\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\">Artykuł 6 ust. 1 lit. f) Rozporządzenia RODO (prawnie uzasadniony interes administratora) – przetwarzanie jest niezbędne do celów wynikających z prawnie uzasadnionych interesów Administratora  – polegających na dbaniu o interesy i dobry wizerunek Administratora, jego Sklepu Internetowego oraz dążeniu do sprzedaży Produktów</td>\n<td width=\"219\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\">Dane są przechowywane przez okres istnienia prawnie uzasadnionego interesu realizowanego przez Administratora, nie dłużej jednak niż przez okres przedawnienia roszczeń Administratora w stosunku do osoby, której dane dotyczą, z tytułu prowadzonej  przez Administratora działalności gospodarczej. Okres przedawnienia określają przepisy prawa, w szczególności Kodeksu Cywilnego (podstawowy termin przedawnienia dla roszczeń związanych z prowadzeniem działalności gospodarczej wynosi trzy lata, a dla Umowy Sprzedaży dwa lata).\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"></p>\n<p style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">Administrator nie może przetwarzać danych w celu marketingu bezpośredniego w przypadku wyrażenia skutecznego sprzeciwu w tym zakresie przez osobę, której dane dotyczą.</p>\n</td>\n</tr>\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td width=\"198\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fbfbfb;\">Prowadzenie ksiąg  podatkowych</td>\n<td width=\"217\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fbfbfb;\">Artykuł 6 ust. 1 lit. c) Rozporządzenia RODO w zw. z art. 86 § 1 Ordynacji podatkowej tj. z dnia 17 stycznia 2017 r. (Dz.U. z 2017 r. poz. 201) – przetwarzanie jest niezbędne do wypełnienia obowiązku prawnego ciążącego na Administratorze</td>\n<td width=\"219\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fbfbfb;\">Dane są przechowywane przez okres wymagany przepisami prawa nakazującymi Administratorowi  przechowywanie ksiąg podatkowych (do czasu upływu okresu przedawnienia zobowiązania podatkowego, chyba że ustawy podatkowe stanowią inaczej).</td>\n</tr>\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td width=\"198\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\">Ustalenie, dochodzenie lub obrona roszczeń jakie może podnosić Administrator lub jakie mogą być podnoszone wobec Administratora</td>\n<td width=\"217\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\">Artykuł 6 ust. 1 lit. f) Rozporządzenia RODO (prawnie uzasadniony interes administratora) – przetwarzanie jest niezbędne do celów wynikających z prawnie uzasadnionych interesów Administratora  – polegających na ustaleniu, dochodzeniu lub obronie roszczeń, jakie może podnosić Administrator lub jakie mogą być podnoszone wobec Administratora</td>\n<td width=\"219\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\">Dane są przechowywane przez okres istnienia prawnie uzasadnionego interesu realizowanego przez Administratora, nie dłużej jednak niż przez okres przedawnienia roszczeń jakie mogą być podnoszone wobec Administratora (podstawowy termin przedawnienia dla roszczeń wobec Administratora wynosi sześć lat).</td>\n</tr>\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td width=\"198\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fbfbfb;\">Korzystanie ze strony Sklepu Internetowego i zapewnienie jej prawidłowego działania</td>\n<td width=\"217\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fbfbfb;\">Artykuł 6 ust. 1 lit. f) Rozporządzenia RODO (prawnie uzasadniony interes administratora) – przetwarzanie jest niezbędne do celów wynikających z prawnie uzasadnionych interesów Administratora – polegających na prowadzeniu i utrzymaniu strony Sklepu Internetowego</td>\n<td width=\"219\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fbfbfb;\">Dane są przechowywane przez okres istnienia prawnie uzasadnionego interesu realizowanego przez Administratora, nie dłużej jednak niż przez okres przedawnienia roszczeń Administratora w stosunku do osoby, której dane dotyczą, z tytułu prowadzonej  przez Administratora działalności gospodarczej. Okres przedawnienia określają przepisy prawa, w szczególności Kodeksu Cywilnego (podstawowy termin przedawnienia dla roszczeń związanych z prowadzeniem działalności gospodarczej wynosi trzy lata, a dla Umowy Sprzedaży dwa lata).</td>\n</tr>\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td width=\"198\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\">Prowadzenie statystyk i analiza ruchu w Sklepie Internetowym</td>\n<td width=\"217\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\">Artykuł 6 ust. 1 lit. f) Rozporządzenia RODO (prawnie uzasadniony interes administratora) – przetwarzanie jest niezbędne do celów wynikających z prawnie uzasadnionych interesów Administratora – polegających na prowadzeniu statystyk i analizie ruchu w Sklepie Internetowym celem poprawy funkcjonowania Sklepu Internetowego i zwiększenia sprzedaży Produktów</td>\n<td width=\"219\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\">Dane są przechowywane przez okres istnienia prawnie uzasadnionego interesu realizowanego przez Administratora, nie dłużej jednak niż przez okres przedawnienia roszczeń Administratora w stosunku do osoby, której dane dotyczą, z tytułu prowadzonej  przez Administratora działalności gospodarczej. Okres przedawnienia określają przepisy prawa, w szczególności Kodeksu Cywilnego (podstawowy termin przedawnienia dla roszczeń związanych z prowadzeniem działalności gospodarczej wynosi trzy lata, a dla Umowy Sprzedaży dwa lata).</td>\n</tr>\n</tbody>\n</table>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\"><span style=\"font-weight:600;\">4. ODBIORCY DANYCH W SKLEPIE INTERNETOWYM</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">4.1. Dla prawidłowego funkcjonowania Sklepu Internetowego, w tym dla realizacji zawieranych Umów Sprzedaży konieczne jest korzystanie przez Administratora z usług podmiotów zewnętrznych (takich jak np. dostawca oprogramowania, kurier czy podmiot obsługujący płatności). Administrator korzysta wyłącznie z usług takich podmiotów przetwarzających, którzy zapewniają wystarczające gwarancje wdrożenia odpowiednich środków technicznych i organizacyjnych, tak by przetwarzanie spełniało wymogi Rozporządzenia RODO i chroniło prawa osób, których dane dotyczą.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">4.2. Przekazanie danych przez Administratora nie następuje w każdym wypadku i nie do wszystkich wskazanych w polityce prywatności odbiorców lub kategorii odbiorców – Administrator przekazuje dane wyłącznie wtedy, gdy jest to niezbędne do realizacji danego celu przetwarzania danych osobowych i tylko w zakresie niezbędnym do jego zrealizowania. Przykładowo, jeżeli Klient korzysta z odbioru osobistego, to jego dane nie będą przekazywane przewoźnikowi współpracującemu z Administratorem.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">4.3. Dane osobowe Usługobiorców i Klientów Sklepu Internetowego mogą być przekazywane następującym odbiorcom lub kategoriom odbiorców:</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">4.3.1. przewoźnicy / spedytorzy / brokerzy kurierscy / podmioty obsługujące magazyn i/lub proces wysyłki – w przypadku Klienta, który korzysta w Sklepie Internetowym ze sposobu dostawy Produktu przesyłką pocztową lub przesyłką kurierską, Administrator udostępnia zebrane dane osobowe Klienta wybranemu przewoźnikowi, spedytorowi lub pośrednikowi realizującemu przesyłki na zlecenie Administratora, a jeżeli wysyłka następuje z magazynu zewnętrznego – podmiotowi obsługującemu magazyn i/lub proces wysyłki – w zakresie niezbędnym do zrealizowania dostawy Produktu Klientowi.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">4.3.2. podmioty obsługujące płatności elektroniczne lub kartą płatniczą – w przypadku Klienta, który korzysta w Sklepie Internetowym ze sposobu płatności elektronicznych lub kartą płatniczą, Administrator udostępnia zebrane dane osobowe Klienta wybranemu podmiotowi obsługującemu powyższe płatności w Sklepie Internetowym na zlecenie Administratora w zakresie niezbędnym do obsługi płatności realizowanej przez Klienta.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">4.3.3. dostawcy usług zaopatrujący Administratora w rozwiązania techniczne, informatyczne oraz organizacyjne, umożliwiające Administratorowi prowadzenie działalności gospodarczej, w tym Sklepu Internetowego i świadczonych za jego pośrednictwem Usług Elektronicznych (w szczególności dostawcy oprogramowania komputerowego do prowadzenia Sklepu Internetowego, dostawcy poczty elektronicznej i hostingu oraz dostawcy oprogramowania do zarządzania firmą i udzielania pomocy technicznej Administratorowi) – Administrator udostępnia zebrane dane osobowe Klienta wybranemu dostawcy działającemu na jego zlecenie jedynie w przypadku oraz w zakresie niezbędnym do zrealizowania danego celu przetwarzania danych zgodnego z niniejszą polityką prywatności.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">4.3.4. dostawcy usług księgowych, prawnych i doradczych zapewniający Administratorowi wsparcie księgowe, prawne lub doradcze (w szczególności biuro księgowe, kancelaria prawna lub firma windykacyjna) – Administrator udostępnia zebrane dane osobowe Klienta wybranemu dostawcy działającemu na jego zlecenie jedynie w przypadku oraz w zakresie niezbędnym do zrealizowania danego celu przetwarzania danych zgodnego z niniejszą polityką prywatności.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\"><span style=\"font-weight:600;\">5. PROFILOWANIE W SKLEPIE INTERNETOWYM</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">5.1. Rozporządzenie RODO nakłada na Administratora obowiązek informowania o zautomatyzowanym podejmowaniu decyzji, w tym o profilowaniu, o którym mowa w art. 22 ust. 1 i 4 Rozporządzenia RODO, oraz – przynajmniej w tych przypadkach – istotne informacje o zasadach ich podejmowania, a także o znaczeniu i przewidywanych konsekwencjach takiego przetwarzania dla osoby, której dane dotyczą. Mając to na uwadze, Administrator podaje w tym punkcie polityki prywatności informacje dotyczące możliwego profilowania.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">5.2. Administrator może korzystać w Sklepie Internetowym z profilowania do celów marketingu bezpośredniego, ale decyzje podejmowane na jego podstawie przez Administratora nie dotyczą zawarcia lub odmowy zawarcia Umowy Sprzedaży czy też możliwości korzystania z Usług Elektronicznych w Sklepie Internetowym. Efektem korzystania z profilowania w Sklepie Internetowym może być np. przyznanie danej osobie rabatu, przesłanie jej kodu rabatowego, przypomnienie o niedokończonych zakupach, przesłanie propozycji Produktu, który może odpowiadać zainteresowaniom lub preferencjom danej osoby lub też zaproponowanie lepszych warunków w porównaniu do standardowej oferty Sklepu Internetowego. Mimo profilowania to dana osoba podejmuje swobodnie decyzję, czy będzie chciała skorzystać z otrzymanego w ten sposób rabatu, czy też lepszych warunków i dokonać zakupu w Sklepie Internetowym.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">5.3. Profilowanie w Sklepie Internetowym polega na automatycznej analizie lub prognozie zachowania danej osoby na stronie Sklepu Internetowego np. poprzez dodanie konkretnego Produktu do koszyka, przeglądanie strony konkretnego Produktu w Sklepie Internetowym czy też poprzez analizę dotychczasowej historii dokonanych zakupów w Sklepie Internetowym. Warunkiem takiego profilowania jest posiadanie przez Administratora danych osobowych danej osoby, aby móc jej następnie przesłać np. kod rabatowy.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">5.4. Osoba, której dane dotyczą, ma prawo do tego, by nie podlegać decyzji, która opiera się wyłącznie na zautomatyzowanym przetwarzaniu, w tym profilowaniu, i wywołuje wobec tej osoby skutki prawne lub w podobny sposób istotnie na nią wpływa.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\"><span style=\"font-weight:600;\">6. PRAWA OSOBY, KTÓREJ DANE DOTYCZĄ</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">6.1. Prawo dostępu, sprostowania, ograniczenia, usunięcia lub przenoszenia – osoba, której dane dotyczą, ma prawo żądania od Administratora dostępu do swoich danych osobowych, ich sprostowania, usunięcia („prawo do bycia zapomnianym”) lub ograniczenia przetwarzania oraz ma prawo do wniesienia sprzeciwu wobec przetwarzania, a także ma prawo do przenoszenia swoich danych. Szczegółowe warunki wykonywania wskazanych wyżej praw wskazane są w art. 15-21 Rozporządzenia RODO.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">6.2. Prawo do cofnięcia zgody w dowolnym momencie – osoba, której dane przetwarzane są przez Administratora na podstawie wyrażonej zgody (na podstawie art. 6 ust. 1 lit. a) lub art. 9 ust. 2 lit. a) Rozporządzenia RODO), to ma ona prawo do cofnięcia zgody w dowolnym momencie bez wpływu na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przed jej cofnięciem.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">6.3. Prawo wniesienia skargi do organu nadzorczego – osoba, której dane przetwarzane są przez Administratora, ma prawo wniesienia skargi do organu nadzorczego w sposób i trybie określonym w przepisach Rozporządzenia RODO oraz prawa polskiego, w szczególności ustawy o ochronie danych osobowych. Organem nadzorczym w Polsce jest Prezes Urzędu Ochrony Danych Osobowych.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">6.4. Prawo do sprzeciwu – osoba, której dane dotyczą, ma prawo w dowolnym momencie wnieść sprzeciw – z przyczyn związanych z jej szczególną sytuacją – wobec przetwarzania dotyczących jej danych osobowych opartego na art. 6 ust. 1 lit. e) (interes lub zadania publiczne) lub f) (prawnie uzasadniony interes administratora), w tym profilowania na podstawie tych przepisów. Administratorowi w takim przypadku nie wolno już przetwarzać tych danych osobowych, chyba że wykaże on istnienie ważnych prawnie uzasadnionych podstaw do przetwarzania, nadrzędnych wobec interesów, praw i wolności osoby, której dane dotyczą, lub podstaw do ustalenia, dochodzenia lub obrony roszczeń.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">6.5. Prawo do sprzeciwu dot. marketingu bezpośredniego – jeżeli dane osobowe są przetwarzane na potrzeby marketingu bezpośredniego, osoba, której dane dotyczą, ma prawo w dowolnym momencie wnieść sprzeciw wobec przetwarzania dotyczących jej danych osobowych na potrzeby takiego marketingu, w tym profilowania, w zakresie, w jakim przetwarzanie jest związane z takim marketingiem bezpośrednim.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">6.6. W celu realizacji uprawnień, o których mowa w niniejszym punkcie polityki prywatności, można kontaktować się z Administratorem poprzez przesłanie stosownej wiadomości pisemnie lub pocztą elektroniczną na adres Administratora wskazany na wstępie polityki prywatności lub korzystając z formularza kontaktowego dostępnego na stronie Sklepu Internetowego.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\"><span style=\"font-weight:600;\">7. COOKIES W SKLEPIE INTERNETOWYM I ANALITYKA</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">7.1. Pliki Cookies (ciasteczka) są to niewielkie informacje tekstowe w postaci plików tekstowych, wysyłane przez serwer i zapisywane po stronie osoby odwiedzającej stronę Sklepu Internetowego (np. na dysku twardym komputera, laptopa, czy też na karcie pamięci smartfona – w zależności z jakiego urządzenia korzysta odwiedzający nasz Sklep Internetowy). Szczegółowe informacje dot. plików Cookies, a także historię ich powstania można znaleźć m.in. tutaj: https://pl.wikipedia.org/wiki/HTTP_cookie.</p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">7.2. Pliki Cookies, które mogą być wysyłane przez stronę Sklepu internetowego można podzielić na różne rodzaje, według następujących kryteriów:</p>\n<table style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;border-spacing:0px;width:1200px;\">\n<tbody style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td width=\"205\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\"><span style=\"font-weight:600;\">Ze względu na ich dostawcę</span>:<br />1)   własne (tworzone przez stronę Sklepu Internetowego Administratora) oraz<br />2)   należące do osób/podmiotów trzecich (innych niż Administrator)</td>\n<td width=\"212\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\"><span style=\"font-weight:600;\">Ze względu na ich okres przechowywania na urządzeniu osoby odwiedzającej stronę Sklepu Internetowego</span>:<br />1)   sesyjne (przechowywane do czasu wylogowania się ze Sklepu Internetowego lub wyłączenia przeglądarki internetowej) oraz<br />2)   stałe (przechowywane przez określony czas, zdefiniowany przez parametry każdego pliku lub do czasu ręcznego usunięcia)</td>\n<td width=\"223\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\"><span style=\"font-weight:600;\">Ze względu na cel ich stosowania</span>:<br />1) niezbędne (umożliwiające prawidłowe funkcjonowanie strony Sklepu Internetowego),<br />2) funkcjonalne/preferencyjne (umożliwiające dostosowanie strony Sklepu Internetowego do preferencji osoby odwiedzającej stronę),<br />3) analityczne i wydajnościowe (gromadzące informacje o sposobie korzystania ze strony Sklepu Internetowego),<br />4) marketingowe, reklamowe i społecznościowe (zbierające informacje o osobie odwiedzającej stronę Sklepu Internetowego w celu wyświetlania tej osobie spersonalizowanych reklam i prowadzenia innych działań marketingowych w tym również na stronach internetowych odrębnych od strony Sklepu Internetowego, takich jak portale społecznościowe</td>\n</tr>\n</tbody>\n</table>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">7.3. Administrator może przetwarzać dane zawarte w plikach Cookies podczas korzystania przez odwiedzających ze strony Sklepu Internetowego w następujących konkretnych celach:</p>\n<table style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;border-spacing:0px;width:1200px;\">\n<tbody style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td rowspan=\"5\" width=\"208\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\"><span style=\"font-weight:600;\">Cele stosowanie plików Cookies w Sklepie Internetowym Administratora</span></td>\n<td width=\"432\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\">identyfikacji Usługobiorców jako zalogowanych w Sklepie Internetowym i pokazywania, że są zalogowani (pliki Cookies niezbędne)</td>\n</tr>\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td width=\"432\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fbfbfb;\">zapamiętywania Produktów dodanych do koszyka w celu złożenia Zamówienia (pliki Cookies niezbędne)</td>\n</tr>\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td width=\"432\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\">zapamiętywania danych z wypełnianych Formularzy Zamówienia, ankiet lub danych logowania do Sklepu Internetowego (pliki Cookies niezbędne lub/i funkcjonalne/preferencyjne)</td>\n</tr>\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td width=\"432\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fbfbfb;\">dostosowywania zawartości strony Sklepu Internetowego do indywidualnych preferencji Usługobiorcy (np. dotyczących kolorów, rozmiaru czcionki, układu strony) oraz optymalizacji korzystania ze stron Sklepu Internetowego (pliki Cookies funkcjonalne/preferencyjne)</td>\n</tr>\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td width=\"432\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\">prowadzenia anonimowych statystyk przedstawiających sposób korzystania ze strony Sklepu Internetowego (pliki Cookies statystyczne)</td>\n</tr>\n</tbody>\n</table>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">7.4. Sprawdzenie w najpopularniejszych przeglądarkach internetowych, jakie pliki Cookies (w tym okres funkcjonowania plików Cookies oraz ich dostawca) są wysyłane w danej chwili przez stronę Sklepu Internetowego jest możliwe w następujący sposób:</p>\n<table style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;border-spacing:0px;width:1200px;\">\n<tbody style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td width=\"203\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\"><span style=\"font-weight:600;\">W przeglądarce Chrome</span>:<br />(1) w pasku adresu kliknij w ikonkę kłódki po lewej stronie, (2) przejdź do zakładki „Pliki cookie”.</td>\n<td width=\"215\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\"><span style=\"font-weight:600;\">W przeglądarce Firefox</span>:<br />(1) w pasku adresu kliknij w ikonkę tarczy po lewej stronie, (2) przejdź do zakładki „Dopuszczone” lub „Zablokowane”, (3) kliknij pole „Ciasteczka śledzące między witrynami”, „Elementy śledzące serwisów społecznościowych” lub „Treści z elementami śledzącymi”</td>\n<td width=\"223\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fdfdfd;\"><span style=\"font-weight:600;\">W przeglądarce Internet Explorer</span>:<br />(1) kliknij menu „Narzędzia”, (2) przejdź do zakładki „Opcje internetowe”, (3) przejdź do zakładki „Ogólne”, (4) przejdź do zakładki „Ustawienia”, (5) kliknij pole „Wyświetl pliki”</td>\n</tr>\n<tr style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<td width=\"203\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fbfbfb;\"><span style=\"font-weight:600;\">W przeglądarce Opera</span>:<br />(1) w pasku adresu kliknij w ikonkę kłódki po lewej stronie, (2) przejdź do zakładki „Pliki cookie”.</td>\n<td width=\"215\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fbfbfb;\"><span style=\"font-weight:600;\">w przeglądarce Safari</span>:<br />(1) kliknij menu „Preferencje”, (2) przejdź do zakładki „Prywatność”, (3) kliknij w pole „Zarządzaj danymi witryn”</td>\n<td width=\"223\" style=\"margin:0px;padding:1em 1.41575em;border:0px;font-size:14px;line-height:22px;font-family:Nunito, sans-serif;vertical-align:top;background-color:#fbfbfb;\"><span style=\"font-weight:600;\">Niezależnie od przeglądarki, za pomocą narzędzi dostępnych np. na stronie</span>: https://www.cookiemetrix.com/ lub:  https://www.cookie-checker.com/</td>\n</tr>\n</tbody>\n</table>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;text-align:justify;\">7.5. Standardowo większość przeglądarek internetowych dostępnych na rynku domyślnie akceptuje zapisywanie plików Cookies. Każdy ma możliwość określenia warunków korzystania z plików Cookies za pomocą ustawień własnej przeglądarki internetowej. Oznacza to, że można np. częściowo ograniczyć (np. czasowo) lub całkowicie wyłączyć możliwość zapisywania plików Cookies – w tym ostatnim wypadku jednak może to mieć wpływ na niektóre funkcjonalności Sklepu Internetowego (przykładowo niemożliwym może okazać się przejście ścieżki Zamówienia poprzez Formularz Zamówienia z uwagi na niezapamiętywanie Produktów w koszyku podczas kolejnych kroków składania Zamówienia).<br />7.6. Ustawienia przeglądarki internetowej w zakresie plików Cookies są istotne z punktu widzenia zgody na korzystanie z plików Cookies przez nasz Sklep Internetowy – zgodnie z przepisami taka zgoda może być również wyrażona poprzez ustawienia przeglądarki internetowej. Szczegółowe informacje na temat zmiany ustawień dotyczących plików Cookies oraz ich samodzielnego usuwania w najpopularniejszych przeglądarkach internetowych dostępne są w dziale pomocy przeglądarki internetowej oraz na poniższych stronach (wystarczy kliknąć w dany link):<br /><a href=\"http://support.google.com/chrome/bin/answer.py?hl=pl&amp;answer=95647\" rel=\"nofollow\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;background-color:transparent;color:#42ae6c;\">w przeglądarce Chrome</a><br /><a href=\"https://support.mozilla.org/pl/kb/wzmocniona-ochrona-przed-sledzeniem-firefox-desktop?redirectlocale=pl&amp;redirectslug=W%C5%82%C4%85czanie+i+wy%C5%82%C4%85czanie+obs%C5%82ugi+ciasteczek\" target=\"_blank\" rel=\"nofollow noreferrer noopener\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;background-color:transparent;color:#42ae6c;\">w przeglądarce Firefox</a><br /><a href=\"https://support.microsoft.com/pl-pl/help/17442/windows-internet-explorer-delete-manage-cookies\" rel=\"nofollow\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;background-color:transparent;color:#42ae6c;\">w przeglądarce Internet Explorer</a><br /><a href=\"https://help.opera.com/pl/latest/web-preferences/#cookies\" rel=\"nofollow\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;background-color:transparent;color:#42ae6c;\">w przeglądarce Opera</a><br /><a href=\"https://support.apple.com/pl-pl/guide/safari/sfri11471/11.0/mac/10.13\" rel=\"nofollow\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;background-color:transparent;color:#42ae6c;\">w przeglądarce Safari</a><br /><a href=\"http://windows.microsoft.com/pl-pl/windows-10/edge-privacy-faq\" rel=\"nofollow\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;background-color:transparent;color:#42ae6c;\">w przeglądarce Microsoft Edge</a><br />7.7. Administrator może korzystać w Sklepie Internetowym z usług Google Analytics, Universal Analytics dostarczanych przez firmę Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irlandia). Usługi te pomagają Administratorowi prowadzić statystyki i analizować ruch w Sklepie Internetowym. Gromadzone dane przetwarzane są w ramach powyższych usług do generowania statystyk pomocnych w administrowaniu Sklepie Internetowym i analizie ruchu w Sklepie Internetowym. Dane te mają charakter zbiorczy. Administrator korzystając z powyższych usług w Sklepie Internetowym gromadzi takie dane jak źródła i medium pozyskania odwiedzających Sklep Internetowy oraz sposób ich zachowania na stronie Sklepu Internetowego, informacje na temat urządzeń i przeglądarek z których odwiedzają stronę, IP oraz domenę, dane geograficzne oraz dane demograficzne (wiek, płeć) i zainteresowania.<br />7.8. Możliwe jest zablokowanie w łatwy sposób przez daną osobę udostępniania do Google Analytics informacji o jej aktywności na stronie Sklepu Internetowego – w tym celu można na przykład zainstalować dodatek do przeglądarki udostępniany przez firmę Google Ireland Ltd. dostępny tutaj: https://tools.google.com/dlpage/gaoptout?hl=pl.<br /><span style=\"font-weight:600;\">8. POSTANOWIENIA KOŃCOWE</span><br />8.1. Sklep Internetowy może zawierać odnośniki do innych stron internetowych. Administrator namawia by po przejściu na inne strony, zapoznać się z polityką prywatności tam ustaloną. Niniejsza polityka prywatności dotyczy tylko Sklepu Internetowego Administratora.</p>\n</div>','polityka-prywatnosci'),
-(3,2,1,'Terms and conditions of use','','Our terms and conditions of use','conditions, terms, use, sell','<h1 class=\"page-heading\">Terms and conditions of use</h1>\n<h3 class=\"page-subheading\">Rule 1</h3>\n<p class=\"bottom-indent\">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n<h3 class=\"page-subheading\">Rule 2</h3>\n<p class=\"bottom-indent\">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamю</p>\n<h3 class=\"page-subheading\">Rule 3</h3>\n<p class=\"bottom-indent\">Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamю</p>','terms-and-conditions-of-use'),
-(4,1,1,'Kontakt','','Learn more about us','about us, informations','<h1 class=\"entry-title\" style=\"margin:0px 0px 0.540791em;font-size:2.61792em;clear:both;font-weight:300;color:#333333;line-height:1.214;letter-spacing:-1px;\">Kontakt</h1>\n<div class=\"entry-content\" style=\"margin:0px;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;font-weight:400;vertical-align:baseline;background-color:#ffffff;\">\n<div class=\"wp-block-group\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<div class=\"wp-block-group__inner-container\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<div style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">Adres sklepu stacjonarnego:</span><br />Skład Warzyw i Owoców<br /><a href=\"https://goo.gl/maps/TSomUY6rC95jaQSS9\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;background-color:transparent;color:#42ae6c;\">ul. Platanowa 4,<br />62-023 Kamionki</a></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">Godziny otwarcia:</span><span style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><br />poniedziałek-piątek 8:00-19:00<br />sobota 8:00-16:00</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">tel:</span><a href=\"tel:7912099920954\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;background-color:transparent;color:#42ae6c;\"> 791 999 954</a> <span style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">biuro/obsługa klienta (poniedziałek-piątek 10:00-18:00)</span><br /><br /><span style=\"font-weight:600;\">email:</span><a href=\"mailto:kontakt@skladwarzywiowocow.pl\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;background-color:transparent;color:#42ae6c;\"> kontakt@skladwarzywiowocow.pl</a></p>\n<a target=\"_blank\" href=\"https://www.facebook.com/skladwarzywiowocow\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;background-color:transparent;color:#42ae6c;\" rel=\"noreferrer noopener\"><img src=\"https://skladwarzywiowocow.pl/wp-content/uploads/2020/11/fb-icon-01.png\" class=\"litespeed-loaded\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;color:#323232;vertical-align:baseline;height:auto;width:40px;float:left;\" alt=\"fb-icon-01.png\" /><span style=\"margin:5px 0px 0px 10px;padding:0px;border:0px;line-height:22px;color:#323232;vertical-align:baseline;\">@skladwarzywiowocow</span></a>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"> </p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">Dane do przelewu:</span></p>\n<div id=\"v1gmail-m_6950650435384146738replybody1\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<div id=\"v1gmail-m_6950650435384146738v1gmail-m_-3422789702458648985replybody1\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<div dir=\"ltr\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<div style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">Skład Warzyw i Owoców</div>\n<div style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">07 1140 2004 0000 3902 8254 7410 (mbank)</div>\n<div style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"></div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>','kontakt'),
-(4,2,1,'About us','','Learn more about us','about us, informations','<h1 class=\"page-heading bottom-indent\">About us</h1>\n<div class=\"row\">\n<div class=\"col-xs-12 col-sm-4\">\n<div class=\"cms-block\">\n<h3 class=\"page-subheading\">Our company</h3>\n<p><strong class=\"dark\">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididun.</strong></p>\n<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet conse ctetur adipisicing elit.</p>\n<ul class=\"list-1\">\n<li><em class=\"icon-ok\"></em>Top quality products</li>\n<li><em class=\"icon-ok\"></em>Best customer service</li>\n<li><em class=\"icon-ok\"></em>30-days money back guarantee</li>\n</ul>\n</div>\n</div>\n<div class=\"col-xs-12 col-sm-4\">\n<div class=\"cms-box\">\n<h3 class=\"page-subheading\">Our team</h3>\n<p><strong class=\"dark\">Lorem set sint occaecat cupidatat non </strong></p>\n<p>Eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>\n</div>\n</div>\n<div class=\"col-xs-12 col-sm-4\">\n<div class=\"cms-box\">\n<h3 class=\"page-subheading\">Testimonials</h3>\n<div class=\"testimonials\">\n<div class=\"inner\"><span class=\"before\">“</span>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.<span class=\"after\">”</span></div>\n</div>\n<p><strong class=\"dark\">Lorem ipsum dolor sit</strong></p>\n<div class=\"testimonials\">\n<div class=\"inner\"><span class=\"before\">“</span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod.<span class=\"after\">”</span></div>\n</div>\n<p><strong class=\"dark\">Ipsum dolor sit</strong></p>\n</div>\n</div>\n</div>','about-us');
+(4,1,1,'Kontakt','','Learn more about us','about us, informations','<h1 class=\"entry-title\" style=\"margin:0px 0px 0.540791em;font-size:2.61792em;clear:both;font-weight:300;color:#333333;line-height:1.214;letter-spacing:-1px;\">Kontakt</h1>\n<div class=\"entry-content\" style=\"margin:0px;padding:0px;border:0px;font-size:14px;line-height:22px;color:#323232;font-family:Nunito, sans-serif;font-weight:400;vertical-align:baseline;background-color:#ffffff;\">\n<div class=\"wp-block-group\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<div class=\"wp-block-group__inner-container\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<div style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">Adres sklepu stacjonarnego:</span><br />Skład Warzyw i Owoców<br /><a href=\"https://goo.gl/maps/TSomUY6rC95jaQSS9\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;background-color:transparent;color:#42ae6c;\">ul. Platanowa 4,<br />62-023 Kamionki</a></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">Godziny otwarcia:</span><span style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><br />poniedziałek-piątek 8:00-19:00<br />sobota 8:00-16:00</span></p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">tel:</span><a href=\"tel:7912099920954\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;background-color:transparent;color:#42ae6c;\"> 791 999 954</a> <span style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">biuro/obsługa klienta (poniedziałek-piątek 10:00-18:00)</span><br /><br /><span style=\"font-weight:600;\">email:</span><a href=\"mailto:kontakt@skladwarzywiowocow.pl\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;background-color:transparent;color:#42ae6c;\"> kontakt@skladwarzywiowocow.pl</a></p>\n<a target=\"_blank\" href=\"https://www.facebook.com/skladwarzywiowocow\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;background-color:transparent;color:#42ae6c;\" rel=\"noreferrer noopener\"><img src=\"https://skladwarzywiowocow.pl/wp-content/uploads/2020/11/fb-icon-01.png\" class=\"litespeed-loaded\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;color:#323232;vertical-align:baseline;height:auto;width:40px;float:left;\" alt=\"fb-icon-01.png\" /><span style=\"margin:5px 0px 0px 10px;padding:0px;border:0px;line-height:22px;color:#323232;vertical-align:baseline;\">@skladwarzywiowocow</span></a>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"> </p>\n<p style=\"margin:0px 0px 1.41575em;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"><span style=\"font-weight:600;\">Dane do przelewu:</span></p>\n<div id=\"v1gmail-m_6950650435384146738replybody1\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<div id=\"v1gmail-m_6950650435384146738v1gmail-m_-3422789702458648985replybody1\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<div dir=\"ltr\" style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">\n<div style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">Skład Warzyw i Owoców</div>\n<div style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\">07 1140 2004 0000 3902 8254 7410 (mbank)</div>\n<div style=\"margin:0px;padding:0px;border:0px;line-height:22px;vertical-align:baseline;\"></div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>','kontakt');
 /*!40000 ALTER TABLE `ps_cms_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3562,7 +3552,7 @@ CREATE TABLE `ps_cms_role` (
   `id_cms` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id_cms_role`,`id_cms`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3650,7 +3640,7 @@ CREATE TABLE `ps_configuration` (
   KEY `name` (`name`),
   KEY `id_shop` (`id_shop`),
   KEY `id_shop_group` (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=445 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=469 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3807,7 +3797,7 @@ INSERT INTO `ps_configuration` VALUES
 (145,NULL,NULL,'PS_VIRTUAL_PROD_FEATURE_ACTIVE','1','0000-00-00 00:00:00','2023-10-12 23:29:32'),
 (146,NULL,NULL,'PS_CUSTOMIZATION_FEATURE_ACTIVE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (147,NULL,NULL,'PS_CART_RULE_FEATURE_ACTIVE','0','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(148,NULL,NULL,'PS_PACK_FEATURE_ACTIVE',NULL,'0000-00-00 00:00:00','2023-10-25 23:16:43'),
+(148,NULL,NULL,'PS_PACK_FEATURE_ACTIVE',NULL,'0000-00-00 00:00:00','2023-11-07 11:13:56'),
 (149,NULL,NULL,'PS_ALIAS_FEATURE_ACTIVE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (150,NULL,NULL,'PS_TAX_ADDRESS_TYPE','id_address_delivery','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (151,NULL,NULL,'PS_SHOP_DEFAULT','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
@@ -3895,9 +3885,9 @@ INSERT INTO `ps_configuration` VALUES
 (233,NULL,NULL,'PS_BASE_DISTANCE_UNIT','m','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (234,NULL,NULL,'PS_SHOP_DOMAIN','localhost:8080','0000-00-00 00:00:00','2023-10-12 23:28:27'),
 (235,NULL,NULL,'PS_SHOP_DOMAIN_SSL','localhost','0000-00-00 00:00:00','2023-11-04 12:24:39'),
-(236,NULL,NULL,'PS_SHOP_NAME','PrestaShop','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(237,NULL,NULL,'PS_SHOP_EMAIL','demo@prestashop.com','0000-00-00 00:00:00','2023-10-12 23:28:29'),
-(238,NULL,NULL,'PS_MAIL_METHOD','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
+(236,NULL,NULL,'PS_SHOP_NAME','eWarzywniak','0000-00-00 00:00:00','2023-11-07 12:03:59'),
+(237,NULL,NULL,'PS_SHOP_EMAIL','harry2browary@hotmail.com','0000-00-00 00:00:00','2023-11-07 11:03:25'),
+(238,NULL,NULL,'PS_MAIL_METHOD','2','0000-00-00 00:00:00','2023-11-07 11:00:28'),
 (239,NULL,NULL,'PS_SHOP_ACTIVITY',NULL,'0000-00-00 00:00:00','2023-11-04 12:20:28'),
 (240,NULL,NULL,'PS_LOGO','logo-1697146521.jpg','0000-00-00 00:00:00','2023-10-12 23:35:21'),
 (241,NULL,NULL,'PS_FAVICON','favicon.ico','0000-00-00 00:00:00','2023-10-15 12:36:52'),
@@ -3905,11 +3895,11 @@ INSERT INTO `ps_configuration` VALUES
 (243,NULL,NULL,'PS_ROOT_CATEGORY','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (244,NULL,NULL,'PS_HOME_CATEGORY','2','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (245,NULL,NULL,'PS_CONFIGURATION_AGREMENT','1','0000-00-00 00:00:00','2023-10-12 23:28:27'),
-(246,NULL,NULL,'PS_MAIL_SERVER','smtp.','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(247,NULL,NULL,'PS_MAIL_USER','','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(248,NULL,NULL,'PS_MAIL_PASSWD','','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(249,NULL,NULL,'PS_MAIL_SMTP_ENCRYPTION','off','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(250,NULL,NULL,'PS_MAIL_SMTP_PORT','25','0000-00-00 00:00:00','0000-00-00 00:00:00'),
+(246,NULL,NULL,'PS_MAIL_SERVER','smtp-mail.outlook.com','0000-00-00 00:00:00','2023-11-07 11:00:28'),
+(247,NULL,NULL,'PS_MAIL_USER','harry2browary@hotmail.com','0000-00-00 00:00:00','2023-11-07 11:00:28'),
+(248,NULL,NULL,'PS_MAIL_PASSWD','eWarzywniak2023','0000-00-00 00:00:00','2023-11-07 11:00:28'),
+(249,NULL,NULL,'PS_MAIL_SMTP_ENCRYPTION','tls','0000-00-00 00:00:00','2023-11-07 11:00:28'),
+(250,NULL,NULL,'PS_MAIL_SMTP_PORT','587','0000-00-00 00:00:00','2023-11-07 11:00:28'),
 (251,NULL,NULL,'PS_MAIL_COLOR','#db3484','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (252,NULL,NULL,'NW_SALT','yRnKRVpqx0qfweNg','0000-00-00 00:00:00','2023-10-12 23:28:45'),
 (253,NULL,NULL,'PS_PAYMENT_LOGO_CMS_ID','0','0000-00-00 00:00:00','0000-00-00 00:00:00'),
@@ -3930,7 +3920,7 @@ INSERT INTO `ps_configuration` VALUES
 (268,NULL,NULL,'PS_DETECT_LANG','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (269,NULL,NULL,'PS_DETECT_COUNTRY','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (270,NULL,NULL,'PS_ROUND_TYPE','2','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-(271,NULL,NULL,'PS_LOG_EMAILS','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
+(271,NULL,NULL,'PS_LOG_EMAILS','1','0000-00-00 00:00:00','2023-11-07 11:00:28'),
 (272,NULL,NULL,'PS_CUSTOMER_OPTIN','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (273,NULL,NULL,'PS_CUSTOMER_BIRTHDATE','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 (274,NULL,NULL,'PS_PACK_STOCK_TYPE','0','0000-00-00 00:00:00','0000-00-00 00:00:00'),
@@ -4088,10 +4078,33 @@ INSERT INTO `ps_configuration` VALUES
 (436,NULL,NULL,'PS_QTY_DISCOUNT_ON_COMBINATION','0','2023-10-24 22:41:57','2023-10-24 22:41:57'),
 (437,NULL,NULL,'PS_FORCE_FRIENDLY_PRODUCT','0','2023-10-24 22:41:57','2023-10-24 22:41:57'),
 (438,NULL,NULL,'PS_PRODUCT_ACTIVATION_DEFAULT','0','2023-10-24 22:41:57','2023-10-24 22:41:57'),
-(439,NULL,NULL,'PS_CCCJS_VERSION','2','2023-10-24 22:41:57','2023-11-04 12:24:39'),
-(440,NULL,NULL,'PS_CCCCSS_VERSION','2','2023-10-24 22:41:57','2023-11-04 12:24:39'),
+(439,NULL,NULL,'PS_CCCJS_VERSION','3','2023-10-24 22:41:57','2023-11-07 12:00:48'),
+(440,NULL,NULL,'PS_CCCCSS_VERSION','3','2023-10-24 22:41:57','2023-11-07 12:00:48'),
 (441,NULL,NULL,'HOME_FEATURED_RANDOMIZE','1','2023-10-24 22:48:12','2023-10-24 22:48:51'),
-(442,NULL,NULL,'PS_SHOWCASECARD_CUSTOMERS_CLOSED','1','2023-10-24 23:03:36','2023-10-24 23:03:36');
+(442,NULL,NULL,'PS_SHOWCASECARD_CUSTOMERS_CLOSED','1','2023-10-24 23:03:36','2023-10-24 23:03:36'),
+(446,NULL,NULL,'PS_MAIL_EMAIL_MESSAGE','2','2023-11-07 11:00:28','2023-11-07 11:00:28'),
+(447,NULL,NULL,'PS_MAIL_DOMAIN',NULL,'2023-11-07 11:00:28','2023-11-07 11:00:28'),
+(448,NULL,NULL,'PS_SHOP_DETAILS',NULL,'2023-11-07 11:03:25','2023-11-07 11:03:25'),
+(449,NULL,NULL,'PS_SHOP_ADDR1',NULL,'2023-11-07 11:03:25','2023-11-07 11:03:25'),
+(450,NULL,NULL,'PS_SHOP_ADDR2',NULL,'2023-11-07 11:03:25','2023-11-07 11:03:25'),
+(451,NULL,NULL,'PS_SHOP_CODE',NULL,'2023-11-07 11:03:25','2023-11-07 11:03:25'),
+(452,NULL,NULL,'PS_SHOP_CITY',NULL,'2023-11-07 11:03:25','2023-11-07 11:03:25'),
+(453,NULL,NULL,'PS_SHOP_COUNTRY_ID','14','2023-11-07 11:03:25','2023-11-07 11:03:25'),
+(454,NULL,NULL,'PS_SHOP_COUNTRY','Polska','2023-11-07 11:03:25','2023-11-07 11:03:25'),
+(455,NULL,NULL,'PS_SHOP_PHONE',NULL,'2023-11-07 11:03:25','2023-11-07 11:03:25'),
+(456,NULL,NULL,'PS_SHOP_FAX',NULL,'2023-11-07 11:03:25','2023-11-07 11:03:25'),
+(457,NULL,NULL,'MA_MERCHANT_ORDER','1','2023-11-07 11:07:18','2023-11-07 11:07:18'),
+(458,NULL,NULL,'MA_MERCHANT_OOS','0','2023-11-07 11:07:18','2023-11-07 11:08:05'),
+(459,NULL,NULL,'MA_CUSTOMER_QTY','1','2023-11-07 11:07:18','2023-11-07 11:07:18'),
+(460,NULL,NULL,'MA_ORDER_EDIT','1','2023-11-07 11:07:18','2023-11-07 11:07:18'),
+(461,NULL,NULL,'MA_RETURN_SLIP','1','2023-11-07 11:07:18','2023-11-07 11:07:18'),
+(462,NULL,NULL,'MA_MERCHANT_MAILS','harry2browary@hotmail.com','2023-11-07 11:07:18','2023-11-07 11:07:18'),
+(463,NULL,NULL,'MA_LAST_QTIES','3','2023-11-07 11:07:18','2023-11-07 11:07:18'),
+(464,NULL,NULL,'MA_MERCHANT_COVERAGE','0','2023-11-07 11:07:18','2023-11-07 11:07:18'),
+(465,NULL,NULL,'MA_PRODUCT_COVERAGE','0','2023-11-07 11:07:18','2023-11-07 11:07:18'),
+(466,NULL,NULL,'MA_MERCHANT_ORDER_EMAILS','harry2browary@hotmail.com','2023-11-07 11:08:04','2023-11-07 11:08:04'),
+(467,NULL,NULL,'MA_MERCHANT_OOS_EMAILS',NULL,'2023-11-07 11:08:05','2023-11-07 11:08:05'),
+(468,NULL,NULL,'MA_RETURN_SLIP_EMAILS','harry2browary@hotmail.com','2023-11-07 11:08:05','2023-11-07 11:08:05');
 /*!40000 ALTER TABLE `ps_configuration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4114,7 +4127,7 @@ CREATE TABLE `ps_configuration_kpi` (
   KEY `name` (`name`),
   KEY `id_shop` (`id_shop`),
   KEY `id_shop_group` (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4257,43 +4270,24 @@ LOCK TABLES `ps_configuration_lang` WRITE;
 /*!40000 ALTER TABLE `ps_configuration_lang` DISABLE KEYS */;
 INSERT INTO `ps_configuration_lang` VALUES
 (38,1,'#FV',NULL),
-(38,2,'#IN',NULL),
 (41,1,'#LP',NULL),
-(41,2,'#DE',NULL),
 (43,1,'#ZW',NULL),
-(43,2,'#RE',NULL),
 (54,1,'ach|aj|albo|bardzo|bez|bo|być|ci|cię|ciebie|co|czy|daleko|dla|dlaczego|dlatego|do|dobrze|dokąd|dość|dużo|dwa|dwaj|dwie|dwoje|dziś|dzisiaj|gdyby|gdzie|go|ich|ile|im|inny|ja|ją|jak|jakby|jaki|je|jeden|jedna|jedno|jego|jej|jemu|jeśli|jest|jestem|jeżeli|już|każdy|kiedy|kierunku|kto|ku|lub|ma|mają|mam|mi|mną|mnie|moi|mój|moja|moje|może|mu|my|na|nam|nami|nas|nasi|nasz|nasza|nasze|natychmiast|nią|nic|nich|nie|niego|niej|niemu|nigdy|nim|nimi|niż|obok|od|okolo|on|ona|one|oni|ono|owszem|po|pod|ponieważ|przed|przedtem|są|sam|sama|się|skąd|tak|taki|tam|ten|to|tobą|tobie|tu|tutaj|twoi|twój|twoja|twoje|ty|wam|wami|was|wasi|wasz|wasza|wasze|we|więc|wszystko|wtedy|wy|żaden|zawsze|że',NULL),
-(54,2,'a|about|above|after|again|against|all|am|an|and|any|are|aren|as|at|be|because|been|before|being|below|between|both|but|by|can|cannot|could|couldn|did|didn|do|does|doesn|doing|don|down|during|each|few|for|from|further|had|hadn|has|hasn|have|haven|having|he|ll|her|here|hers|herself|him|himself|his|how|ve|if|in|into|is|isn|it|its|itself|let|me|more|most|mustn|my|myself|no|nor|not|of|off|on|once|only|or|other|ought|our|ours|ourselves|out|over|own|same|shan|she|should|shouldn|so|some|such|than|that|the|their|theirs|them|themselves|then|there|these|they|re|this|those|through|to|too|under|until|up|very|was|wasn|we|were|weren|what|when|where|which|while|who|whom|why|with|won|would|wouldn|you|your|yours|yourself|yourselves',NULL),
 (80,1,'Dear Customer,\r\n\r\nRegards,\r\nCustomer service',NULL),
-(80,2,'Dear Customer,\r\n\r\nRegards,\r\nCustomer service',NULL),
 (281,1,'<p>We are currently updating our shop and will be back really soon. Thanks for your patience.</p>','2023-10-19 18:59:29'),
-(281,2,'<p>We are currently updating our shop and will be back really soon. Thanks for your patience.</p>','2023-10-19 18:59:29'),
 (283,1,'',NULL),
-(283,2,'',NULL),
 (284,1,'',NULL),
-(284,2,'',NULL),
 (285,1,'Obecnie brak na stanie',NULL),
-(285,2,'Out-of-Stock',NULL),
 (294,1,'My wishlists','2023-10-12 23:28:30'),
-(294,2,'My wishlists','2023-10-12 23:28:30'),
 (295,1,'My wishlist','2023-10-12 23:28:30'),
-(295,2,'My wishlist','2023-10-12 23:28:30'),
 (296,1,'Create new list','2023-10-12 23:28:30'),
-(296,2,'Create new list','2023-10-12 23:28:30'),
 (317,1,'11b6b2365aeff6030551de6e3facccaf.png','2023-10-12 22:26:00'),
-(317,2,'sale70.png','2023-10-12 23:28:41'),
 (318,1,'http://localhost:8080/index.php?id_cms=1&controller=cms&id_lang=1','2023-10-15 10:29:02'),
-(318,2,'','2023-10-12 23:28:41'),
 (319,1,'','2023-10-12 23:28:41'),
-(319,2,'','2023-10-12 23:28:41'),
 (328,1,'The personal data you provide is used to answer queries, process orders or allow access to specific information. You have the right to modify and delete all the personal information found in the \"My Account\" page.','2023-10-12 23:28:43'),
-(328,2,'The personal data you provide is used to answer queries, process orders or allow access to specific information. You have the right to modify and delete all the personal information found in the \"My Account\" page.','2023-10-12 23:28:43'),
 (330,1,'Możesz zrezygnować w każdej chwili. W tym celu należy odnaleźć szczegóły w naszej informacji prawnej.','2023-10-12 23:28:45'),
-(330,2,'You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.','2023-10-12 23:28:45'),
 (366,1,'Akceptuję ogólne warunki użytkowania i politykę prywatności','2023-10-12 21:29:18'),
-(366,2,'I agree to the terms and conditions and the privacy policy','2023-10-12 23:29:18'),
-(368,1,'Akceptuję ogólne warunki użytkowania i politykę prywatności','2023-10-12 21:29:18'),
-(368,2,'I agree to the terms and conditions and the privacy policy','2023-10-12 23:29:18');
+(368,1,'Akceptuję ogólne warunki użytkowania i politykę prywatności','2023-10-12 21:29:18');
 /*!40000 ALTER TABLE `ps_configuration_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4317,7 +4311,7 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4354,7 +4348,8 @@ INSERT INTO `ps_connections` VALUES
 (28,1,1,10,1,2886860801,'2023-11-04 11:23:15',''),
 (29,1,1,10,1,2886926337,'2023-11-04 11:57:53',''),
 (30,1,1,10,1,2887122945,'2023-11-04 12:34:45',''),
-(31,1,1,8,9,2887188481,'2023-11-04 12:45:00','');
+(31,1,1,8,9,2887188481,'2023-11-04 12:45:00',''),
+(33,1,1,6,1,2886860801,'2023-11-07 10:56:13','');
 /*!40000 ALTER TABLE `ps_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4402,7 +4397,7 @@ CREATE TABLE `ps_connections_source` (
   KEY `orderby` (`date_add`),
   KEY `http_referer` (`http_referer`),
   KEY `request_uri` (`request_uri`)
-) ENGINE=InnoDB AUTO_INCREMENT=588 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=589 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5012,7 +5007,7 @@ CREATE TABLE `ps_contact` (
   `customer_service` tinyint(1) NOT NULL DEFAULT 0,
   `position` tinyint(2) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_contact`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5022,8 +5017,8 @@ CREATE TABLE `ps_contact` (
 LOCK TABLES `ps_contact` WRITE;
 /*!40000 ALTER TABLE `ps_contact` DISABLE KEYS */;
 INSERT INTO `ps_contact` VALUES
-(1,'demo@prestashop.com',1,0),
-(2,'demo@prestashop.com',1,0);
+(1,'harry2browary@hotmail.com',1,0),
+(2,'harry2browary@hotmail.com',1,0);
 /*!40000 ALTER TABLE `ps_contact` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5051,9 +5046,7 @@ LOCK TABLES `ps_contact_lang` WRITE;
 /*!40000 ALTER TABLE `ps_contact_lang` DISABLE KEYS */;
 INSERT INTO `ps_contact_lang` VALUES
 (1,1,'Webmaster','Jeśli pojawił się problem techniczny na tej stronie'),
-(1,2,'Webmaster','If a technical problem occurs on this website'),
-(2,1,'Biuro Obsługi Klienta','Wszelkie pytania dotyczące produktów i zamówień'),
-(2,2,'Customer service','For any question about a product, an order');
+(2,1,'Biuro Obsługi Klienta','Wszelkie pytania dotyczące produktów i zamówień');
 /*!40000 ALTER TABLE `ps_contact_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5106,7 +5099,7 @@ CREATE TABLE `ps_country` (
   PRIMARY KEY (`id_country`),
   KEY `country_iso_code` (`iso_code`),
   KEY `country_` (`id_zone`)
-) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=246 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5383,487 +5376,246 @@ LOCK TABLES `ps_country_lang` WRITE;
 /*!40000 ALTER TABLE `ps_country_lang` DISABLE KEYS */;
 INSERT INTO `ps_country_lang` VALUES
 (1,1,'Niemcy'),
-(1,2,'Germany'),
 (2,1,'Austria'),
-(2,2,'Austria'),
 (3,1,'Belgia'),
-(3,2,'Belgium'),
 (4,1,'Kanada'),
-(4,2,'Canada'),
 (5,1,'Chiny'),
-(5,2,'China'),
 (6,1,'Hiszpania'),
-(6,2,'Spain'),
 (7,1,'Finlandia'),
-(7,2,'Finland'),
 (8,1,'Francja'),
-(8,2,'France'),
 (9,1,'Grecja'),
-(9,2,'Greece'),
 (10,1,'Włochy'),
-(10,2,'Italy'),
 (11,1,'Japonia'),
-(11,2,'Japan'),
 (12,1,'Luksemburg'),
-(12,2,'Luxembourg'),
 (13,1,'Holandia'),
-(13,2,'Netherlands'),
 (14,1,'Polska'),
-(14,2,'Poland'),
 (15,1,'Portugalia'),
-(15,2,'Portugal'),
 (16,1,'Czechy'),
-(16,2,'Czechia'),
 (17,1,'Wielka Brytania'),
-(17,2,'United Kingdom'),
 (18,1,'Szwecja'),
-(18,2,'Sweden'),
 (19,1,'Szwajcaria'),
-(19,2,'Switzerland'),
 (20,1,'Dania'),
-(20,2,'Denmark'),
 (21,1,'Stany Zjednoczone'),
-(21,2,'United States'),
 (22,1,'SRA Hongkong (Chiny)'),
-(22,2,'Hong Kong SAR China'),
 (23,1,'Norwegia'),
-(23,2,'Norway'),
 (24,1,'Australia'),
-(24,2,'Australia'),
 (25,1,'Singapur'),
-(25,2,'Singapore'),
 (26,1,'Irlandia'),
-(26,2,'Ireland'),
 (27,1,'Nowa Zelandia'),
-(27,2,'New Zealand'),
 (28,1,'Korea Południowa'),
-(28,2,'South Korea'),
 (29,1,'Izrael'),
-(29,2,'Israel'),
 (30,1,'Republika Południowej Afryki'),
-(30,2,'South Africa'),
 (31,1,'Nigeria'),
-(31,2,'Nigeria'),
 (32,1,'Côte d’Ivoire'),
-(32,2,'Côte d’Ivoire'),
 (33,1,'Togo'),
-(33,2,'Togo'),
 (34,1,'Boliwia'),
-(34,2,'Bolivia'),
 (35,1,'Mauritius'),
-(35,2,'Mauritius'),
 (36,1,'Rumunia'),
-(36,2,'Romania'),
 (37,1,'Słowacja'),
-(37,2,'Slovakia'),
 (38,1,'Algieria'),
-(38,2,'Algeria'),
 (39,1,'Samoa Amerykańskie'),
-(39,2,'American Samoa'),
 (40,1,'Andora'),
-(40,2,'Andorra'),
 (41,1,'Angola'),
-(41,2,'Angola'),
 (42,1,'Anguilla'),
-(42,2,'Anguilla'),
 (43,1,'Antigua i Barbuda'),
-(43,2,'Antigua & Barbuda'),
 (44,1,'Argentyna'),
-(44,2,'Argentina'),
 (45,1,'Armenia'),
-(45,2,'Armenia'),
 (46,1,'Aruba'),
-(46,2,'Aruba'),
 (47,1,'Azerbejdżan'),
-(47,2,'Azerbaijan'),
 (48,1,'Bahamy'),
-(48,2,'Bahamas'),
 (49,1,'Bahrajn'),
-(49,2,'Bahrain'),
 (50,1,'Bangladesz'),
-(50,2,'Bangladesh'),
 (51,1,'Barbados'),
-(51,2,'Barbados'),
 (52,1,'Białoruś'),
-(52,2,'Belarus'),
 (53,1,'Belize'),
-(53,2,'Belize'),
 (54,1,'Benin'),
-(54,2,'Benin'),
 (55,1,'Bermudy'),
-(55,2,'Bermuda'),
 (56,1,'Bhutan'),
-(56,2,'Bhutan'),
 (57,1,'Botswana'),
-(57,2,'Botswana'),
 (58,1,'Brazylia'),
-(58,2,'Brazil'),
 (59,1,'Brunei'),
-(59,2,'Brunei'),
 (60,1,'Burkina Faso'),
-(60,2,'Burkina Faso'),
 (61,1,'Mjanma (Birma)'),
-(61,2,'Myanmar (Burma)'),
 (62,1,'Burundi'),
-(62,2,'Burundi'),
 (63,1,'Kambodża'),
-(63,2,'Cambodia'),
 (64,1,'Kamerun'),
-(64,2,'Cameroon'),
 (65,1,'Republika Zielonego Przylądka'),
-(65,2,'Cape Verde'),
 (66,1,'Republika Środkowoafrykańska'),
-(66,2,'Central African Republic'),
 (67,1,'Czad'),
-(67,2,'Chad'),
 (68,1,'Chile'),
-(68,2,'Chile'),
 (69,1,'Kolumbia'),
-(69,2,'Colombia'),
 (70,1,'Komory'),
-(70,2,'Comoros'),
 (71,1,'Demokratyczna Republika Konga'),
-(71,2,'Congo - Kinshasa'),
 (72,1,'Kongo'),
-(72,2,'Congo - Brazzaville'),
 (73,1,'Kostaryka'),
-(73,2,'Costa Rica'),
 (74,1,'Chorwacja'),
-(74,2,'Croatia'),
 (75,1,'Kuba'),
-(75,2,'Cuba'),
 (76,1,'Cypr'),
-(76,2,'Cyprus'),
 (77,1,'Dżibuti'),
-(77,2,'Djibouti'),
 (78,1,'Dominika'),
-(78,2,'Dominica'),
 (79,1,'Dominikana'),
-(79,2,'Dominican Republic'),
 (80,1,'Timor Wschodni'),
-(80,2,'Timor-Leste'),
 (81,1,'Ekwador'),
-(81,2,'Ecuador'),
 (82,1,'Egipt'),
-(82,2,'Egypt'),
 (83,1,'Salwador'),
-(83,2,'El Salvador'),
 (84,1,'Gwinea Równikowa'),
-(84,2,'Equatorial Guinea'),
 (85,1,'Erytrea'),
-(85,2,'Eritrea'),
 (86,1,'Estonia'),
-(86,2,'Estonia'),
 (87,1,'Etiopia'),
-(87,2,'Ethiopia'),
 (88,1,'Falklandy'),
-(88,2,'Falkland Islands'),
 (89,1,'Wyspy Owcze'),
-(89,2,'Faroe Islands'),
 (90,1,'Fidżi'),
-(90,2,'Fiji'),
 (91,1,'Gabon'),
-(91,2,'Gabon'),
 (92,1,'Gambia'),
-(92,2,'Gambia'),
 (93,1,'Gruzja'),
-(93,2,'Georgia'),
 (94,1,'Ghana'),
-(94,2,'Ghana'),
 (95,1,'Grenada'),
-(95,2,'Grenada'),
 (96,1,'Grenlandia'),
-(96,2,'Greenland'),
 (97,1,'Gibraltar'),
-(97,2,'Gibraltar'),
 (98,1,'Gwadelupa'),
-(98,2,'Guadeloupe'),
 (99,1,'Guam'),
-(99,2,'Guam'),
 (100,1,'Gwatemala'),
-(100,2,'Guatemala'),
 (101,1,'Guernsey'),
-(101,2,'Guernsey'),
 (102,1,'Gwinea'),
-(102,2,'Guinea'),
 (103,1,'Gwinea Bissau'),
-(103,2,'Guinea-Bissau'),
 (104,1,'Gujana'),
-(104,2,'Guyana'),
 (105,1,'Haiti'),
-(105,2,'Haiti'),
 (106,1,'Watykan'),
-(106,2,'Vatican City'),
 (107,1,'Honduras'),
-(107,2,'Honduras'),
 (108,1,'Islandia'),
-(108,2,'Iceland'),
 (109,1,'Indie'),
-(109,2,'India'),
 (110,1,'Indonezja'),
-(110,2,'Indonesia'),
 (111,1,'Iran'),
-(111,2,'Iran'),
 (112,1,'Irak'),
-(112,2,'Iraq'),
 (113,1,'Wyspa Man'),
-(113,2,'Isle of Man'),
 (114,1,'Jamajka'),
-(114,2,'Jamaica'),
 (115,1,'Jersey'),
-(115,2,'Jersey'),
 (116,1,'Jordania'),
-(116,2,'Jordan'),
 (117,1,'Kazachstan'),
-(117,2,'Kazakhstan'),
 (118,1,'Kenia'),
-(118,2,'Kenya'),
 (119,1,'Kiribati'),
-(119,2,'Kiribati'),
 (120,1,'Korea Północna'),
-(120,2,'North Korea'),
 (121,1,'Kuwejt'),
-(121,2,'Kuwait'),
 (122,1,'Kirgistan'),
-(122,2,'Kyrgyzstan'),
 (123,1,'Laos'),
-(123,2,'Laos'),
 (124,1,'Łotwa'),
-(124,2,'Latvia'),
 (125,1,'Liban'),
-(125,2,'Lebanon'),
 (126,1,'Lesotho'),
-(126,2,'Lesotho'),
 (127,1,'Liberia'),
-(127,2,'Liberia'),
 (128,1,'Libia'),
-(128,2,'Libya'),
 (129,1,'Liechtenstein'),
-(129,2,'Liechtenstein'),
 (130,1,'Litwa'),
-(130,2,'Lithuania'),
 (131,1,'SRA Makau (Chiny)'),
-(131,2,'Macao SAR China'),
 (132,1,'Macedonia Północna'),
-(132,2,'North Macedonia'),
 (133,1,'Madagaskar'),
-(133,2,'Madagascar'),
 (134,1,'Malawi'),
-(134,2,'Malawi'),
 (135,1,'Malezja'),
-(135,2,'Malaysia'),
 (136,1,'Malediwy'),
-(136,2,'Maldives'),
 (137,1,'Mali'),
-(137,2,'Mali'),
 (138,1,'Malta'),
-(138,2,'Malta'),
 (139,1,'Wyspy Marshalla'),
-(139,2,'Marshall Islands'),
 (140,1,'Martynika'),
-(140,2,'Martinique'),
 (141,1,'Mauretania'),
-(141,2,'Mauritania'),
 (142,1,'Węgry'),
-(142,2,'Hungary'),
 (143,1,'Majotta'),
-(143,2,'Mayotte'),
 (144,1,'Meksyk'),
-(144,2,'Mexico'),
 (145,1,'Mikronezja'),
-(145,2,'Micronesia'),
 (146,1,'Mołdawia'),
-(146,2,'Moldova'),
 (147,1,'Monako'),
-(147,2,'Monaco'),
 (148,1,'Mongolia'),
-(148,2,'Mongolia'),
 (149,1,'Czarnogóra'),
-(149,2,'Montenegro'),
 (150,1,'Montserrat'),
-(150,2,'Montserrat'),
 (151,1,'Maroko'),
-(151,2,'Morocco'),
 (152,1,'Mozambik'),
-(152,2,'Mozambique'),
 (153,1,'Namibia'),
-(153,2,'Namibia'),
 (154,1,'Nauru'),
-(154,2,'Nauru'),
 (155,1,'Nepal'),
-(155,2,'Nepal'),
 (156,1,'Nowa Kaledonia'),
-(156,2,'New Caledonia'),
 (157,1,'Nikaragua'),
-(157,2,'Nicaragua'),
 (158,1,'Niger'),
-(158,2,'Niger'),
 (159,1,'Niue'),
-(159,2,'Niue'),
 (160,1,'Norfolk'),
-(160,2,'Norfolk Island'),
 (161,1,'Mariany Północne'),
-(161,2,'Northern Mariana Islands'),
 (162,1,'Oman'),
-(162,2,'Oman'),
 (163,1,'Pakistan'),
-(163,2,'Pakistan'),
 (164,1,'Palau'),
-(164,2,'Palau'),
 (165,1,'Terytoria Palestyńskie'),
-(165,2,'Palestinian Territories'),
 (166,1,'Panama'),
-(166,2,'Panama'),
 (167,1,'Papua-Nowa Gwinea'),
-(167,2,'Papua New Guinea'),
 (168,1,'Paragwaj'),
-(168,2,'Paraguay'),
 (169,1,'Peru'),
-(169,2,'Peru'),
 (170,1,'Filipiny'),
-(170,2,'Philippines'),
 (171,1,'Pitcairn'),
-(171,2,'Pitcairn Islands'),
 (172,1,'Portoryko'),
-(172,2,'Puerto Rico'),
 (173,1,'Katar'),
-(173,2,'Qatar'),
 (174,1,'Reunion'),
-(174,2,'Réunion'),
 (175,1,'Rosja'),
-(175,2,'Russia'),
 (176,1,'Rwanda'),
-(176,2,'Rwanda'),
 (177,1,'Saint-Barthélemy'),
-(177,2,'St. Barthélemy'),
 (178,1,'Saint Kitts i Nevis'),
-(178,2,'St. Kitts & Nevis'),
 (179,1,'Saint Lucia'),
-(179,2,'St. Lucia'),
 (180,1,'Saint-Martin'),
-(180,2,'St. Martin'),
 (181,1,'Saint-Pierre i Miquelon'),
-(181,2,'St. Pierre & Miquelon'),
 (182,1,'Saint Vincent i Grenadyny'),
-(182,2,'St. Vincent & Grenadines'),
 (183,1,'Samoa'),
-(183,2,'Samoa'),
 (184,1,'San Marino'),
-(184,2,'San Marino'),
 (185,1,'Wyspy Świętego Tomasza i Książęca'),
-(185,2,'São Tomé & Príncipe'),
 (186,1,'Arabia Saudyjska'),
-(186,2,'Saudi Arabia'),
 (187,1,'Senegal'),
-(187,2,'Senegal'),
 (188,1,'Serbia'),
-(188,2,'Serbia'),
 (189,1,'Seszele'),
-(189,2,'Seychelles'),
 (190,1,'Sierra Leone'),
-(190,2,'Sierra Leone'),
 (191,1,'Słowenia'),
-(191,2,'Slovenia'),
 (192,1,'Wyspy Salomona'),
-(192,2,'Solomon Islands'),
 (193,1,'Somalia'),
-(193,2,'Somalia'),
 (194,1,'Georgia Południowa i Sandwich Południowy'),
-(194,2,'South Georgia & South Sandwich Islands'),
 (195,1,'Sri Lanka'),
-(195,2,'Sri Lanka'),
 (196,1,'Sudan'),
-(196,2,'Sudan'),
 (197,1,'Surinam'),
-(197,2,'Suriname'),
 (198,1,'Svalbard i Jan Mayen'),
-(198,2,'Svalbard & Jan Mayen'),
 (199,1,'Eswatini'),
-(199,2,'Eswatini'),
 (200,1,'Syria'),
-(200,2,'Syria'),
 (201,1,'Tajwan'),
-(201,2,'Taiwan'),
 (202,1,'Tadżykistan'),
-(202,2,'Tajikistan'),
 (203,1,'Tanzania'),
-(203,2,'Tanzania'),
 (204,1,'Tajlandia'),
-(204,2,'Thailand'),
 (205,1,'Tokelau'),
-(205,2,'Tokelau'),
 (206,1,'Tonga'),
-(206,2,'Tonga'),
 (207,1,'Trynidad i Tobago'),
-(207,2,'Trinidad & Tobago'),
 (208,1,'Tunezja'),
-(208,2,'Tunisia'),
 (209,1,'Turcja'),
-(209,2,'Turkey'),
 (210,1,'Turkmenistan'),
-(210,2,'Turkmenistan'),
 (211,1,'Turks i Caicos'),
-(211,2,'Turks & Caicos Islands'),
 (212,1,'Tuvalu'),
-(212,2,'Tuvalu'),
 (213,1,'Uganda'),
-(213,2,'Uganda'),
 (214,1,'Ukraina'),
-(214,2,'Ukraine'),
 (215,1,'Zjednoczone Emiraty Arabskie'),
-(215,2,'United Arab Emirates'),
 (216,1,'Urugwaj'),
-(216,2,'Uruguay'),
 (217,1,'Uzbekistan'),
-(217,2,'Uzbekistan'),
 (218,1,'Vanuatu'),
-(218,2,'Vanuatu'),
 (219,1,'Wenezuela'),
-(219,2,'Venezuela'),
 (220,1,'Wietnam'),
-(220,2,'Vietnam'),
 (221,1,'Brytyjskie Wyspy Dziewicze'),
-(221,2,'British Virgin Islands'),
 (222,1,'Wyspy Dziewicze Stanów Zjednoczonych'),
-(222,2,'U.S. Virgin Islands'),
 (223,1,'Wallis i Futuna'),
-(223,2,'Wallis & Futuna'),
 (224,1,'Sahara Zachodnia'),
-(224,2,'Western Sahara'),
 (225,1,'Jemen'),
-(225,2,'Yemen'),
 (226,1,'Zambia'),
-(226,2,'Zambia'),
 (227,1,'Zimbabwe'),
-(227,2,'Zimbabwe'),
 (228,1,'Albania'),
-(228,2,'Albania'),
 (229,1,'Afganistan'),
-(229,2,'Afghanistan'),
 (230,1,'Antarktyda'),
-(230,2,'Antarctica'),
 (231,1,'Bośnia i Hercegowina'),
-(231,2,'Bosnia & Herzegovina'),
 (232,1,'Brytyjskie Terytorium Oceanu Indyjskiego'),
-(232,2,'British Indian Ocean Territory'),
 (233,1,'Bułgaria'),
-(233,2,'Bulgaria'),
 (234,1,'Kajmany'),
-(234,2,'Cayman Islands'),
 (235,1,'Wyspa Bożego Narodzenia'),
-(235,2,'Christmas Island'),
 (236,1,'Wyspy Kokosowe'),
-(236,2,'Cocos (Keeling) Islands'),
 (237,1,'Wyspy Cooka'),
-(237,2,'Cook Islands'),
 (238,1,'Gujana Francuska'),
-(238,2,'French Guiana'),
 (239,1,'Polinezja Francuska'),
-(239,2,'French Polynesia'),
 (240,1,'Francuskie Terytoria Południowe i Antarktyczne'),
-(240,2,'French Southern Territories'),
-(241,1,'Wyspy Alandzkie'),
-(241,2,'Åland Islands');
+(241,1,'Wyspy Alandzkie');
 /*!40000 ALTER TABLE `ps_country_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6153,7 +5905,7 @@ CREATE TABLE `ps_currency` (
   `modified` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_currency`),
   KEY `currency_iso_code` (`iso_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6194,11 +5946,8 @@ LOCK TABLES `ps_currency_lang` WRITE;
 /*!40000 ALTER TABLE `ps_currency_lang` DISABLE KEYS */;
 INSERT INTO `ps_currency_lang` VALUES
 (1,1,'Euro','€',''),
-(1,2,'Euro','€',''),
 (2,1,'Dolar amerykański','$',''),
-(2,2,'Dolar amerykański','$',''),
-(3,1,'złoty polski','zł',''),
-(3,2,'Polish Zloty','zł','');
+(3,1,'złoty polski','zł','');
 /*!40000 ALTER TABLE `ps_currency_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6279,7 +6028,7 @@ CREATE TABLE `ps_customer` (
   KEY `id_gender` (`id_gender`),
   KEY `id_shop_group` (`id_shop_group`),
   KEY `id_shop` (`id_shop`,`date_add`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6348,7 +6097,7 @@ CREATE TABLE `ps_customer_message` (
   PRIMARY KEY (`id_customer_message`),
   KEY `id_customer_thread` (`id_customer_thread`),
   KEY `id_employee` (`id_employee`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6357,6 +6106,8 @@ CREATE TABLE `ps_customer_message` (
 
 LOCK TABLES `ps_customer_message` WRITE;
 /*!40000 ALTER TABLE `ps_customer_message` DISABLE KEYS */;
+INSERT INTO `ps_customer_message` VALUES
+(1,1,0,'witam','','','','2023-11-07 12:09:40','2023-11-07 12:09:40',0,0);
 /*!40000 ALTER TABLE `ps_customer_message` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6394,7 +6145,7 @@ CREATE TABLE `ps_customer_session` (
   `id_customer` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_customer_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6437,7 +6188,7 @@ CREATE TABLE `ps_customer_thread` (
   KEY `id_customer` (`id_customer`),
   KEY `id_order` (`id_order`),
   KEY `id_product` (`id_product`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6446,6 +6197,8 @@ CREATE TABLE `ps_customer_thread` (
 
 LOCK TABLES `ps_customer_thread` WRITE;
 /*!40000 ALTER TABLE `ps_customer_thread` DISABLE KEYS */;
+INSERT INTO `ps_customer_thread` VALUES
+(1,1,1,0,6,13,0,'open','jasiek.barczewski@gmail.com','QzQpbVR1C0UT','2023-11-07 12:09:40','2023-11-07 12:09:40');
 /*!40000 ALTER TABLE `ps_customer_thread` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6469,7 +6222,7 @@ CREATE TABLE `ps_customization` (
   PRIMARY KEY (`id_customization`,`id_cart`,`id_product`,`id_address_delivery`),
   KEY `id_product_attribute` (`id_product_attribute`),
   KEY `id_cart_product` (`id_cart`,`id_product`,`id_product_attribute`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6611,7 +6364,7 @@ CREATE TABLE `ps_delivery` (
   KEY `id_carrier` (`id_carrier`,`id_zone`),
   KEY `id_range_price` (`id_range_price`),
   KEY `id_range_weight` (`id_range_weight`)
-) ENGINE=InnoDB AUTO_INCREMENT=340 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=341 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6871,7 +6624,7 @@ CREATE TABLE `ps_employee` (
   KEY `employee_login` (`email`,`passwd`),
   KEY `id_employee_passwd` (`id_employee`,`passwd`),
   KEY `id_profile` (`id_profile`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6881,7 +6634,7 @@ CREATE TABLE `ps_employee` (
 LOCK TABLES `ps_employee` WRITE;
 /*!40000 ALTER TABLE `ps_employee` DISABLE KEYS */;
 INSERT INTO `ps_employee` VALUES
-(1,1,1,'Doe','John','demo@prestashop.com','$2y$10$kYBHzP7ea1r7vjBkl3COROrG17P5icjmBD5JwAWUrgjzL.cyTMp6e','2023-10-12 17:28:29','2023-09-12','2023-10-12','0000-00-00','0000-00-00',1,NULL,NULL,'default','theme.css',1,0,1,1,NULL,6,0,3,'2023-11-04',NULL,'0000-00-00 00:00:00',0);
+(1,1,1,'Doe','John','demo@prestashop.com','$2y$10$kYBHzP7ea1r7vjBkl3COROrG17P5icjmBD5JwAWUrgjzL.cyTMp6e','2023-10-12 17:28:29','2023-09-12','2023-10-12','0000-00-00','0000-00-00',1,NULL,NULL,'default','theme.css',1,0,1,1,NULL,12,0,6,'2023-11-07',NULL,'0000-00-00 00:00:00',0);
 /*!40000 ALTER TABLE `ps_employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6897,7 +6650,7 @@ CREATE TABLE `ps_employee_session` (
   `id_employee` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_employee_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6910,7 +6663,8 @@ INSERT INTO `ps_employee_session` VALUES
 (10,1,'e22b93259e8e04f7a45dec5ce4a71141b16a4be7'),
 (12,1,'2c6f8dad6e969e13df875399bd9e17c50ece0359'),
 (14,1,'4c0bd7a5bad4fafc3893daf581cbc1ac7b3c2147'),
-(21,1,'bea291cb295d7e4a9b032fe92713a43cc0142695');
+(21,1,'bea291cb295d7e4a9b032fe92713a43cc0142695'),
+(23,1,'99872dca7553365f69d4726d27bb6551dcb204de');
 /*!40000 ALTER TABLE `ps_employee_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7990,6 +7744,7 @@ INSERT INTO `ps_eventbus_deleted_objects` VALUES
 ('categories',56,1,'2023-10-24 23:38:42'),
 ('categories',57,1,'2023-10-24 23:38:46'),
 ('categories',58,1,'2023-10-24 23:38:47'),
+('languages',2,1,'2023-11-07 11:35:57'),
 ('manufacturers',1,1,'2023-10-24 23:32:18'),
 ('manufacturers',2,1,'2023-10-24 23:32:18'),
 ('products',19,1,'2023-10-24 22:32:30'),
@@ -8973,6 +8728,10 @@ INSERT INTO `ps_eventbus_deleted_objects` VALUES
 ('products',998,1,'2023-10-24 23:38:31'),
 ('products',999,1,'2023-10-24 23:39:08'),
 ('products',1000,1,'2023-10-25 23:18:06'),
+('stores',2,1,'2023-11-07 12:04:17'),
+('stores',3,1,'2023-11-07 12:04:18'),
+('stores',4,1,'2023-11-07 12:04:18'),
+('stores',5,1,'2023-11-07 12:04:18'),
 ('suppliers',1,1,'2023-10-24 23:04:18'),
 ('suppliers',2,1,'2023-10-24 23:04:18'),
 ('suppliers',4,1,'2023-10-24 23:25:07'),
@@ -9025,6 +8784,10 @@ INSERT INTO `ps_eventbus_incremental_sync` VALUES
 ('carts',10,1,'pl','2023-10-25 23:17:05'),
 ('carts',11,1,'pl','2023-10-25 23:17:43'),
 ('carts',13,1,'pl','2023-11-04 12:43:42'),
+('carts',15,1,'pl','2023-11-07 11:14:12'),
+('carts',16,1,'pl','2023-11-07 11:55:08'),
+('carts',17,1,'pl','2023-11-07 12:09:37'),
+('carts',18,1,'pl','2023-11-07 12:23:59'),
 ('customers',6,1,'en','2023-10-25 23:17:43'),
 ('customers',6,1,'pl','2023-10-25 23:17:43'),
 ('custom_product_carriers',21,1,'pl','2023-10-24 22:27:13'),
@@ -10007,7 +9770,12 @@ INSERT INTO `ps_eventbus_incremental_sync` VALUES
 ('custom_product_carriers',998,1,'pl','2023-10-24 22:38:18'),
 ('custom_product_carriers',999,1,'pl','2023-10-24 23:29:54'),
 ('custom_product_carriers',1000,1,'pl','2023-10-25 23:16:43'),
+('custom_product_carriers',1001,1,'pl','2023-11-07 11:13:56'),
 ('orders',6,1,'pl','2023-10-19 20:38:41'),
+('orders',11,1,'pl','2023-11-07 11:14:17'),
+('orders',12,1,'pl','2023-11-07 11:55:12'),
+('orders',13,1,'pl','2023-11-07 12:09:42'),
+('orders',14,1,'pl','2023-11-07 12:24:03'),
 ('products',19,1,'en','2023-10-24 22:32:30'),
 ('products',19,1,'pl','2023-10-24 22:32:30'),
 ('products',21,1,'en','2023-10-24 22:32:12'),
@@ -11822,6 +11590,8 @@ INSERT INTO `ps_eventbus_incremental_sync` VALUES
 ('products',998,1,'pl','2023-10-24 23:38:31'),
 ('products',999,1,'en','2023-10-24 23:39:08'),
 ('products',999,1,'pl','2023-10-24 23:39:08'),
+('products',1001,1,'en','2023-11-07 11:13:56'),
+('products',1001,1,'pl','2023-11-07 11:13:56'),
 ('stocks',21,1,'pl','2023-10-24 22:27:13'),
 ('stocks',22,1,'pl','2023-10-24 22:27:13'),
 ('stocks',23,1,'pl','2023-10-24 22:27:13'),
@@ -12802,6 +12572,8 @@ INSERT INTO `ps_eventbus_incremental_sync` VALUES
 ('stocks',998,1,'pl','2023-10-24 22:38:18'),
 ('stocks',999,1,'pl','2023-10-24 23:29:54'),
 ('stocks',1000,1,'pl','2023-10-25 23:16:43'),
+('stocks',1001,1,'pl','2023-11-07 11:13:56'),
+('stores',1,1,'pl','2023-11-07 12:06:01'),
 ('wishlists',4,1,'en','2023-10-25 23:17:00'),
 ('wishlists',4,1,'pl','2023-10-25 23:17:00');
 /*!40000 ALTER TABLE `ps_eventbus_incremental_sync` ENABLE KEYS */;
@@ -12924,7 +12696,7 @@ CREATE TABLE `ps_feature_flag` (
   `description_domain` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id_feature_flag`),
   UNIQUE KEY `UNIQ_91700F175E237E06` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -14053,7 +13825,7 @@ CREATE TABLE `ps_gender` (
   `id_gender` int(11) NOT NULL AUTO_INCREMENT,
   `type` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_gender`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -14092,9 +13864,7 @@ LOCK TABLES `ps_gender_lang` WRITE;
 /*!40000 ALTER TABLE `ps_gender_lang` DISABLE KEYS */;
 INSERT INTO `ps_gender_lang` VALUES
 (1,1,'Pan'),
-(1,2,'Mr.'),
-(2,1,'Pani'),
-(2,2,'Mrs.');
+(2,1,'Pani');
 /*!40000 ALTER TABLE `ps_gender_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -14113,7 +13883,7 @@ CREATE TABLE `ps_group` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -14152,11 +13922,8 @@ LOCK TABLES `ps_group_lang` WRITE;
 /*!40000 ALTER TABLE `ps_group_lang` DISABLE KEYS */;
 INSERT INTO `ps_group_lang` VALUES
 (1,1,'Odwiedzający'),
-(1,2,'Visitor'),
 (2,1,'Gość'),
-(2,2,'Guest'),
-(3,1,'Klient'),
-(3,2,'Customer');
+(3,1,'Klient');
 /*!40000 ALTER TABLE `ps_group_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -14264,7 +14031,7 @@ CREATE TABLE `ps_guest` (
   KEY `id_customer` (`id_customer`),
   KEY `id_operating_system` (`id_operating_system`),
   KEY `id_web_browser` (`id_web_browser`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -14293,7 +14060,7 @@ CREATE TABLE `ps_homeslider` (
   `id_homeslider_slides` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_shop` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id_homeslider_slides`,`id_shop`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -14319,7 +14086,7 @@ CREATE TABLE `ps_homeslider_slides` (
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   `active` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_homeslider_slides`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -14359,8 +14126,7 @@ CREATE TABLE `ps_homeslider_slides_lang` (
 LOCK TABLES `ps_homeslider_slides_lang` WRITE;
 /*!40000 ALTER TABLE `ps_homeslider_slides_lang` DISABLE KEYS */;
 INSERT INTO `ps_homeslider_slides_lang` VALUES
-(1,1,'','','','https://www.prestashop-project.org?utm_source=back-office&utm_medium=v17_homeslider&utm_campaign=back-office-PL&utm_content=download','09441c5526c5f58803360ed7bb743043d6becf0e_warzywniak slider.png'),
-(1,2,'Sample 1','<h3>EXCEPTEUR OCCAECAT</h3>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique in tortor et dignissim. Quisque non tempor leo. Maecenas egestas sem elit</p>','sample-1','https://www.prestashop-project.org?utm_source=back-office&utm_medium=v17_homeslider&utm_campaign=back-office-PL&utm_content=download','sample-1.jpg');
+(1,1,'','','','https://www.prestashop-project.org?utm_source=back-office&utm_medium=v17_homeslider&utm_campaign=back-office-PL&utm_content=download','09441c5526c5f58803360ed7bb743043d6becf0e_warzywniak slider.png');
 /*!40000 ALTER TABLE `ps_homeslider_slides_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -14380,7 +14146,7 @@ CREATE TABLE `ps_hook` (
   `position` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_hook`),
   UNIQUE KEY `hook_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=803 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=805 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -15185,7 +14951,8 @@ INSERT INTO `ps_hook` VALUES
 (796,'actionObjectWishlistUpdateAfter','actionObjectWishlistUpdateAfter','',1,1),
 (797,'actionObjectZoneAddAfter','actionObjectZoneAddAfter','',1,1),
 (798,'actionObjectZoneDeleteAfter','actionObjectZoneDeleteAfter','',1,1),
-(799,'actionObjectZoneUpdateAfter','actionObjectZoneUpdateAfter','',1,1);
+(799,'actionObjectZoneUpdateAfter','actionObjectZoneUpdateAfter','',1,1),
+(804,'actionProductCoverage','actionProductCoverage','',1,1);
 /*!40000 ALTER TABLE `ps_hook` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -15202,7 +14969,7 @@ CREATE TABLE `ps_hook_alias` (
   `name` varchar(191) NOT NULL,
   PRIMARY KEY (`id_hook_alias`),
   UNIQUE KEY `alias` (`alias`)
-) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -15510,6 +15277,12 @@ INSERT INTO `ps_hook_module` VALUES
 (63,1,797,1),
 (63,1,798,1),
 (63,1,799,1),
+(69,1,1,1),
+(69,1,8,1),
+(69,1,57,1),
+(69,1,65,1),
+(69,1,116,1),
+(69,1,804,1),
 (3,1,682,2),
 (4,1,688,2),
 (5,1,689,2),
@@ -15556,6 +15329,10 @@ INSERT INTO `ps_hook_module` VALUES
 (63,1,727,2),
 (63,1,728,2),
 (63,1,729,2),
+(69,1,49,2),
+(69,1,58,2),
+(69,1,75,2),
+(69,1,105,2),
 (4,1,682,3),
 (5,1,688,3),
 (6,1,689,3),
@@ -15577,6 +15354,9 @@ INSERT INTO `ps_hook_module` VALUES
 (61,1,82,3),
 (64,1,41,3),
 (64,1,706,3),
+(69,1,28,3),
+(69,1,694,3),
+(69,1,695,3),
 (5,1,682,4),
 (6,1,688,4),
 (15,1,41,4),
@@ -15584,6 +15364,7 @@ INSERT INTO `ps_hook_module` VALUES
 (38,1,55,4),
 (56,1,683,4),
 (59,1,71,4),
+(69,1,685,4),
 (1,1,41,5),
 (7,1,682,5),
 (39,1,55,5),
@@ -15597,11 +15378,13 @@ INSERT INTO `ps_hook_module` VALUES
 (41,1,55,7),
 (55,1,682,7),
 (59,1,16,7),
+(69,1,683,7),
 (42,1,55,8),
 (56,1,682,8),
 (43,1,55,9),
 (57,1,682,9),
 (45,1,55,10),
+(69,1,682,10),
 (46,1,55,11),
 (47,1,55,12),
 (48,1,55,13),
@@ -15739,7 +15522,7 @@ CREATE TABLE `ps_image_type` (
   `stores` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_image_type`),
   KEY `image_type_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -15794,7 +15577,7 @@ DROP TABLE IF EXISTS `ps_info`;
 CREATE TABLE `ps_info` (
   `id_info` int(10) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_info`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -15831,8 +15614,7 @@ CREATE TABLE `ps_info_lang` (
 LOCK TABLES `ps_info_lang` WRITE;
 /*!40000 ALTER TABLE `ps_info_lang` DISABLE KEYS */;
 INSERT INTO `ps_info_lang` VALUES
-(1,1,1,'<h2 style=\"text-align:left;\"><strong><span style=\"color:#232323;font-family:Manrope, sans-serif;font-size:16px;text-transform:uppercase;background-color:#ffffff;\">Kontakt</span></strong></h2>\n<p style=\"text-align:left;\">ul. Platanowa 4, 62-023 Kamionki</p>\n<p style=\"text-align:left;\"><span style=\"color:#f5a623;background-color:#ffffff;\"><a href=\"tel:791999954\" class=\"footer__desc footer__desc--phone\" style=\"margin:0px 0px 8px;padding:0px;border:0px;font-size:32px;line-height:32px;color:#f5a623;font-family:Nunito, sans-serif;vertical-align:baseline;background-color:#ffffff;\"><img src=\"https://skladwarzywiowocow.pl/wp-content/themes/storefront-child/assets/images/telefon-orange.svg\" class=\"footer__desc-img litespeed-loaded\" style=\"margin:0px;padding:0px;border:0px;font-size:14px;line-height:22px;vertical-align:baseline;height:auto;width:32px;background-color:#ffffff;\" alt=\"telefon-orange.svg\" /> <span style=\"text-decoration:none;\">791999954</span></a></span></p>\n<p style=\"text-align:left;\"><span style=\"color:#000000;\">Poniedziałek - Piątek, 10:00 - 20:00</span><span style=\"color:#000000;\"></span><span style=\"color:#000000;\"></span></p>\n<p style=\"text-align:left;\"><span style=\"color:#000000;\">kontakt@skladwarzywiowocow.pl</span></p>\n<p></p>'),
-(1,1,2,'<h2 style=\"text-align:right;\">Custom Text Block</h2>\n<p><strong class=\"dark\">Lorem ipsum dolor sit amet conse ctetu</strong></p>\n<p>Sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>');
+(1,1,1,'<h2 style=\"text-align:left;\"><strong><span style=\"color:#232323;font-family:Manrope, sans-serif;font-size:16px;text-transform:uppercase;background-color:#ffffff;\">Kontakt</span></strong></h2>\n<p style=\"text-align:left;\">ul. Platanowa 4, 62-023 Kamionki</p>\n<p style=\"text-align:left;\"><span style=\"color:#f5a623;background-color:#ffffff;\"><a href=\"tel:791999954\" class=\"footer__desc footer__desc--phone\" style=\"margin:0px 0px 8px;padding:0px;border:0px;font-size:32px;line-height:32px;color:#f5a623;font-family:Nunito, sans-serif;vertical-align:baseline;background-color:#ffffff;\"><img src=\"https://skladwarzywiowocow.pl/wp-content/themes/storefront-child/assets/images/telefon-orange.svg\" class=\"footer__desc-img litespeed-loaded\" style=\"margin:0px;padding:0px;border:0px;font-size:14px;line-height:22px;vertical-align:baseline;height:auto;width:32px;background-color:#ffffff;\" alt=\"telefon-orange.svg\" /> <span style=\"text-decoration:none;\">791999954</span></a></span></p>\n<p style=\"text-align:left;\"><span style=\"color:#000000;\">Poniedziałek - Piątek, 10:00 - 20:00</span><span style=\"color:#000000;\"></span><span style=\"color:#000000;\"></span></p>\n<p style=\"text-align:left;\"><span style=\"color:#000000;\">kontakt@skladwarzywiowocow.pl</span></p>\n<p></p>');
 /*!40000 ALTER TABLE `ps_info_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -15879,7 +15661,7 @@ CREATE TABLE `ps_lang` (
   `date_format_full` varchar(32) NOT NULL,
   `is_rtl` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_lang`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -15889,8 +15671,7 @@ CREATE TABLE `ps_lang` (
 LOCK TABLES `ps_lang` WRITE;
 /*!40000 ALTER TABLE `ps_lang` DISABLE KEYS */;
 INSERT INTO `ps_lang` VALUES
-(1,'Polski (Polish)',1,'pl','pl','pl-PL','Y-m-d','Y-m-d H:i:s',0),
-(2,'English (English)',1,'en','en-us','en-US','m/d/Y','m/d/Y H:i:s',0);
+(1,'Polski (Polish)',1,'pl','pl','pl-PL','Y-m-d','Y-m-d H:i:s',0);
 /*!40000 ALTER TABLE `ps_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -15917,8 +15698,7 @@ CREATE TABLE `ps_lang_shop` (
 LOCK TABLES `ps_lang_shop` WRITE;
 /*!40000 ALTER TABLE `ps_lang_shop` DISABLE KEYS */;
 INSERT INTO `ps_lang_shop` VALUES
-(1,1),
-(2,1);
+(1,1);
 /*!40000 ALTER TABLE `ps_lang_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -15942,7 +15722,7 @@ CREATE TABLE `ps_layered_category` (
   PRIMARY KEY (`id_layered_category`),
   KEY `id_category_shop` (`id_category`,`id_shop`,`type`,`id_value`,`position`),
   KEY `id_category` (`id_category`,`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -16017,7 +15797,7 @@ CREATE TABLE `ps_layered_filter` (
   `n_categories` int(10) unsigned NOT NULL,
   `date_add` datetime NOT NULL,
   PRIMARY KEY (`id_layered_filter`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -16052,7 +15832,7 @@ CREATE TABLE `ps_layered_filter_block` (
 LOCK TABLES `ps_layered_filter_block` WRITE;
 /*!40000 ALTER TABLE `ps_layered_filter_block` DISABLE KEYS */;
 INSERT INTO `ps_layered_filter_block` VALUES
-('85e2ac4faeffcdd3c8ec68a72205b2a7','a:1:{s:7:\"filters\";a:6:{i:0;a:7:{s:9:\"type_lite\";s:8:\"category\";s:4:\"type\";s:8:\"category\";s:6:\"id_key\";i:0;s:4:\"name\";s:9:\"Kategorie\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:1;a:7:{s:9:\"type_lite\";s:12:\"availability\";s:4:\"type\";s:12:\"availability\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:3:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępny\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:9:\"Dostępny\";s:3:\"nbr\";i:1;}i:2;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:1;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:2;a:0:{}i:3;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:1:\"1\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używany\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowiony\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:4;a:0:{}i:5;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:2000;s:3:\"min\";d:2000;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:1;s:5:\"value\";N;}}}');
+('85e2ac4faeffcdd3c8ec68a72205b2a7','a:1:{s:7:\"filters\";a:6:{i:0;a:7:{s:9:\"type_lite\";s:8:\"category\";s:4:\"type\";s:8:\"category\";s:6:\"id_key\";i:0;s:4:\"name\";s:9:\"Kategorie\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:1;a:7:{s:9:\"type_lite\";s:12:\"availability\";s:4:\"type\";s:12:\"availability\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:3:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępny\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:9:\"Dostępny\";s:3:\"nbr\";i:1;}i:2;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:1;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:2;a:0:{}i:3;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:1:\"1\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używany\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowiony\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:4;a:0:{}i:5;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:1;s:3:\"min\";d:1;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:1;s:5:\"value\";N;}}}');
 /*!40000 ALTER TABLE `ps_layered_filter_block` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -19238,7 +19018,10 @@ INSERT INTO `ps_layered_price_index` VALUES
 (999,3,1,4.490000,4.490000,14),
 (1000,1,1,448.752000,448.752000,14),
 (1000,2,1,472.136000,472.136000,14),
-(1000,3,1,2000.000000,2000.000000,14);
+(1000,3,1,2000.000000,2000.000000,14),
+(1001,1,1,0.224376,0.224376,14),
+(1001,2,1,0.236068,0.236068,14),
+(1001,3,1,1.000000,1.000000,14);
 /*!40000 ALTER TABLE `ps_layered_price_index` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -19319,7 +19102,7 @@ CREATE TABLE `ps_link_block` (
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   `content` text DEFAULT NULL,
   PRIMARY KEY (`id_link_block`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -19356,8 +19139,7 @@ CREATE TABLE `ps_link_block_lang` (
 LOCK TABLES `ps_link_block_lang` WRITE;
 /*!40000 ALTER TABLE `ps_link_block_lang` DISABLE KEYS */;
 INSERT INTO `ps_link_block_lang` VALUES
-(1,1,'Informacje',NULL),
-(1,2,'Products',NULL);
+(1,1,'Informacje',NULL);
 /*!40000 ALTER TABLE `ps_link_block_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -19373,7 +19155,7 @@ CREATE TABLE `ps_link_block_shop` (
   `id_shop` int(10) unsigned NOT NULL,
   `position` int(10) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_link_block`,`id_shop`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -19460,7 +19242,7 @@ CREATE TABLE `ps_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=420 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=440 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -19885,7 +19667,26 @@ INSERT INTO `ps_log` VALUES
 (416,1,0,'Połączenie z panelem administracyjnym z 172.21.0.1','',0,NULL,NULL,1,1,1,'2023-11-04 12:05:10','2023-11-04 12:05:10'),
 (417,1,0,'Połączenie z panelem administracyjnym z 172.21.0.1','',0,NULL,NULL,1,1,1,'2023-11-04 12:11:50','2023-11-04 12:11:50'),
 (418,1,0,'Połączenie z panelem administracyjnym z 172.22.0.1','',0,NULL,NULL,1,1,1,'2023-11-04 12:35:02','2023-11-04 12:35:02'),
-(419,1,0,'Połączenie z panelem administracyjnym z 172.23.0.1','',0,NULL,NULL,1,1,1,'2023-11-04 12:42:30','2023-11-04 12:42:30');
+(419,1,0,'Połączenie z panelem administracyjnym z 172.23.0.1','',0,NULL,NULL,1,1,1,'2023-11-04 12:42:30','2023-11-04 12:42:30'),
+(421,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2023-11-07 10:57:02','2023-11-07 10:57:02'),
+(422,1,0,'Protect vendor folder in module ps_emailalerts','',0,1,NULL,1,0,1,'2023-11-07 11:07:18','2023-11-07 11:07:18'),
+(423,1,0,'Product modification','Product',1001,1,NULL,1,0,1,'2023-11-07 11:13:03','2023-11-07 11:13:03'),
+(424,1,0,'Product modification','Product',1001,1,NULL,1,0,1,'2023-11-07 11:13:19','2023-11-07 11:13:19'),
+(425,1,0,'Product modification','Product',1001,1,NULL,1,0,1,'2023-11-07 11:13:51','2023-11-07 11:13:51'),
+(426,1,0,'Product modification','Product',1001,1,NULL,1,0,1,'2023-11-07 11:13:54','2023-11-07 11:13:54'),
+(427,1,0,'Product modification','Product',1001,1,NULL,1,0,1,'2023-11-07 11:13:56','2023-11-07 11:13:56'),
+(428,1,0,'Frontcontroller::init - Cart cannot be loaded or an order has already been placed using this cart','Cart',15,1,NULL,1,0,0,'2023-11-07 11:14:19','2023-11-07 11:14:19'),
+(429,1,0,'Frontcontroller::init - Cart cannot be loaded or an order has already been placed using this cart','Cart',16,1,NULL,1,0,0,'2023-11-07 11:55:15','2023-11-07 11:55:15'),
+(430,1,0,'Exporting mail with theme modern for language Polski (Polish)','',0,1,NULL,1,0,1,'2023-11-07 12:00:48','2023-11-07 12:00:48'),
+(431,1,0,'Core output folder: /var/www/html/mails','',0,1,NULL,1,0,1,'2023-11-07 12:00:48','2023-11-07 12:00:48'),
+(432,1,0,'Modules output folder: /var/www/html/modules/','',0,1,NULL,1,0,1,'2023-11-07 12:00:48','2023-11-07 12:00:48'),
+(433,1,0,'usunięcie Store','Store',2,1,NULL,1,0,1,'2023-11-07 12:04:18','2023-11-07 12:04:18'),
+(434,1,0,'usunięcie Store','Store',3,1,NULL,1,0,1,'2023-11-07 12:04:18','2023-11-07 12:04:18'),
+(435,1,0,'usunięcie Store','Store',4,1,NULL,1,0,1,'2023-11-07 12:04:18','2023-11-07 12:04:18'),
+(436,1,0,'usunięcie Store','Store',5,1,NULL,1,0,1,'2023-11-07 12:04:18','2023-11-07 12:04:18'),
+(437,1,0,'Store modyfikacja','Store',1,1,NULL,1,0,1,'2023-11-07 12:06:01','2023-11-07 12:06:01'),
+(438,1,0,'Frontcontroller::init - Cart cannot be loaded or an order has already been placed using this cart','Cart',17,1,NULL,1,0,0,'2023-11-07 12:09:44','2023-11-07 12:09:44'),
+(439,1,0,'Frontcontroller::init - Cart cannot be loaded or an order has already been placed using this cart','Cart',18,1,NULL,1,0,0,'2023-11-07 12:24:06','2023-11-07 12:24:06');
 /*!40000 ALTER TABLE `ps_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -19905,7 +19706,7 @@ CREATE TABLE `ps_mail` (
   `date_add` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id_mail`),
   KEY `recipient` (`recipient`(10))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -19914,7 +19715,47 @@ CREATE TABLE `ps_mail` (
 
 LOCK TABLES `ps_mail` WRITE;
 /*!40000 ALTER TABLE `ps_mail` DISABLE KEYS */;
+INSERT INTO `ps_mail` VALUES
+(1,'harry2browary@hotmail.com','new_order','[PrestaShop] New order : #11 - SESUWISOK',1,'2023-11-07 11:14:17'),
+(2,'jasiek.barczewski@gmail.com','bankwire','[PrestaShop] Oczekiwanie na płatność przelewem',1,'2023-11-07 11:14:18'),
+(3,'jasiek.barczewski@gmail.com','order_conf','[PrestaShop] Potwierdzenie zamówienia',1,'2023-11-07 11:14:19'),
+(4,'harry2browary@hotmail.com','new_order','[PrestaShop] New order : #12 - PVBEFGABF',1,'2023-11-07 11:55:12'),
+(5,'jasiek.barczewski@gmail.com','bankwire','[PrestaShop] Oczekiwanie na płatność przelewem',1,'2023-11-07 11:55:13'),
+(6,'jasiek.barczewski@gmail.com','order_conf','[PrestaShop] Potwierdzenie zamówienia',1,'2023-11-07 11:55:14'),
+(7,'harry2browary@hotmail.com','new_order','[eWarzywniak] New order : #13 - XBAQIYCAX',1,'2023-11-07 12:09:42'),
+(8,'jasiek.barczewski@gmail.com','bankwire','[eWarzywniak] Oczekiwanie na płatność przelewem',1,'2023-11-07 12:09:43'),
+(9,'jasiek.barczewski@gmail.com','order_conf','[eWarzywniak] Potwierdzenie zamówienia',1,'2023-11-07 12:09:44'),
+(10,'harry2browary@hotmail.com','new_order','[eWarzywniak] New order : #14 - ZYDESVOAF',1,'2023-11-07 12:24:03'),
+(11,'jasiek.barczewski@gmail.com','bankwire','[eWarzywniak] Oczekiwanie na płatność przelewem',1,'2023-11-07 12:24:04'),
+(12,'jasiek.barczewski@gmail.com','order_conf','[eWarzywniak] Potwierdzenie zamówienia',1,'2023-11-07 12:24:06');
 /*!40000 ALTER TABLE `ps_mail` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ps_mailalert_customer_oos`
+--
+
+DROP TABLE IF EXISTS `ps_mailalert_customer_oos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ps_mailalert_customer_oos` (
+  `id_customer` int(10) unsigned NOT NULL,
+  `customer_email` varchar(128) NOT NULL,
+  `id_product` int(10) unsigned NOT NULL,
+  `id_product_attribute` int(10) unsigned NOT NULL,
+  `id_shop` int(10) unsigned NOT NULL,
+  `id_lang` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id_customer`,`customer_email`,`id_product`,`id_product_attribute`,`id_shop`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ps_mailalert_customer_oos`
+--
+
+LOCK TABLES `ps_mailalert_customer_oos` WRITE;
+/*!40000 ALTER TABLE `ps_mailalert_customer_oos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ps_mailalert_customer_oos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -20041,7 +19882,7 @@ CREATE TABLE `ps_message` (
   KEY `id_cart` (`id_cart`),
   KEY `id_customer` (`id_customer`),
   KEY `id_employee` (`id_employee`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -20050,6 +19891,8 @@ CREATE TABLE `ps_message` (
 
 LOCK TABLES `ps_message` WRITE;
 /*!40000 ALTER TABLE `ps_message` DISABLE KEYS */;
+INSERT INTO `ps_message` VALUES
+(1,17,6,0,13,'witam',0,'2023-11-07 12:09:37');
 /*!40000 ALTER TABLE `ps_message` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -20090,7 +19933,7 @@ CREATE TABLE `ps_meta` (
   `configurable` tinyint(1) unsigned NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_meta`),
   UNIQUE KEY `page` (`page`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -20139,7 +19982,8 @@ INSERT INTO `ps_meta` VALUES
 (37,'module-ps_emailsubscription-subscription',1),
 (38,'module-ps_shoppingcart-ajax',1),
 (39,'module-ps_wirepayment-payment',1),
-(40,'module-ps_wirepayment-validation',1);
+(40,'module-ps_wirepayment-validation',1),
+(45,'module-ps_emailalerts-account',1);
 /*!40000 ALTER TABLE `ps_meta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -20172,69 +20016,38 @@ LOCK TABLES `ps_meta_lang` WRITE;
 /*!40000 ALTER TABLE `ps_meta_lang` DISABLE KEYS */;
 INSERT INTO `ps_meta_lang` VALUES
 (1,1,1,'Błąd 404','Nie można odnaleźć strony','','nie-znaleziono-strony'),
-(1,1,2,'404 error','This page cannot be found','','page-not-found'),
 (2,1,1,'Najczęściej kupowane','Nasze najlepiej sprzedające się produkty','','najczesciej-kupowane'),
-(2,1,2,'Best sales','Our best sales','','best-sales'),
 (3,1,1,'Kontakt z nami','Skorzystaj z formularza kontaktowego','','kontakt'),
-(3,1,2,'Contact us','Use our form to contact us','','contact-us'),
 (4,1,1,'','Sklep na oprogramowaniu PrestaShop','',''),
-(4,1,2,'','Shop powered by PrestaShop','',''),
 (5,1,1,'Brands','Brands list','','brands'),
-(5,1,2,'Brands','Brands list','','brands'),
 (6,1,1,'Nowe produkty','Nasze nowe produkty','','nowe-produkty'),
-(6,1,2,'New products','Our new products','','new-products'),
 (7,1,1,'Zapomniałeś hasła','Wpisz swój adres e-mail w celu uzyskania nowego hasła','','odzyskiwanie-hasla'),
-(7,1,2,'Forgot your password','Enter the e-mail address you use to sign in to receive an e-mail with a new password','','password-recovery'),
 (8,1,1,'Promocje','Our special products','','promocje'),
-(8,1,2,'Prices drop','Our special products','','prices-drop'),
 (9,1,1,'Mapa strony','Zagubiłeś się? Znajdź to, czego szukasz!','','Mapa strony'),
-(9,1,2,'Sitemap','Lost ? Find what your are looking for','','sitemap'),
 (10,1,1,'Dostawcy','Lista dostawców','','dostawcy'),
-(10,1,2,'Suppliers','Suppliers list','','supplier'),
 (11,1,1,'Adres','','','adres'),
-(11,1,2,'Address','','','address'),
 (12,1,1,'Adresy','','','adresy'),
-(12,1,2,'Addresses','','','addresses'),
 (13,1,1,'Nazwa użytkowika','','','logowanie'),
-(13,1,2,'Login','','','login'),
 (14,1,1,'Koszyk','','','koszyk'),
-(14,1,2,'Cart','','','cart'),
 (15,1,1,'Rabat','','','rabaty'),
-(15,1,2,'Discount','','','discount'),
 (16,1,1,'Historia zamówień','','','historia-zamowien'),
-(16,1,2,'Order history','','','order-history'),
 (17,1,1,'Dane osobiste','','','dane-osobiste'),
-(17,1,2,'Identity','','','identity'),
 (18,1,1,'Moje konto','','','moje-konto'),
-(18,1,2,'My account','','','my-account'),
 (19,1,1,'Śledzenie zamówienia','','','sledzenie-zamowienia'),
-(19,1,2,'Order follow','','','order-follow'),
 (20,1,1,'Pokwitowanie - korekta kredytowa','','','potwierdzenie-zwrotu'),
-(20,1,2,'Credit slip','','','credit-slip'),
 (21,1,1,'Zamówienie','','','zamówienie'),
-(21,1,2,'Order','','','order'),
 (22,1,1,'Szukaj','','','szukaj'),
-(22,1,2,'Search','','','search'),
 (23,1,1,'Sklepy','','','nasze-sklepy'),
-(23,1,2,'Stores','','','stores'),
 (24,1,1,'Śledzenie zamówień gości','','','sledzenie-zamowien-gosci'),
-(24,1,2,'Guest tracking','','','guest-tracking'),
 (25,1,1,'Potwierdzenie zamówienia','','','potwierdzenie-zamowienia'),
-(25,1,2,'Order confirmation','','','order-confirmation'),
 (34,1,1,'','','',''),
-(34,1,2,'','','',''),
 (35,1,1,'','','',''),
-(35,1,2,'','','',''),
 (36,1,1,'','','',''),
-(36,1,2,'','','',''),
 (37,1,1,'','','',''),
-(37,1,2,'','','',''),
 (38,1,1,'','','',''),
-(38,1,2,'','','',''),
 (39,1,1,'','','',''),
-(39,1,2,'','','',''),
 (40,1,1,'','','',''),
-(40,1,2,'','','','');
+(45,1,1,'','','','');
 /*!40000 ALTER TABLE `ps_meta_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -20253,7 +20066,7 @@ CREATE TABLE `ps_module` (
   PRIMARY KEY (`id_module`),
   UNIQUE KEY `name_UNIQUE` (`name`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -20324,7 +20137,8 @@ INSERT INTO `ps_module` VALUES
 (61,'ps_facetedsearch',1,'3.12.1'),
 (62,'ps_accounts',1,'5.6.0'),
 (63,'ps_eventbus',1,'2.3.2'),
-(64,'ps_customtext',1,'4.2.1');
+(64,'ps_customtext',1,'4.2.1'),
+(69,'ps_emailalerts',1,'2.4.2');
 /*!40000 ALTER TABLE `ps_module` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -20596,7 +20410,11 @@ INSERT INTO `ps_module_access` VALUES
 (1,845),
 (1,846),
 (1,847),
-(1,848);
+(1,848),
+(1,853),
+(1,854),
+(1,855),
+(1,856);
 /*!40000 ALTER TABLE `ps_module_access` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -21106,7 +20924,10 @@ INSERT INTO `ps_module_group` VALUES
 (63,1,3),
 (64,1,1),
 (64,1,2),
-(64,1,3);
+(64,1,3),
+(69,1,1),
+(69,1,2),
+(69,1,3);
 /*!40000 ALTER TABLE `ps_module_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -21124,7 +20945,7 @@ CREATE TABLE `ps_module_history` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -21141,7 +20962,8 @@ INSERT INTO `ps_module_history` VALUES
 (5,1,20,'2023-10-13 00:26:26','2023-10-13 00:26:26'),
 (6,1,32,'2023-10-14 15:31:45','2023-10-16 20:04:53'),
 (8,1,14,'2023-10-24 22:59:57','2023-10-24 22:59:57'),
-(9,1,56,'2023-10-24 23:00:33','2023-10-24 23:00:33');
+(9,1,56,'2023-10-24 23:00:33','2023-10-24 23:00:33'),
+(13,1,69,'2023-11-07 11:07:23','2023-11-07 11:07:23');
 /*!40000 ALTER TABLE `ps_module_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -21247,7 +21069,8 @@ INSERT INTO `ps_module_shop` VALUES
 (59,1,7),
 (61,1,7),
 (62,1,7),
-(63,1,7);
+(63,1,7),
+(69,1,7);
 /*!40000 ALTER TABLE `ps_module_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -21262,7 +21085,7 @@ CREATE TABLE `ps_operating_system` (
   `id_operating_system` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id_operating_system`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -21305,7 +21128,7 @@ CREATE TABLE `ps_order_carrier` (
   KEY `id_order` (`id_order`),
   KEY `id_carrier` (`id_carrier`),
   KEY `id_order_invoice` (`id_order_invoice`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -21320,7 +21143,11 @@ INSERT INTO `ps_order_carrier` VALUES
 (3,3,2,0,0.000000,7.000000,8.400000,'','2023-10-12 23:29:34'),
 (4,4,2,0,0.000000,7.000000,8.400000,'','2023-10-12 23:29:34'),
 (5,5,2,0,0.000000,7.000000,8.400000,'','2023-10-12 23:29:34'),
-(6,6,1,0,0.300000,0.000000,0.000000,'','2023-10-19 20:38:41');
+(6,6,1,0,0.300000,0.000000,0.000000,'','2023-10-19 20:38:41'),
+(11,11,7,0,0.000000,0.000000,0.000000,'','2023-11-07 11:14:15'),
+(12,12,18,0,0.000000,9.990000,9.990000,'','2023-11-07 11:55:11'),
+(13,13,17,0,0.000000,15.990000,15.990000,'','2023-11-07 12:09:40'),
+(14,14,18,0,0.000000,9.990000,9.990000,'','2023-11-07 12:24:02');
 /*!40000 ALTER TABLE `ps_order_carrier` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -21419,7 +21246,7 @@ CREATE TABLE `ps_order_detail` (
   KEY `product_attribute_id` (`product_attribute_id`),
   KEY `id_tax_rules_group` (`id_tax_rules_group`),
   KEY `id_order_id_order_detail` (`id_order`,`id_order_detail`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -21436,7 +21263,11 @@ INSERT INTO `ps_order_detail` VALUES
 (5,3,0,0,1,16,28,0,'Mountain fox notebook Style : Ruled',1,1,0,0,0,12.900000,0.00,0.000000,0.000000,0.000000,0.00,0.000000,'','','','','demo_8','',0.000000,0,0,'',0.000,0.000000,0.000,0,'',0,'0000-00-00 00:00:00',12.900000,12.900000,12.900000,12.900000,0.000000,0.000000,0.000000,12.900000,0.000000,0.000000,0.000000),
 (6,4,0,0,1,16,29,0,'Mountain fox notebook Style : Plain',1,1,0,0,0,12.900000,0.00,0.000000,0.000000,0.000000,0.00,0.000000,'','','','','demo_8','',0.000000,0,0,'',0.000,0.000000,0.000,0,'',0,'0000-00-00 00:00:00',12.900000,12.900000,12.900000,12.900000,0.000000,0.000000,0.000000,12.900000,0.000000,0.000000,0.000000),
 (7,5,0,0,1,10,25,0,'Brown bear cushion Color : Black',1,1,0,0,0,18.900000,0.00,0.000000,0.000000,0.000000,0.00,0.000000,'','','','','demo_16','',0.000000,0,0,'',0.000,0.000000,0.000,0,'',0,'0000-00-00 00:00:00',18.900000,18.900000,18.900000,18.900000,0.000000,0.000000,0.000000,18.900000,0.000000,0.000000,0.000000),
-(8,6,0,0,1,19,0,2,'Customizable mug',1,1,0,0,0,13.900000,0.00,0.000000,0.000000,0.000000,0.00,0.000000,'','','','','demo_14','demo_14',0.300000,1,0,'PTU PL 23%',23.000,0.000000,0.000,0,'',0,'0000-00-00 00:00:00',17.100000,13.900000,17.097000,13.900000,0.000000,0.000000,5.490000,13.900000,0.000000,0.000000,0.000000);
+(8,6,0,0,1,19,0,2,'Customizable mug',1,1,0,0,0,13.900000,0.00,0.000000,0.000000,0.000000,0.00,0.000000,'','','','','demo_14','demo_14',0.300000,1,0,'PTU PL 23%',23.000,0.000000,0.000,0,'',0,'0000-00-00 00:00:00',17.100000,13.900000,17.097000,13.900000,0.000000,0.000000,5.490000,13.900000,0.000000,0.000000,0.000000),
+(13,11,0,0,1,1001,0,0,'produkt super',1,1,0,0,0,1.000000,0.00,0.000000,0.000000,0.000000,0.00,0.000000,'','','','','','',0.000000,0,0,'',0.000,0.000000,0.000,0,'',0,'0000-00-00 00:00:00',1.000000,1.000000,1.000000,1.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000),
+(14,12,0,0,1,1001,0,0,'produkt super',1,1,0,0,0,1.000000,0.00,0.000000,0.000000,0.000000,0.00,0.000000,'','','','','','',0.000000,0,0,'',0.000,0.000000,0.000,0,'',0,'0000-00-00 00:00:00',1.000000,1.000000,1.000000,1.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000),
+(15,13,0,0,1,1001,0,0,'produkt super',1,1,0,0,0,1.000000,0.00,0.000000,0.000000,0.000000,0.00,0.000000,'','','','','','',0.000000,0,0,'',0.000,0.000000,0.000,0,'',0,'0000-00-00 00:00:00',1.000000,1.000000,1.000000,1.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000),
+(16,14,0,0,1,1001,0,0,'produkt super',1,1,0,0,0,1.000000,0.00,0.000000,0.000000,0.000000,0.00,0.000000,'','','','','','',0.000000,0,0,'',0.000,0.000000,0.000,0,'',0,'0000-00-00 00:00:00',1.000000,1.000000,1.000000,1.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000);
 /*!40000 ALTER TABLE `ps_order_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -21485,7 +21316,7 @@ CREATE TABLE `ps_order_history` (
   KEY `order_history_order` (`id_order`),
   KEY `id_employee` (`id_employee`),
   KEY `id_order_state` (`id_order_state`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -21502,7 +21333,11 @@ INSERT INTO `ps_order_history` VALUES
 (5,0,5,10,'2023-10-12 23:29:34'),
 (6,1,1,6,'2023-10-12 23:29:34'),
 (7,1,3,8,'2023-10-12 23:29:34'),
-(8,0,6,10,'2023-10-19 20:38:41');
+(8,0,6,10,'2023-10-19 20:38:41'),
+(13,0,11,10,'2023-11-07 11:14:17'),
+(14,0,12,10,'2023-11-07 11:55:12'),
+(15,0,13,10,'2023-11-07 12:09:42'),
+(16,0,14,10,'2023-11-07 12:24:03');
 /*!40000 ALTER TABLE `ps_order_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -21609,7 +21444,7 @@ CREATE TABLE `ps_order_message` (
   `id_order_message` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `date_add` datetime NOT NULL,
   PRIMARY KEY (`id_order_message`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -21646,8 +21481,7 @@ CREATE TABLE `ps_order_message_lang` (
 LOCK TABLES `ps_order_message_lang` WRITE;
 /*!40000 ALTER TABLE `ps_order_message_lang` DISABLE KEYS */;
 INSERT INTO `ps_order_message_lang` VALUES
-(1,1,'Czas przesyłki','Witaj,\n\nNiestety, artykuł na twoim zamówieniu jest obecnie niedostępny. Może to spowodować delikatne opóźnienie w dostawie.\nPrzepraszamy za powstałe utrudnienia, zapewniamy że pracujemy by to skorygować.\n\nZ poważaniem,'),
-(1,2,'Delay','Hi,\n\nUnfortunately, an item on your order is currently out of stock. This may cause a slight delay in delivery.\nPlease accept our apologies and rest assured that we are working hard to rectify this.\n\nBest regards,');
+(1,1,'Czas przesyłki','Witaj,\n\nNiestety, artykuł na twoim zamówieniu jest obecnie niedostępny. Może to spowodować delikatne opóźnienie w dostawie.\nPrzepraszamy za powstałe utrudnienia, zapewniamy że pracujemy by to skorygować.\n\nZ poważaniem,');
 /*!40000 ALTER TABLE `ps_order_message_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -21751,7 +21585,7 @@ CREATE TABLE `ps_order_return_state` (
   `id_order_return_state` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `color` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id_order_return_state`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -21792,15 +21626,10 @@ LOCK TABLES `ps_order_return_state_lang` WRITE;
 /*!40000 ALTER TABLE `ps_order_return_state_lang` DISABLE KEYS */;
 INSERT INTO `ps_order_return_state_lang` VALUES
 (1,1,'Oczekiwanie na potwierdzenie'),
-(1,2,'Waiting for confirmation'),
 (2,1,'Oczekiwanie na paczkę'),
-(2,2,'Waiting for package'),
 (3,1,'Paczka została odebrana'),
-(3,2,'Package received'),
 (4,1,'Brak akceptacji zwrotu'),
-(4,2,'Return denied'),
-(5,1,'Dokonanie zwrotu'),
-(5,2,'Return completed');
+(5,1,'Dokonanie zwrotu');
 /*!40000 ALTER TABLE `ps_order_return_state_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -21896,7 +21725,7 @@ CREATE TABLE `ps_order_state` (
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_order_state`),
   KEY `module_name` (`module_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -21950,39 +21779,22 @@ LOCK TABLES `ps_order_state_lang` WRITE;
 /*!40000 ALTER TABLE `ps_order_state_lang` DISABLE KEYS */;
 INSERT INTO `ps_order_state_lang` VALUES
 (1,1,'Oczekiwanie na płatność czekiem','cheque'),
-(1,2,'Awaiting check payment','cheque'),
 (2,1,'Płatność zaakceptowana','payment'),
-(2,2,'Payment accepted','payment'),
 (3,1,'Przygotowanie w toku','preparation'),
-(3,2,'Processing in progress','preparation'),
 (4,1,'Wysłane','shipped'),
-(4,2,'Shipped','shipped'),
 (5,1,'Dostarczone',''),
-(5,2,'Delivered',''),
 (6,1,'Anulowane','order_canceled'),
-(6,2,'Canceled','order_canceled'),
 (7,1,'Zwróconych pieniędzy','refund'),
-(7,2,'Refunded','refund'),
 (8,1,'Błąd płatności','payment_error'),
-(8,2,'Payment error','payment_error'),
 (9,1,'Zamówienie oczekujące (opłacone)','outofstock'),
-(9,2,'On backorder (paid)','outofstock'),
 (10,1,'Oczekiwanie na płatność przelewem','bankwire'),
-(10,2,'Awaiting bank wire payment','bankwire'),
 (11,1,'Płatność przyjęta','payment'),
-(11,2,'Remote payment accepted','payment'),
 (12,1,'Zamówienie oczekujące (nieopłacone)','outofstock'),
-(12,2,'On backorder (not paid)','outofstock'),
 (13,1,'Oczekiwanie na płatność przy odbiorze','cashondelivery'),
-(13,2,'Awaiting Cash On Delivery validation','cashondelivery'),
 (14,1,'Oczekiwanie na płatność',''),
-(14,2,'Waiting for payment',''),
 (15,1,'Częściowy zwrot',''),
-(15,2,'Partial refund',''),
 (16,1,'Częściowa płatność',''),
-(16,2,'Partial payment',''),
-(17,1,'Pomyślna autoryzacja. Transfer do przeprowadzenia przez sklep',''),
-(17,2,'Authorized. To be captured by merchant','');
+(17,1,'Pomyślna autoryzacja. Transfer do przeprowadzenia przez sklep','');
 /*!40000 ALTER TABLE `ps_order_state_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -22055,7 +21867,7 @@ CREATE TABLE `ps_orders` (
   KEY `current_state` (`current_state`),
   KEY `id_shop` (`id_shop`),
   KEY `date_add` (`date_add`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -22070,7 +21882,11 @@ INSERT INTO `ps_orders` VALUES
 (3,'UOYEVOLI',1,1,2,1,2,3,1,5,5,8,'b44a6d9efd7a0076a0fbce6b15eaf3b1','Payment by check',1.000000,'ps_checkpayment',0,0,'',0,'',0.000000,0.000000,0.000000,14.900000,21.300000,19.900000,0.000000,12.900000,12.900000,7.000000,8.400000,7.000000,0.000,0.000000,0.000000,0.000000,0,0,0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,'2023-10-12 23:29:34','2023-10-12 23:29:34',''),
 (4,'FFATNOMMJ',1,1,2,1,2,4,1,5,5,1,'b44a6d9efd7a0076a0fbce6b15eaf3b1','Payment by check',1.000000,'ps_checkpayment',0,0,'',0,'',0.000000,0.000000,0.000000,14.900000,21.300000,19.900000,0.000000,12.900000,12.900000,7.000000,8.400000,7.000000,0.000,0.000000,0.000000,0.000000,0,0,0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,'2023-10-12 23:29:34','2023-10-12 23:29:34',''),
 (5,'KHWLILZLL',1,1,2,1,2,5,1,5,5,10,'b44a6d9efd7a0076a0fbce6b15eaf3b1','Bank wire',1.000000,'ps_wirepayment',0,0,'',0,'',0.000000,0.000000,0.000000,20.900000,27.300000,25.900000,0.000000,18.900000,18.900000,7.000000,8.400000,7.000000,0.000,0.000000,0.000000,0.000000,0,0,0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,'2023-10-12 23:29:34','2023-10-12 23:29:34',''),
-(6,'ZGNAMRDEQ',1,1,1,1,3,6,3,7,7,10,'e046d855a8ad88f8474385d003fddf2f','Płatności elektroniczne',1.000000,'ps_wirepayment',0,0,'',0,'',0.000000,0.000000,0.000000,17.100000,17.100000,13.900000,0.000000,13.900000,17.100000,0.000000,0.000000,0.000000,23.000,0.000000,0.000000,0.000000,2,2,0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,'2023-10-19 20:38:41','2023-10-19 20:38:41','');
+(6,'ZGNAMRDEQ',1,1,1,1,3,6,3,7,7,10,'e046d855a8ad88f8474385d003fddf2f','Płatności elektroniczne',1.000000,'ps_wirepayment',0,0,'',0,'',0.000000,0.000000,0.000000,17.100000,17.100000,13.900000,0.000000,13.900000,17.100000,0.000000,0.000000,0.000000,23.000,0.000000,0.000000,0.000000,2,2,0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,'2023-10-19 20:38:41','2023-10-19 20:38:41',''),
+(11,'SESUWISOK',1,1,7,1,6,15,3,12,12,10,'63bfdf255fee65756e4806e70e047298','Płatności elektroniczne',1.000000,'ps_wirepayment',0,0,'',0,'',0.000000,0.000000,0.000000,1.000000,1.000000,1.000000,0.000000,1.000000,1.000000,0.000000,0.000000,0.000000,23.000,0.000000,0.000000,0.000000,2,2,0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,'2023-11-07 11:14:15','2023-11-07 11:14:17',''),
+(12,'PVBEFGABF',1,1,18,1,6,16,3,12,12,10,'63bfdf255fee65756e4806e70e047298','Płatności elektroniczne',1.000000,'ps_wirepayment',0,0,'',0,'',0.000000,0.000000,0.000000,10.990000,10.990000,10.990000,0.000000,1.000000,1.000000,9.990000,9.990000,9.990000,0.000,0.000000,0.000000,0.000000,2,2,0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,'2023-11-07 11:55:11','2023-11-07 11:55:12',''),
+(13,'XBAQIYCAX',1,1,17,1,6,17,3,12,12,10,'63bfdf255fee65756e4806e70e047298','Płatności elektroniczne',1.000000,'ps_wirepayment',0,0,'',0,'',0.000000,0.000000,0.000000,16.990000,16.990000,16.990000,0.000000,1.000000,1.000000,15.990000,15.990000,15.990000,0.000,0.000000,0.000000,0.000000,2,2,0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,'2023-11-07 12:09:40','2023-11-07 12:09:42',''),
+(14,'ZYDESVOAF',1,1,18,1,6,18,3,12,12,10,'63bfdf255fee65756e4806e70e047298','Płatności elektroniczne',1.000000,'ps_wirepayment',0,0,'',0,'',0.000000,0.000000,0.000000,10.990000,10.990000,10.990000,0.000000,1.000000,1.000000,9.990000,9.990000,9.990000,0.000,0.000000,0.000000,0.000000,2,2,0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,'2023-11-07 12:24:02','2023-11-07 12:24:03','');
 /*!40000 ALTER TABLE `ps_orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -22114,7 +21930,7 @@ CREATE TABLE `ps_page` (
   PRIMARY KEY (`id_page`),
   KEY `id_page_type` (`id_page_type`),
   KEY `id_object` (`id_object`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -22145,7 +21961,7 @@ CREATE TABLE `ps_page_type` (
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id_page_type`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -22290,7 +22106,7 @@ CREATE TABLE `ps_product` (
   KEY `indexed` (`indexed`),
   KEY `date_add` (`date_add`),
   KEY `state` (`state`,`date_upd`)
-) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1002 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -22299,6 +22115,8 @@ CREATE TABLE `ps_product` (
 
 LOCK TABLES `ps_product` WRITE;
 /*!40000 ALTER TABLE `ps_product` DISABLE KEYS */;
+INSERT INTO `ps_product` VALUES
+(1001,0,0,2,1,0,0,0,'','','','',0.000000,0,1,NULL,0,1.000000,0.000000,'',0.000000,0.000000,'','','',0.000000,0.000000,0.000000,0.000000,2,1,0,0,0,0,1,'404',0,1,'0000-00-00',0,'new',1,1,'both',0,0,0,0,'2023-11-07 11:12:38','2023-11-07 11:13:56',0,3,1,'');
 /*!40000 ALTER TABLE `ps_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -22525,7 +22343,7 @@ CREATE TABLE `ps_product_comment_criterion` (
   `id_product_comment_criterion_type` tinyint(1) NOT NULL,
   `active` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_product_comment_criterion`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -22585,8 +22403,7 @@ CREATE TABLE `ps_product_comment_criterion_lang` (
 LOCK TABLES `ps_product_comment_criterion_lang` WRITE;
 /*!40000 ALTER TABLE `ps_product_comment_criterion_lang` DISABLE KEYS */;
 INSERT INTO `ps_product_comment_criterion_lang` VALUES
-(1,1,'Quality'),
-(1,2,'Quality');
+(1,1,'Quality');
 /*!40000 ALTER TABLE `ps_product_comment_criterion_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -22799,6 +22616,8 @@ CREATE TABLE `ps_product_lang` (
 
 LOCK TABLES `ps_product_lang` WRITE;
 /*!40000 ALTER TABLE `ps_product_lang` DISABLE KEYS */;
+INSERT INTO `ps_product_lang` VALUES
+(1001,1,1,'','<p>najlepszy produkt</p>','produkt-super','','','','produkt super','','','','');
 /*!40000 ALTER TABLE `ps_product_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -22882,6 +22701,8 @@ CREATE TABLE `ps_product_shop` (
 
 LOCK TABLES `ps_product_shop` WRITE;
 /*!40000 ALTER TABLE `ps_product_shop` DISABLE KEYS */;
+INSERT INTO `ps_product_shop` VALUES
+(1001,1,2,0,0,0,0.000000,1,NULL,0,1.000000,0.000000,'',0.000000,0.000000,0,0,0,1,'404',0,1,'0000-00-00',0,'new',1,1,'both',0,0,'2023-11-07 11:12:38','2023-11-07 11:13:56',3);
 /*!40000 ALTER TABLE `ps_product_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -22951,7 +22772,7 @@ DROP TABLE IF EXISTS `ps_profile`;
 CREATE TABLE `ps_profile` (
   `id_profile` int(10) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_profile`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -22991,13 +22812,9 @@ LOCK TABLES `ps_profile_lang` WRITE;
 /*!40000 ALTER TABLE `ps_profile_lang` DISABLE KEYS */;
 INSERT INTO `ps_profile_lang` VALUES
 (1,1,'Administrator'),
-(2,1,'SuperAdmin'),
 (1,2,'Logistyk'),
-(2,2,'Logistician'),
 (1,3,'Tłumacz'),
-(2,3,'Translator'),
-(1,4,'Sprzedawca'),
-(2,4,'Salesman');
+(1,4,'Sprzedawca');
 /*!40000 ALTER TABLE `ps_profile_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -23169,7 +22986,7 @@ CREATE TABLE `ps_psgdpr_log` (
   PRIMARY KEY (`id_gdpr_log`),
   KEY `id_customer` (`id_customer`),
   KEY `idx_id_customer` (`id_customer`,`id_guest`,`client_name`,`id_module`,`date_add`,`date_upd`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23202,7 +23019,7 @@ CREATE TABLE `ps_psreassurance` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime DEFAULT NULL,
   PRIMARY KEY (`id_psreassurance`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23243,11 +23060,8 @@ LOCK TABLES `ps_psreassurance_lang` WRITE;
 /*!40000 ALTER TABLE `ps_psreassurance_lang` DISABLE KEYS */;
 INSERT INTO `ps_psreassurance_lang` VALUES
 (1,1,'Security policy','(edit with the Customer Reassurance module)',''),
-(1,2,'Security policy','(edit with the Customer Reassurance module)',''),
 (2,1,'Delivery policy','(edit with the Customer Reassurance module)',''),
-(2,2,'Delivery policy','(edit with the Customer Reassurance module)',''),
-(3,1,'Return policy','(edit with the Customer Reassurance module)',''),
-(3,2,'Return policy','(edit with the Customer Reassurance module)','');
+(3,1,'Return policy','(edit with the Customer Reassurance module)','');
 /*!40000 ALTER TABLE `ps_psreassurance_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -23263,7 +23077,7 @@ CREATE TABLE `ps_quick_access` (
   `new_window` tinyint(1) NOT NULL DEFAULT 0,
   `link` varchar(255) NOT NULL,
   PRIMARY KEY (`id_quick_access`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23305,17 +23119,11 @@ LOCK TABLES `ps_quick_access_lang` WRITE;
 /*!40000 ALTER TABLE `ps_quick_access_lang` DISABLE KEYS */;
 INSERT INTO `ps_quick_access_lang` VALUES
 (1,1,'Zamówienia'),
-(1,2,'Orders'),
 (2,1,'Nowy kupon'),
-(2,2,'New voucher'),
 (3,1,'Nowy produkt'),
-(3,2,'New product'),
 (4,1,'Nowa kategoria'),
-(4,2,'New category'),
 (5,1,'Zainstalowane moduły'),
-(5,2,'Installed modules'),
-(6,1,'Ocena katalogu'),
-(6,2,'Catalog evaluation');
+(6,1,'Ocena katalogu');
 /*!40000 ALTER TABLE `ps_quick_access_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -23333,7 +23141,7 @@ CREATE TABLE `ps_range_price` (
   `delimiter2` decimal(20,6) NOT NULL,
   PRIMARY KEY (`id_range_price`),
   UNIQUE KEY `id_carrier` (`id_carrier`,`delimiter1`,`delimiter2`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23384,7 +23192,7 @@ CREATE TABLE `ps_range_weight` (
   `delimiter2` decimal(20,6) NOT NULL,
   PRIMARY KEY (`id_range_weight`),
   UNIQUE KEY `id_carrier` (`id_carrier`,`delimiter1`,`delimiter2`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23552,7 +23360,7 @@ CREATE TABLE `ps_risk` (
   `percent` tinyint(3) NOT NULL,
   `color` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id_risk`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23593,13 +23401,9 @@ LOCK TABLES `ps_risk_lang` WRITE;
 /*!40000 ALTER TABLE `ps_risk_lang` DISABLE KEYS */;
 INSERT INTO `ps_risk_lang` VALUES
 (1,1,'Żaden'),
-(1,2,'None'),
 (2,1,'Niski'),
-(2,2,'Low'),
 (3,1,'Średnia'),
-(3,2,'Medium'),
-(4,1,'Wysoka'),
-(4,2,'High');
+(4,1,'Wysoka');
 /*!40000 ALTER TABLE `ps_risk_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -23615,7 +23419,7 @@ CREATE TABLE `ps_search_engine` (
   `server` varchar(64) NOT NULL,
   `getvar` varchar(16) NOT NULL,
   PRIMARY KEY (`id_search_engine`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23688,6 +23492,15 @@ CREATE TABLE `ps_search_index` (
 
 LOCK TABLES `ps_search_index` WRITE;
 /*!40000 ALTER TABLE `ps_search_index` DISABLE KEYS */;
+INSERT INTO `ps_search_index` VALUES
+(1001,35527,1),
+(1001,35528,3),
+(1001,35529,3),
+(1001,35532,3),
+(1001,35526,6),
+(1001,35530,6),
+(1001,35531,6),
+(1001,35525,7);
 /*!40000 ALTER TABLE `ps_search_index` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -23705,7 +23518,7 @@ CREATE TABLE `ps_search_word` (
   `word` varchar(30) NOT NULL,
   PRIMARY KEY (`id_word`),
   UNIQUE KEY `id_lang` (`id_lang`,`id_shop`,`word`)
-) ENGINE=InnoDB AUTO_INCREMENT=35525 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35541 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23714,6 +23527,12 @@ CREATE TABLE `ps_search_word` (
 
 LOCK TABLES `ps_search_word` WRITE;
 /*!40000 ALTER TABLE `ps_search_word` DISABLE KEYS */;
+INSERT INTO `ps_search_word` VALUES
+(35527,1,1,'najlepszy'),
+(35529,1,1,'online'),
+(35525,1,1,'produkt'),
+(35526,1,1,'super'),
+(35528,1,1,'warzywniak');
 /*!40000 ALTER TABLE `ps_search_word` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -23735,7 +23554,7 @@ CREATE TABLE `ps_shop` (
   `deleted` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_shop`),
   KEY `IDX_CBDFBB9EF5C9E40` (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23766,7 +23585,7 @@ CREATE TABLE `ps_shop_group` (
   `active` tinyint(1) NOT NULL,
   `deleted` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23798,7 +23617,7 @@ CREATE TABLE `ps_shop_url` (
   `active` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_shop_url`),
   KEY `IDX_279F19DA274A50A0` (`id_shop`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23952,7 +23771,7 @@ CREATE TABLE `ps_specific_price_priority` (
   `priority` varchar(80) NOT NULL,
   PRIMARY KEY (`id_specific_price_priority`,`id_product`),
   UNIQUE KEY `id_product` (`id_product`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23963,7 +23782,8 @@ LOCK TABLES `ps_specific_price_priority` WRITE;
 /*!40000 ALTER TABLE `ps_specific_price_priority` DISABLE KEYS */;
 INSERT INTO `ps_specific_price_priority` VALUES
 (1,999,'id_shop;id_currency;id_country;id_group'),
-(5,1000,'id_shop;id_currency;id_country;id_group');
+(5,1000,'id_shop;id_currency;id_country;id_group'),
+(14,1001,'id_shop;id_currency;id_country;id_group');
 /*!40000 ALTER TABLE `ps_specific_price_priority` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -24070,7 +23890,7 @@ CREATE TABLE `ps_state` (
   KEY `id_country` (`id_country`),
   KEY `name` (`name`),
   KEY `id_zone` (`id_zone`)
-) ENGINE=InnoDB AUTO_INCREMENT=356 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=357 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -24450,7 +24270,7 @@ CREATE TABLE `ps_statssearch` (
   `results` int(6) NOT NULL DEFAULT 0,
   `date_add` datetime NOT NULL,
   PRIMARY KEY (`id_statssearch`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -24536,7 +24356,7 @@ CREATE TABLE `ps_stock_available` (
   KEY `id_shop_group` (`id_shop_group`),
   KEY `id_product` (`id_product`),
   KEY `id_product_attribute` (`id_product_attribute`)
-) ENGINE=InnoDB AUTO_INCREMENT=2032 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2034 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -25535,7 +25355,8 @@ INSERT INTO `ps_stock_available` VALUES
 (2025,961,0,1,0,0,0,0,0,0,''),
 (2026,962,0,1,0,0,0,0,0,0,''),
 (2027,402,0,1,0,0,0,0,0,0,''),
-(2028,999,0,1,0,0,0,0,0,0,'');
+(2028,999,0,1,0,0,0,0,0,0,''),
+(2033,1001,0,1,0,1,5,4,0,2,'');
 /*!40000 ALTER TABLE `ps_stock_available` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -25565,7 +25386,7 @@ CREATE TABLE `ps_stock_mvt` (
   PRIMARY KEY (`id_stock_mvt`),
   KEY `id_stock` (`id_stock`),
   KEY `id_stock_mvt_reason` (`id_stock_mvt_reason`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -25575,7 +25396,8 @@ CREATE TABLE `ps_stock_mvt` (
 LOCK TABLES `ps_stock_mvt` WRITE;
 /*!40000 ALTER TABLE `ps_stock_mvt` DISABLE KEYS */;
 INSERT INTO `ps_stock_mvt` VALUES
-(1,2030,NULL,NULL,11,1,'Doe','John',1,'2023-10-25 23:13:06',1,0.000000,0.000000,0.000000,NULL);
+(1,2030,NULL,NULL,11,1,'Doe','John',1,'2023-10-25 23:13:06',1,0.000000,0.000000,0.000000,NULL),
+(4,2033,NULL,NULL,11,1,'Doe','John',5,'2023-11-07 11:13:19',1,0.000000,0.000000,0.000000,NULL);
 /*!40000 ALTER TABLE `ps_stock_mvt` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -25593,7 +25415,7 @@ CREATE TABLE `ps_stock_mvt_reason` (
   `date_upd` datetime NOT NULL,
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_stock_mvt_reason`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -25641,29 +25463,17 @@ LOCK TABLES `ps_stock_mvt_reason_lang` WRITE;
 /*!40000 ALTER TABLE `ps_stock_mvt_reason_lang` DISABLE KEYS */;
 INSERT INTO `ps_stock_mvt_reason_lang` VALUES
 (1,1,'Wzrost'),
-(1,2,'Increase'),
 (2,1,'Zmniejsz'),
-(2,2,'Decrease'),
 (3,1,'Zamówienie klienta'),
-(3,2,'Customer Order'),
 (4,1,'Regulation following an inventory of stock'),
-(4,2,'Regulation following an inventory of stock'),
 (5,1,'Regulation following an inventory of stock'),
-(5,2,'Regulation following an inventory of stock'),
 (6,1,'Przeniesienie do innego magazynu'),
-(6,2,'Transfer to another warehouse'),
 (7,1,'Przeniesienie z innego magazynu'),
-(7,2,'Transfer from another warehouse'),
 (8,1,'Zamówienie dostawcy'),
-(8,2,'Supply Order'),
 (9,1,'Zamówienie klienta'),
-(9,2,'Customer Order'),
 (10,1,'Zwrot produktu'),
-(10,2,'Product return'),
 (11,1,'Employee Edition'),
-(11,2,'Employee Edition'),
-(12,1,'Employee Edition'),
-(12,2,'Employee Edition');
+(12,1,'Employee Edition');
 /*!40000 ALTER TABLE `ps_stock_mvt_reason_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -25689,7 +25499,7 @@ CREATE TABLE `ps_store` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_store`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -25699,11 +25509,7 @@ CREATE TABLE `ps_store` (
 LOCK TABLES `ps_store` WRITE;
 /*!40000 ALTER TABLE `ps_store` DISABLE KEYS */;
 INSERT INTO `ps_store` VALUES
-(1,21,12,'Miami','33135',25.76500500,-80.24379700,'','','',1,'2023-10-12 23:29:35','2023-10-12 23:29:35'),
-(2,21,12,'Miami','33304',26.13793600,-80.13943500,'','','',1,'2023-10-12 23:29:35','2023-10-12 23:29:35'),
-(3,21,12,'Miami','33026',26.00998700,-80.29447200,'','','',1,'2023-10-12 23:29:35','2023-10-12 23:29:35'),
-(4,21,12,'Miami','33133',25.73629600,-80.24479700,'','','',1,'2023-10-12 23:29:35','2023-10-12 23:29:35'),
-(5,21,12,'Miami','33181',25.88674000,-80.16329200,'','','',1,'2023-10-12 23:29:35','2023-10-12 23:29:35');
+(1,14,0,'Kamionki','62-023',25.76500500,-80.24379700,'','','',1,'2023-10-12 23:29:35','2023-11-07 12:06:01');
 /*!40000 ALTER TABLE `ps_store` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -25733,16 +25539,7 @@ CREATE TABLE `ps_store_lang` (
 LOCK TABLES `ps_store_lang` WRITE;
 /*!40000 ALTER TABLE `ps_store_lang` DISABLE KEYS */;
 INSERT INTO `ps_store_lang` VALUES
-(1,1,'Dade County','3030 SW 8th St Miami','',' [[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]',''),
-(1,2,'Dade County','3030 SW 8th St Miami','',' [[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]',''),
-(2,1,'E Fort Lauderdale','1000 Northeast 4th Ave Fort Lauderdale','',' [[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]',''),
-(2,2,'E Fort Lauderdale','1000 Northeast 4th Ave Fort Lauderdale','',' [[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]',''),
-(3,1,'Pembroke Pines','11001 Pines Blvd Pembroke Pines','',' [[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]',''),
-(3,2,'Pembroke Pines','11001 Pines Blvd Pembroke Pines','',' [[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]',''),
-(4,1,'Coconut Grove','2999 SW 32nd Avenue','',' [[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]',''),
-(4,2,'Coconut Grove','2999 SW 32nd Avenue','',' [[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]',''),
-(5,1,'N Miami/Biscayne','12055 Biscayne Blvd','',' [[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]',''),
-(5,2,'N Miami/Biscayne','12055 Biscayne Blvd','',' [[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]','');
+(1,1,'eWarzywniak','ul. Platanowa 4','','[[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]','');
 /*!40000 ALTER TABLE `ps_store_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -25768,11 +25565,7 @@ CREATE TABLE `ps_store_shop` (
 LOCK TABLES `ps_store_shop` WRITE;
 /*!40000 ALTER TABLE `ps_store_shop` DISABLE KEYS */;
 INSERT INTO `ps_store_shop` VALUES
-(1,1),
-(2,1),
-(3,1),
-(4,1),
-(5,1);
+(1,1);
 /*!40000 ALTER TABLE `ps_store_shop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -26023,7 +25816,7 @@ CREATE TABLE `ps_supply_order_state` (
   `enclosed` tinyint(1) NOT NULL DEFAULT 0,
   `color` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id_supply_order_state`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -26065,17 +25858,11 @@ LOCK TABLES `ps_supply_order_state_lang` WRITE;
 /*!40000 ALTER TABLE `ps_supply_order_state_lang` DISABLE KEYS */;
 INSERT INTO `ps_supply_order_state_lang` VALUES
 (1,1,'1 - Tworzenie w toku'),
-(1,2,'1 - Creation in progress'),
 (2,1,'2 - Zamówienie zostało zatwierdzone'),
-(2,2,'2 - Order validated'),
 (3,1,'3 - W oczekiwaniu'),
-(3,2,'3 - Pending receipt'),
 (4,1,'4 - Zamówienie zostało otrzymane w częściach'),
-(4,2,'4 - Order received in part'),
 (5,1,'5 - Otrzymano zamówienie'),
-(5,2,'5 - Order received completely'),
-(6,1,'6 - Zamówienie zostało anulowane'),
-(6,2,'6 - Order canceled');
+(6,1,'6 - Zamówienie zostało anulowane');
 /*!40000 ALTER TABLE `ps_supply_order_state_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -26100,7 +25887,7 @@ CREATE TABLE `ps_tab` (
   `wording` varchar(255) DEFAULT NULL,
   `wording_domain` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_tab`)
-) ENGINE=InnoDB AUTO_INCREMENT=155 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=156 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -26289,299 +26076,152 @@ LOCK TABLES `ps_tab_lang` WRITE;
 /*!40000 ALTER TABLE `ps_tab_lang` DISABLE KEYS */;
 INSERT INTO `ps_tab_lang` VALUES
 (1,1,'Pulpit'),
-(1,2,'Dashboard'),
 (2,1,'Sprzedaż'),
-(2,2,'Sell'),
 (3,1,'Zamówienia'),
-(3,2,'Orders'),
 (4,1,'Zamówienia'),
-(4,2,'Orders'),
 (5,1,'Faktury'),
-(5,2,'Invoices'),
 (6,1,'Druki kredytowe'),
-(6,2,'Credit Slips'),
 (7,1,'Druk wysyłki'),
-(7,2,'Delivery Slips'),
 (8,1,'Koszyki zakupowe'),
-(8,2,'Shopping Carts'),
 (9,1,'Katalog'),
-(9,2,'Catalog'),
 (10,1,'Produkty'),
-(10,2,'Products'),
 (11,1,'Kategorie'),
-(11,2,'Categories'),
 (12,1,'Monitorowanie'),
-(12,2,'Monitoring'),
 (13,1,'Atrybuty & Cechy'),
-(13,2,'Attributes & Features'),
 (14,1,'Atrybuty'),
-(14,2,'Attributes'),
 (15,1,'Funkcje'),
-(15,2,'Features'),
 (16,1,'Marki & Dostawcy'),
-(16,2,'Brands & Suppliers'),
 (17,1,'Marki'),
-(17,2,'Brands'),
 (18,1,'Dostawcy'),
-(18,2,'Suppliers'),
 (19,1,'Pliki'),
-(19,2,'Files'),
 (20,1,'Rabaty'),
-(20,2,'Discounts'),
 (21,1,'Kody rabatowe'),
-(21,2,'Cart Rules'),
 (22,1,'Reguły cenowe katalogu'),
-(22,2,'Catalog Price Rules'),
 (23,1,'Magazyn'),
-(23,2,'Stock'),
 (24,1,'Klienci'),
-(24,2,'Customers'),
 (25,1,'Klienci'),
-(25,2,'Customers'),
 (26,1,'Adresy'),
-(26,2,'Addresses'),
 (27,1,'Saldo'),
-(27,2,'Outstanding'),
 (28,1,'Obsługa klienta'),
-(28,2,'Customer Service'),
 (29,1,'Obsługa klienta'),
-(29,2,'Customer Service'),
 (30,1,'Wiadomości zamówienia'),
-(30,2,'Order Messages'),
 (31,1,'Zwroty produktów'),
-(31,2,'Merchandise Returns'),
 (32,1,'Statystyki'),
-(32,2,'Stats'),
 (34,1,'Magazyny'),
-(34,2,'Warehouses'),
 (35,1,'Zarządzanie magazynem'),
-(35,2,'Stock Management'),
 (37,1,'Ruch magazynowy'),
-(37,2,'Stock Movement'),
 (38,1,'Stany magazynowe'),
-(38,2,'Instant Stock Status'),
 (39,1,'Aktualne pokrycie stanu'),
-(39,2,'Stock Coverage'),
 (40,1,'Dostawa zamówień'),
-(40,2,'Supply orders'),
 (41,1,'Konfiguracja'),
-(41,2,'Configuration'),
 (42,1,'Ulepszenia'),
-(42,2,'Improve'),
 (43,1,'Moduły'),
-(43,2,'Modules'),
 (44,1,'Menedżer modułów'),
-(44,2,'Module Manager'),
 (45,1,'Moduły'),
-(45,2,'Modules'),
 (46,1,'Powiadomienia'),
-(46,2,'Alerts'),
 (47,1,'Aktualizacje'),
-(47,2,'Updates'),
 (48,1,'Marketplace'),
-(48,2,'Marketplace'),
 (49,1,'Marketplace'),
-(49,2,'Marketplace'),
 (50,1,'Modules in the spotlight'),
-(50,2,'Modules in the spotlight'),
 (52,1,'Wygląd'),
-(52,2,'Design'),
 (53,1,'Szablony'),
-(53,2,'Theme & Logo'),
 (54,1,'Katalog'),
-(54,2,'Theme Catalog'),
 (55,1,'Szablon maila'),
-(55,2,'Email Theme'),
 (56,1,'Szablon maila'),
-(56,2,'Email Theme'),
 (57,1,'Strony'),
-(57,2,'Pages'),
 (58,1,'Pozycje'),
-(58,2,'Positions'),
 (59,1,'Zdjęcia'),
-(59,2,'Image Settings'),
 (60,1,'Wysyłka'),
-(60,2,'Shipping'),
 (61,1,'Przewoźnicy'),
-(61,2,'Carriers'),
 (62,1,'Preferencje'),
-(62,2,'Preferences'),
 (63,1,'Płatność'),
-(63,2,'Payment'),
 (64,1,'Płatności'),
-(64,2,'Payment Methods'),
 (65,1,'Preferencje'),
-(65,2,'Preferences'),
 (66,1,'Międzynarodowy'),
-(66,2,'International'),
 (67,1,'Lokalizacja'),
-(67,2,'Localization'),
 (68,1,'Lokalizacja'),
-(68,2,'Localization'),
 (69,1,'Języki'),
-(69,2,'Languages'),
 (70,1,'Waluty'),
-(70,2,'Currencies'),
 (71,1,'Geolokalizacja'),
-(71,2,'Geolocation'),
 (72,1,'Położenie'),
-(72,2,'Locations'),
 (73,1,'Strefy'),
-(73,2,'Zones'),
 (74,1,'Kraje'),
-(74,2,'Countries'),
 (75,1,'Województwa lub regiony'),
-(75,2,'States'),
 (76,1,'Podatki'),
-(76,2,'Taxes'),
 (77,1,'Podatki'),
-(77,2,'Taxes'),
 (78,1,'Reguły podatków'),
-(78,2,'Tax Rules'),
 (79,1,'Tłumaczenia'),
-(79,2,'Translations'),
 (80,1,'Konfiguruj'),
-(80,2,'Configure'),
 (81,1,'Preferencje'),
-(81,2,'Shop Parameters'),
 (82,1,'Ogólny'),
-(82,2,'General'),
 (83,1,'Ogólny'),
-(83,2,'General'),
 (84,1,'Przerwa techniczna'),
-(84,2,'Maintenance'),
 (85,1,'Zamówienia'),
-(85,2,'Order Settings'),
 (86,1,'Zamówienia'),
-(86,2,'Order Settings'),
 (87,1,'Statusy'),
-(87,2,'Statuses'),
 (88,1,'Produkty'),
-(88,2,'Product Settings'),
 (89,1,'Klienci'),
-(89,2,'Customer Settings'),
 (90,1,'Klienci'),
-(90,2,'Customer Settings'),
 (91,1,'Grupy'),
-(91,2,'Groups'),
 (92,1,'Tytuły'),
-(92,2,'Titles'),
 (93,1,'Kontakt'),
-(93,2,'Contact'),
 (94,1,'Kontakty'),
-(94,2,'Contacts'),
 (95,1,'Sklepy'),
-(95,2,'Stores'),
 (96,1,'Ruch'),
-(96,2,'Traffic & SEO'),
 (97,1,'SEO & URL'),
-(97,2,'SEO & URLs'),
 (98,1,'Wyszukiwarki'),
-(98,2,'Search Engines'),
 (99,1,'Polecający'),
-(99,2,'Referrers'),
 (100,1,'Szukaj'),
-(100,2,'Search'),
 (101,1,'Szukaj'),
-(101,2,'Search'),
 (102,1,'Tagi'),
-(102,2,'Tags'),
 (103,1,'Zaawansowane'),
-(103,2,'Advanced Parameters'),
 (104,1,'Informacja'),
-(104,2,'Information'),
 (105,1,'Wydajność'),
-(105,2,'Performance'),
 (106,1,'Administracja'),
-(106,2,'Administration'),
 (107,1,'Adres e-mail'),
-(107,2,'E-mail'),
 (108,1,'Importuj'),
-(108,2,'Import'),
 (109,1,'Zespół'),
-(109,2,'Team'),
 (110,1,'Pracownicy'),
-(110,2,'Employees'),
 (111,1,'Profile'),
-(111,2,'Profiles'),
 (112,1,'Uprawnienia'),
-(112,2,'Permissions'),
 (113,1,'Baza danych'),
-(113,2,'Database'),
 (114,1,'Menadżer SQL'),
-(114,2,'SQL Manager'),
 (115,1,'Kopia zapasowa DB'),
-(115,2,'DB Backup'),
 (116,1,'Logi'),
-(116,2,'Logs'),
 (117,1,'API'),
-(117,2,'Webservice'),
 (118,1,'Multisklep'),
-(118,2,'Multistore'),
 (119,1,'Multisklep'),
-(119,2,'Multistore'),
 (120,1,'Funkcje eksperymentalne'),
-(120,2,'Experimental Features'),
 (121,1,'Szybki dostęp'),
-(121,2,'Quick Access'),
 (122,1,'Więcej'),
-(122,2,'More'),
 (124,1,'Wishlist Module'),
-(124,2,'Wishlist Module'),
 (125,1,'Konfiguracja'),
-(125,2,'Configuration'),
 (126,1,'Statistics'),
-(126,2,'Statistics'),
 (127,1,'Dashgoals'),
-(127,2,'Dashgoals'),
 (128,1,'Order Notifications on the Favicon'),
-(128,2,'Order Notifications on the Favicon'),
 (129,1,'Lista linków'),
-(129,2,'Link List'),
 (130,1,'Szablony'),
-(130,2,'Theme & Logo'),
 (131,1,'Pages Configuration'),
-(131,2,'Pages Configuration'),
 (132,1,'Advanced Customization'),
-(132,2,'Advanced Customization'),
 (133,1,'Welcome'),
-(133,2,'Welcome'),
 (134,1,'Oficjalna zgodność z RODO'),
-(134,2,'Oficjalna zgodność z RODO'),
 (135,1,'Oficjalna zgodność z RODO'),
-(135,2,'Oficjalna zgodność z RODO'),
 (136,1,'Marketplace'),
-(136,2,'Marketplace'),
 (137,1,'Modules in the spotlight'),
-(137,2,'Modules in the spotlight'),
 (138,1,'Recommended Modules and Services'),
-(138,2,'Recommended Modules and Services'),
 (139,1,'Katalog'),
-(139,2,'Theme Catalog'),
 (140,1,'PrestaShop Checkout'),
-(140,2,'PrestaShop Checkout'),
 (141,1,'PrestaShop Checkout'),
-(141,2,'PrestaShop Checkout'),
 (142,1,'Statystyki'),
-(142,2,'Stats'),
 (143,1,'PrestaShop Metrics'),
-(143,2,'PrestaShop Metrics'),
 (144,1,'Marketing'),
-(144,2,'Marketing'),
 (145,1,'Facebook & Instagram'),
-(145,2,'Facebook & Instagram'),
 (146,1,'ps_facebook'),
-(146,2,'ps_facebook'),
 (147,1,'Google'),
-(147,2,'Google'),
 (148,1,'psxmarketingwithgoogle'),
-(148,2,'psxmarketingwithgoogle'),
 (149,1,'AdminBlockListing'),
-(149,2,'AdminBlockListing'),
 (150,1,'Konto PrestaShop (ajax)'),
-(150,2,'Konto PrestaShop (ajax)'),
-(151,1,'Konto PrestaShop (debug)'),
-(151,2,'Konto PrestaShop (debug)');
+(151,1,'Konto PrestaShop (debug)');
 /*!40000 ALTER TABLE `ps_tab_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -26677,7 +26317,7 @@ CREATE TABLE `ps_tax` (
   `active` tinyint(1) unsigned NOT NULL DEFAULT 1,
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_tax`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -26745,69 +26385,37 @@ LOCK TABLES `ps_tax_lang` WRITE;
 /*!40000 ALTER TABLE `ps_tax_lang` DISABLE KEYS */;
 INSERT INTO `ps_tax_lang` VALUES
 (1,1,'PTU PL 23%'),
-(1,2,'PTU PL 23%'),
 (2,1,'PTU PL 8%'),
-(2,2,'PTU PL 8%'),
 (3,1,'PTU PL 5%'),
-(3,2,'PTU PL 5%'),
 (4,1,'PTU PL 0'),
-(4,2,'PTU PL 0'),
 (5,1,'USt. AT 20%'),
-(5,2,'USt. AT 20%'),
 (6,1,'TVA BE 21%'),
-(6,2,'TVA BE 21%'),
 (7,1,'ДДС BG 20%'),
-(7,2,'ДДС BG 20%'),
 (8,1,'ΦΠΑ CY 19%'),
-(8,2,'ΦΠΑ CY 19%'),
 (9,1,'DPH CZ 21%'),
-(9,2,'DPH CZ 21%'),
 (10,1,'MwSt. DE 19%'),
-(10,2,'MwSt. DE 19%'),
 (11,1,'moms DK 25%'),
-(11,2,'moms DK 25%'),
 (12,1,'km EE 20%'),
-(12,2,'km EE 20%'),
 (13,1,'IVA ES 21%'),
-(13,2,'IVA ES 21%'),
 (14,1,'ALV FI 24%'),
-(14,2,'ALV FI 24%'),
 (15,1,'TVA FR 20%'),
-(15,2,'TVA FR 20%'),
 (16,1,'VAT UK 20%'),
-(16,2,'VAT UK 20%'),
 (17,1,'ΦΠΑ GR 24%'),
-(17,2,'ΦΠΑ GR 24%'),
 (18,1,'Croatia PDV 25%'),
-(18,2,'Croatia PDV 25%'),
 (19,1,'ÁFA HU 27%'),
-(19,2,'ÁFA HU 27%'),
 (20,1,'VAT IE 23%'),
-(20,2,'VAT IE 23%'),
 (21,1,'IVA IT 22%'),
-(21,2,'IVA IT 22%'),
 (22,1,'PVM LT 21%'),
-(22,2,'PVM LT 21%'),
 (23,1,'TVA LU 17%'),
-(23,2,'TVA LU 17%'),
 (24,1,'PVN LV 21%'),
-(24,2,'PVN LV 21%'),
 (25,1,'TVA MC 20%'),
-(25,2,'TVA MC 20%'),
 (26,1,'VAT MT 18%'),
-(26,2,'VAT MT 18%'),
 (27,1,'BTW NL 21%'),
-(27,2,'BTW NL 21%'),
 (28,1,'IVA PT 23%'),
-(28,2,'IVA PT 23%'),
 (29,1,'TVA RO 19%'),
-(29,2,'TVA RO 19%'),
 (30,1,'Moms SE 25%'),
-(30,2,'Moms SE 25%'),
 (31,1,'DDV SI 22%'),
-(31,2,'DDV SI 22%'),
-(32,1,'DPH SK 20%'),
-(32,2,'DPH SK 20%');
+(32,1,'DPH SK 20%');
 /*!40000 ALTER TABLE `ps_tax_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -26832,7 +26440,7 @@ CREATE TABLE `ps_tax_rule` (
   KEY `id_tax_rules_group` (`id_tax_rules_group`),
   KEY `id_tax` (`id_tax`),
   KEY `category_getproducts` (`id_tax_rules_group`,`id_country`,`id_state`,`zipcode_from`)
-) ENGINE=InnoDB AUTO_INCREMENT=147 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=148 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -27003,7 +26611,7 @@ CREATE TABLE `ps_tax_rules_group` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_tax_rules_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -27062,7 +26670,7 @@ CREATE TABLE `ps_timezone` (
   `id_timezone` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
   PRIMARY KEY (`id_timezone`)
-) ENGINE=InnoDB AUTO_INCREMENT=564 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=565 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -27652,7 +27260,7 @@ CREATE TABLE `ps_translation` (
   PRIMARY KEY (`id_translation`),
   KEY `IDX_ADEBEB36BA299860` (`id_lang`),
   KEY `key` (`domain`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -27783,7 +27391,7 @@ CREATE TABLE `ps_web_browser` (
   `id_web_browser` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id_web_browser`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -27824,7 +27432,7 @@ CREATE TABLE `ps_webservice_account` (
   `active` tinyint(2) NOT NULL,
   PRIMARY KEY (`id_webservice_account`),
   KEY `key` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -27881,7 +27489,7 @@ CREATE TABLE `ps_webservice_permission` (
   KEY `resource` (`resource`),
   KEY `method` (`method`),
   KEY `id_webservice_account` (`id_webservice_account`)
-) ENGINE=InnoDB AUTO_INCREMENT=348 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=349 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -28258,7 +27866,7 @@ CREATE TABLE `ps_wishlist` (
   `date_upd` datetime NOT NULL,
   `default` int(10) unsigned DEFAULT 0,
   PRIMARY KEY (`id_wishlist`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -28336,7 +27944,7 @@ CREATE TABLE `ps_zone` (
   `name` varchar(64) NOT NULL,
   `active` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_zone`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -28399,4 +28007,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-04 11:48:05
+-- Dump completed on 2023-11-07 11:25:12
