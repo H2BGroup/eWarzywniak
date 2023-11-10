@@ -1,5 +1,3 @@
-from pprint import pprint
-
 def getCategoryId(prestashop, category):
     ids = prestashop.search('categories', options={'filter[name]': category})
     if len(ids) > 0:
@@ -9,8 +7,6 @@ def getCategoryId(prestashop, category):
 
 def addCategory(prestashop, categoryName, parentId):
     schema = prestashop.get('categories', options={'schema': 'synopsis'})
-
-    # pprint(schema)
 
     schema['category'].pop('level_depth')
     schema['category'].pop('nb_products_recursive')
