@@ -5,6 +5,9 @@ openssl req -newkey rsa:2048 -new -nodes -x509 -days 365 \
 docker cp ssl/apache-selfsigned.key prestashop:/etc/ssl/private/apache-selfsigned.key
 docker cp ssl/apache-selfsigned.crt prestashop:/etc/ssl/certs/apache-selfsigned.crt
 
+docker cp ssl/apache-selfsigned.crt prestashop:/usr/local/share/ca-certificates/cacert.crt
+docker exec prestashop update-ca-certificates
+
 docker cp ssl/000-default.conf prestashop:/etc/apache2/sites-available/000-default.conf
 
 docker exec prestashop a2enmod ssl
