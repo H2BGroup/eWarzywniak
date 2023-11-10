@@ -7,6 +7,8 @@ import copy
 from dotenv import load_dotenv
 import os
 
+os.environ['PYTHONHTTPSVERIFY'] = '0'
+
 def handleProduct(prestashop, product, categoryIds, schema):
     try:
         id = addProduct(prestashop, product, categoryIds, schema)
