@@ -7,6 +7,7 @@ import random
 
 NUMBER_OF_CATEGORIES=2
 PRODUCTS_FOR_CATEGORY=5
+PRODUCTS_TO_DELETE=3
 
 def visitProduct(product, driver: webdriver.Firefox):
     product.click()
@@ -45,11 +46,42 @@ def visitCategory(category, driver: webdriver.Firefox, remainingProducts, addedP
                 if visitProduct(product, driver) == 1:
                     addedProducts.append(driver.find_elements(By.CLASS_NAME, "product")[i].text)
                     newProducts += 1
-                elif i >= len(products)-1:
+                if i >= len(products)-1:
                     break
             i+=1
 
     driver.back()
+
+
+def searchProducts(driver: webdriver.Firefox):
+
+    WebDriverWait(driver=driver, timeout=5).until(EC.visibility_of_any_elements_located((By.CLASS_NAME, "ui-autocomplete-input")))
+    driver.find_element(By.CLASS_NAME, "ui-autocomplete-input").send_keys("napoj")
+    driver.find_element(By.CLASS_NAME, "ui-autocomplete-input").send_keys(Keys.ENTER)
+
+    WebDriverWait(driver=driver, timeout=10).until(EC.visibility_of_element_located((By.CLASS_NAME, "h2")))
+
+    visitedProducts = []
+    added = False
+    while not added:
+        products = driver.find_elements(By.CLASS_NAME, "product")
+        product = random.choice(products)
+        products.remove(product)
+        while product in visitedProducts:
+            product = random.choice(products)
+            products.remove(product)
+        visitedProducts.append(product)
+
+        if visitProduct(product, driver) == 1:
+            added = True
+
+def visitCart(driver: webdriver.Firefox):
+    driver.find_element(By.ID, "_desktop_cart").click()
+
+    for i in range(PRODUCTS_TO_DELETE):
+        removeButtons = driver.find_elements(By.CLASS_NAME, "remove-from-cart")
+        removeButtons[i].click()
+    driver.refresh()
 
 driver = webdriver.Firefox()
 
@@ -73,4 +105,6 @@ while len(addedProducts) < NUMBER_OF_CATEGORIES*PRODUCTS_FOR_CATEGORY:
     
     visitCategory(category, driver, PRODUCTS_FOR_CATEGORY*NUMBER_OF_CATEGORIES - len(addedProducts), addedProducts)
 
+searchProducts(driver)
+visitCart(driver)
 # driver.quit()
