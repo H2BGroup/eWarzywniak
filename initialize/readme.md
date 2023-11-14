@@ -1,25 +1,25 @@
 # eWarzywniak project for Electronic Business classes
 
-Skrypt inicjujący produkty i kategorie
+Script that initializes products and categories
 
-Aby uruchomić program należy:
+To run the program you need to:
 
-1. Aktywować środowisko i pobrać potrzebne biblioteki
+1. Activate environment and download needed libraries
    
     ```shell
     python3 -m venv env
     source env/bin/activate
     pip install -r requirements.txt
     ```
-2. Utworzyć plik `.env`
+2. Create file `.env`
 
     ```js
-    WEBSERVICE_KEY='Klucz wygenerowany w panelu admina Prestashop'
-    PRESTASHOP_API_URL='Adres api sklepu Prestashop np.: http://localhost:8080/api'
+    WEBSERVICE_KEY='Key generated in Prestashop admin panel'
+    PRESTASHOP_API_URL="Shop's api address for example: http://localhost:8080/api"
     SCRAPPED_DATA_PATH='../scraper/warzywniak.json'
     ```
-3. Mieć pobrany plik z wynikiem scrapowania.
-4. Uruchomić za pomocą
+3. You need to have file with scrapped products downloaded.
+4. Run with
 
     ```shell
     python main.py
