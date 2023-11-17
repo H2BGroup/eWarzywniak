@@ -83,6 +83,54 @@ def visitCart(driver: webdriver.Firefox):
         removeButtons[i].click()
     driver.refresh()
 
+def registerAccount(driver: webdriver.Firefox):
+    driver.find_element(By.CLASS_NAME, "user-info").click()
+
+    driver.find_element(By.CLASS_NAME, "no-account").click()
+
+    driver.find_element(By.ID, "field-id_gender-1").click()
+    driver.find_element(By.ID, "field-firstname").send_keys("Imie")
+    driver.find_element(By.ID, "field-lastname").send_keys("Nazwisko")
+    driver.find_element(By.ID, "field-email").send_keys("mail@gmail.com")
+    driver.find_element(By.ID, "field-password").send_keys("password123")
+    driver.find_element(By.NAME, "customer_privacy").click()
+    driver.find_element(By.NAME, "psgdpr").click()
+    driver.find_element(By.CLASS_NAME, "form-control-submit").click()
+    
+    WebDriverWait(driver=driver, timeout=30).until(EC.visibility_of_element_located((By.CLASS_NAME, "banner")))
+    banner = driver.find_element(By.CLASS_NAME, "banner")
+
+def makeOrder(driver: webdriver.Firefox):
+    driver.find_element(By.ID, "_desktop_cart").click()
+    driver.find_element(By.CLASS_NAME, "btn-primary").click()
+
+    driver.find_element(By.ID, "field-address1").send_keys("ul. Ulica 22")
+    driver.find_element(By.ID, "field-postcode").send_keys("11-111")
+    driver.find_element(By.ID, "field-city").send_keys("Miasto")
+    driver.find_element(By.NAME, "confirm-addresses").click()
+
+    driver.find_element(By.ID, "delivery_option_17").click()
+    driver.find_element(By.NAME, "confirmDeliveryOption").click()
+
+    driver.find_element(By.ID, "payment-option-2").click()
+    driver.find_element(By.ID, "conditions_to_approve[terms-and-conditions]").click()
+    driver.find_element(By.ID, "payment-confirmation").find_element(By.CLASS_NAME, "btn-primary").click()
+
+def downloadInvoice(driver: webdriver.Firefox):
+    WebDriverWait(driver=driver, timeout=60).until(EC.visibility_of_element_located((By.CLASS_NAME, "account")))
+    driver.find_element(By.CLASS_NAME, "account").click()
+
+    driver.find_element(By.ID, "history-link").click()
+    
+    # orderActions = driver.find_element(By.CLASS_NAME, "order-actions")
+    # for a in orderActions.find_elements(By.TAG_NAME, "a"):
+    #     if a.text == "Szczegóły":
+    #         a.click()
+            # break
+    
+    WebDriverWait(driver=driver, timeout=10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "td.text-sm-center:nth-child(6) > a:nth-child(1)")))
+    driver.find_element(By.CSS_SELECTOR, "td.text-sm-center:nth-child(6) > a:nth-child(1)").click()
+
 driver = webdriver.Firefox()
 
 driver.get("https://localhost/")
@@ -107,4 +155,6 @@ while len(addedProducts) < NUMBER_OF_CATEGORIES*PRODUCTS_FOR_CATEGORY:
 
 searchProducts(driver)
 visitCart(driver)
-# driver.quit()
+registerAccount(driver)
+makeOrder(driver)
+downloadInvoice(driver)
