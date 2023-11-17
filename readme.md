@@ -15,18 +15,23 @@ form an existing store.
 ## How to run
 1. The best way to run is on Linux or in WSL, if you are using Windows.
 2. You need to have `Docker` installed.
-3. Run command: 
+3. Generate SSL certificates with (you only need to do this step once):
+```
+./genCert.sh
+```
+4. To start the shop, run command: 
 ```
 docker compose up -d
 ```
-4. The store should be running. Open your web browser and go to https://localhost
+5. The store should be running. Open your web browser and go to https://localhost
 
 6. To stop and remove containers use:
 ```
 docker compose down
 ```
 
-6. To upload products, you need to run `scraper` and then `initilizer`. Chceck their folders for instructions.
+7. To upload products, you need to run `scraper` and then `initilizer`. Chceck their folders for instructions.
+8. You can also test the shop functionality with `selenium` script.
 
 ## Authors
 - Jan Barczewski (188679)
