@@ -4,10 +4,14 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import random
+import string
 
 NUMBER_OF_CATEGORIES=2
 PRODUCTS_FOR_CATEGORY=5
 PRODUCTS_TO_DELETE=3
+
+def randomMail():
+    return ''.join(random.choices(string.ascii_lowercase + string.digits, k=10)) + '@' + ''.join(random.choices(string.ascii_lowercase + string.digits, k=5)) + '.com'
 
 def visitProduct(product, driver: webdriver.Firefox):
     product.click()
@@ -91,7 +95,7 @@ def registerAccount(driver: webdriver.Firefox):
     driver.find_element(By.ID, "field-id_gender-1").click()
     driver.find_element(By.ID, "field-firstname").send_keys("Imie")
     driver.find_element(By.ID, "field-lastname").send_keys("Nazwisko")
-    driver.find_element(By.ID, "field-email").send_keys("mail@gmail.com")
+    driver.find_element(By.ID, "field-email").send_keys(randomMail())
     driver.find_element(By.ID, "field-password").send_keys("password123")
     driver.find_element(By.NAME, "customer_privacy").click()
     driver.find_element(By.NAME, "psgdpr").click()
