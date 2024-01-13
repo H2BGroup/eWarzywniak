@@ -5,8 +5,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.01'
-          memory: 50M
+          cpus: '0.1'
+          memory: 100M
     ports:
       - 18868:443
     environment:
@@ -23,6 +23,8 @@ services:
       PS_DEV_MODE: 1
     
     networks:
-      admin-mysql_default:
-        name: admin-mysql_default
-        external: true
+      - admin-mysql_default
+
+networks:
+  admin-mysql_default:
+    external: true
