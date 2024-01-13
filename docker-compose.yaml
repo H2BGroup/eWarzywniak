@@ -1,12 +1,17 @@
-version: '3'
 services:
   prestashop:
-    image: jjayjohnny/be_188679
+    image: jjayjohnny/be_188679:latest
+    user: root
     deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 2
+        window: 70s
       resources:
         limits:
-          cpus: '0.1'
-          memory: 100M
+          cpus: '0.5'
+          memory: 512M
     ports:
       - 18868:443
     environment:
@@ -14,14 +19,12 @@ services:
       DB_NAME: BE_188679
       DB_USER: root
       DB_PASSWD: student
-      PS_DOMAIN: localhost:8080
       PS_FOLDER_ADMIN: admin2137
       PS_FOLDER_INSTALL: install2137
       PS_INSTALL_AUTO: 1
       PS_LANGUAGE: pl
       PS_COUNTRY: PL
       PS_DEV_MODE: 1
-    
     networks:
       - admin-mysql_default
 
