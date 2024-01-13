@@ -1,11 +1,11 @@
 version: '3'
 services:
-  BE_188679_prestashop:
+  prestashop:
     image: jjayjohnny/be_188679
     deploy:
       resources:
         limits:
-          cpus: '0.001'
+          cpus: '0.01'
           memory: 50M
     ports:
       - 18868:443
