@@ -27,7 +27,25 @@ services:
       PS_DEV_MODE: 1
     networks:
       - admin-mysql_default
+      - be_188679_network
+  
+  memcached:
+    image: memcached
+    user: 1000:1000
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 2
+        window: 140s
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+    networks:
+      - be_188679_network
 
 networks:
+  be_188679_network:
   admin-mysql_default:
     external: true
