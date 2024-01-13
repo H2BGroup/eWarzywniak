@@ -22,4 +22,5 @@ services:
       PS_COUNTRY: PL
       PS_DEV_MODE: 1
     
-    network: admin-mysql_default
+    networks: 
+      - admin-mysql_default
