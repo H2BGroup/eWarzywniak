@@ -1,0 +1,44 @@
+version: '3'
+services:
+  db:
+    container_name: db
+    image: mariadb:10
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: student
+      MYSQL_DATABASE: BE_188679
+    networks:
+      - prestashop_network
+    volumes:
+      - ./db_dump:/docker-entrypoint-initdb.d
+      - ./dbData:/var/lib/mysql
+
+  prestashop:
+    container_name: prestashop
+    build: 
+      context: .
+      dockerfile: Local.Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - 8080:80
+      - 443:443
+    environment:
+      DB_SERVER: db
+      DB_NAME: BE_188679
+      DB_USER: root
+      DB_PASSWD: student
+      PS_DOMAIN: localhost:8080
+      PS_FOLDER_ADMIN: admin2137
+      PS_FOLDER_INSTALL: install2137
+      PS_INSTALL_AUTO: 1
+      PS_LANGUAGE: pl
+      PS_COUNTRY: PL
+      PS_DEV_MODE: 1
+    networks:
+      - prestashop_network
+    volumes:
+      - ./src:/var/www/html
+networks:
+    prestashop_network:
