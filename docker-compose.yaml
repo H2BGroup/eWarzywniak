@@ -10,7 +10,7 @@ services:
     ports:
       - 18868:443
     environment:
-      DB_SERVER: admin-mysql_db
+      DB_SERVER: db
       DB_NAME: BE_188679
       DB_USER: root
       DB_PASSWD: student
@@ -21,3 +21,5 @@ services:
       PS_LANGUAGE: pl
       PS_COUNTRY: PL
       PS_DEV_MODE: 1
+    
+    network: admin-mysql_default
