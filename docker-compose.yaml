@@ -1,35 +1,24 @@
-version: '3'
 services:
-  mysql:
-    container_name: mysql
-    image: mariadb:10
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: prestashop
-    networks:
-      - prestashop_network
-    volumes:
-      - ./db_dump:/docker-entrypoint-initdb.d
-      - ./dbData:/var/lib/mysql
-
   prestashop:
-    container_name: prestashop
-    build: 
-      context: .
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    depends_on:
-      - mysql
+    image: jjayjohnny/be_188679:latest
+    user: root
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 2
+        window: 70s
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
     ports:
-      - 8080:80
-      - 443:443
+      - 18868:443
     environment:
-      DB_SERVER: mysql
-      DB_NAME: prestashop
+      DB_SERVER: db
+      DB_NAME: BE_188679
       DB_USER: root
-      DB_PASSWD: admin
-      PS_DOMAIN: localhost:8080
+      DB_PASSWD: student
       PS_FOLDER_ADMIN: admin2137
       PS_FOLDER_INSTALL: install2137
       PS_INSTALL_AUTO: 1
@@ -37,8 +26,27 @@ services:
       PS_COUNTRY: PL
       PS_DEV_MODE: 1
     networks:
-      - prestashop_network
-    volumes:
-      - ./src:/var/www/html
+      - admin-mysql_default
+      - be_188679_network
+    entrypoint: ./initDB.sh
+      
+  memcached:
+    image: memcached
+    user: 1000:1000
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 2
+        window: 140s
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+    networks:
+      - be_188679_network
+
 networks:
-    prestashop_network:
+  be_188679_network:
+  admin-mysql_default:
+    external: true
