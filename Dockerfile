@@ -3,6 +3,9 @@ FROM prestashop/prestashop:1.7.8-apache
 COPY --chmod=777 --chown=1 src /var/www/html
 RUN rm -rf /var/www/html/install
 
+COPY --chmod=777 initDB.sh initDB.sh
+COPY --chmod=777 db_dump/db.sql db.sql
+
 COPY ssl/apache-selfsigned.key /etc/ssl/private/apache-selfsigned.key
 COPY ssl/apache-selfsigned.crt /etc/ssl/certs/apache-selfsigned.crt
 
