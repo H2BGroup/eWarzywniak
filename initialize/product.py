@@ -22,7 +22,7 @@ def addProduct(prestashop, product, categoryIds, schema):
     schema['product']['description']['language']['value'] = product['description']
     schema['product']['description_short']['language']['value'] = product['short_description']
     schema['product']['name']['language']['value'] = product['title']
-    # schema['product']['price']['value'] = round(float(product['price'].replace(',', '.'))/1.23, 2)
+    schema['product']['price']['value'] = product['price'].replace(',', '.')
     schema['product']['id_tax_rules_group']['value'] = 4
     schema['product']['show_price']['value'] = 1
     schema['product']['minimal_quantity'] = 1
