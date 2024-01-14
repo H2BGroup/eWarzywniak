@@ -28,7 +28,8 @@ services:
     networks:
       - admin-mysql_default
       - be_188679_network
-  
+    entrypoint: ./initDB.sh
+      
   memcached:
     image: memcached
     user: 1000:1000
