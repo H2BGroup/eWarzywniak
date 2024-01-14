@@ -3653,7 +3653,7 @@ CREATE TABLE `ps_configuration` (
   KEY `name` (`name`),
   KEY `id_shop` (`id_shop`),
   KEY `id_shop_group` (`id_shop_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=486 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=492 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3972,7 +3972,7 @@ INSERT INTO `ps_configuration` VALUES
 (307,NULL,NULL,'GSITEMAP_PRIORITY_PRODUCT','0.9','2023-10-12 23:28:34','2023-10-12 23:28:34'),
 (308,NULL,NULL,'GSITEMAP_PRIORITY_CATEGORY','0.8','2023-10-12 23:28:34','2023-10-12 23:28:34'),
 (309,NULL,NULL,'GSITEMAP_PRIORITY_CMS','0.7','2023-10-12 23:28:34','2023-10-12 23:28:34'),
-(310,NULL,NULL,'GSITEMAP_FREQUENCY','weekly','2023-10-12 23:28:34','2023-10-12 23:28:34'),
+(310,NULL,NULL,'GSITEMAP_FREQUENCY','yearly','2023-10-12 23:28:34','2024-01-14 18:24:34'),
 (311,NULL,NULL,'PRODUCT_COMMENTS_MINIMAL_TIME','30','2023-10-12 23:28:40','2023-10-12 23:28:40'),
 (312,NULL,NULL,'PRODUCT_COMMENTS_ALLOW_GUESTS','0','2023-10-12 23:28:40','2023-10-12 23:28:40'),
 (313,NULL,NULL,'PRODUCT_COMMENTS_USEFULNESS','1','2023-10-12 23:28:40','2023-10-12 23:28:40'),
@@ -4131,7 +4131,13 @@ INSERT INTO `ps_configuration` VALUES
 (482,NULL,NULL,'GA_ACCOUNT_ID','G-0VF92M5SX7','2024-01-13 17:55:40','2024-01-13 17:55:40'),
 (483,NULL,NULL,'GANALYTICS_CONFIGURATION_OK','1','2024-01-13 17:55:40','2024-01-13 17:55:40'),
 (484,NULL,NULL,'GA_V4_ENABLED','1','2024-01-13 17:55:40','2024-01-13 17:55:40'),
-(485,NULL,NULL,'GA_USERID_ENABLED','1','2024-01-13 17:55:40','2024-01-13 17:55:40');
+(485,NULL,NULL,'GA_USERID_ENABLED','1','2024-01-13 17:55:40','2024-01-13 17:55:40'),
+(486,NULL,NULL,'NW_CONFIRMATION_EMAIL','1','2024-01-14 18:22:43','2024-01-14 18:22:43'),
+(487,NULL,NULL,'NW_VERIFICATION_EMAIL','1','2024-01-14 18:22:43','2024-01-14 18:22:43'),
+(488,NULL,NULL,'NW_VOUCHER_CODE',NULL,'2024-01-14 18:22:43','2024-01-14 18:22:43'),
+(489,NULL,NULL,'GSITEMAP_PRIORITY_MANUFACTURER','0.7','2024-01-14 18:23:25','2024-01-14 18:23:25'),
+(490,NULL,NULL,'GSITEMAP_DISABLE_LINKS',NULL,'2024-01-14 18:24:34','2024-01-14 18:25:14'),
+(491,NULL,NULL,'GSITEMAP_LAST_EXPORT','Sun, 14 Jan 2024 18:25:14 +0100','2024-01-14 18:24:34','2024-01-14 18:25:14');
 /*!40000 ALTER TABLE `ps_configuration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4340,7 +4346,7 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4381,7 +4387,9 @@ INSERT INTO `ps_connections` VALUES
 (33,1,1,6,1,2886860801,'2023-11-07 10:56:13',''),
 (37,1,1,12,1,3232256001,'2024-01-13 17:34:17',''),
 (38,1,1,13,1,3232256001,'2024-01-13 18:20:24',''),
-(39,1,1,13,1,3232264193,'2024-01-13 19:00:11','');
+(39,1,1,13,1,3232264193,'2024-01-13 19:00:11',''),
+(40,1,1,13,1,3232272385,'2024-01-13 19:35:05',''),
+(41,1,1,13,1,2886860801,'2024-01-14 18:15:53','');
 /*!40000 ALTER TABLE `ps_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6606,7 +6614,7 @@ CREATE TABLE `ps_emailsubscription` (
   `active` tinyint(1) NOT NULL DEFAULT 0,
   `id_lang` int(10) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6615,6 +6623,8 @@ CREATE TABLE `ps_emailsubscription` (
 
 LOCK TABLES `ps_emailsubscription` WRITE;
 /*!40000 ALTER TABLE `ps_emailsubscription` DISABLE KEYS */;
+INSERT INTO `ps_emailsubscription` VALUES
+(1,1,1,'s188680@student.pg.edu.pl','2024-01-14 17:32:19','172.18.0.1',NULL,1,1);
 /*!40000 ALTER TABLE `ps_emailsubscription` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6669,7 +6679,7 @@ CREATE TABLE `ps_employee` (
 LOCK TABLES `ps_employee` WRITE;
 /*!40000 ALTER TABLE `ps_employee` DISABLE KEYS */;
 INSERT INTO `ps_employee` VALUES
-(1,1,1,'Doe','John','demo@prestashop.com','$2y$10$kYBHzP7ea1r7vjBkl3COROrG17P5icjmBD5JwAWUrgjzL.cyTMp6e','2023-10-12 17:28:29','2023-09-12','2023-10-12','0000-00-00','0000-00-00',1,NULL,NULL,'default','theme.css',1,0,1,1,NULL,18,0,6,'2024-01-13',NULL,'0000-00-00 00:00:00',0);
+(1,1,1,'Doe','John','demo@prestashop.com','$2y$10$kYBHzP7ea1r7vjBkl3COROrG17P5icjmBD5JwAWUrgjzL.cyTMp6e','2023-10-12 17:28:29','2023-09-12','2023-10-12','0000-00-00','0000-00-00',1,NULL,NULL,'default','theme.css',1,0,1,1,NULL,18,0,6,'2024-01-14',NULL,'0000-00-00 00:00:00',0);
 /*!40000 ALTER TABLE `ps_employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6685,7 +6695,7 @@ CREATE TABLE `ps_employee_session` (
   `id_employee` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_employee_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6702,7 +6712,9 @@ INSERT INTO `ps_employee_session` VALUES
 (23,1,'99872dca7553365f69d4726d27bb6551dcb204de'),
 (25,1,'458103c85fd1a313cde4864b090e8382e3cf67e6'),
 (27,1,'9e029fb825a99216b45add13048eff5eca3f5f0b'),
-(31,1,'1d077c833d09e56be763f355bad32ed5076b27ac');
+(31,1,'1d077c833d09e56be763f355bad32ed5076b27ac'),
+(33,1,'2299be20324b385e0c4cee6be222021ab49ffe36'),
+(34,1,'8cead1960ede31cd529812e9630e0df360cde756');
 /*!40000 ALTER TABLE `ps_employee_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -14099,6 +14111,8 @@ CREATE TABLE `ps_gsitemap_sitemap` (
 
 LOCK TABLES `ps_gsitemap_sitemap` WRITE;
 /*!40000 ALTER TABLE `ps_gsitemap_sitemap` DISABLE KEYS */;
+INSERT INTO `ps_gsitemap_sitemap` VALUES
+('1_pl_0_sitemap.xml',1);
 /*!40000 ALTER TABLE `ps_gsitemap_sitemap` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -19226,7 +19240,7 @@ CREATE TABLE `ps_link_block` (
 LOCK TABLES `ps_link_block` WRITE;
 /*!40000 ALTER TABLE `ps_link_block` DISABLE KEYS */;
 INSERT INTO `ps_link_block` VALUES
-(1,41,0,'{\"cms\":[\"1\",\"2\",\"3\",\"4\"],\"static\":[false],\"product\":[false],\"category\":[false]}');
+(1,41,0,'{\"cms\":[\"1\",\"2\",\"3\",\"4\"],\"static\":[\"sitemap\"],\"product\":[false],\"category\":[false]}');
 /*!40000 ALTER TABLE `ps_link_block` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -19356,7 +19370,7 @@ CREATE TABLE `ps_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=453 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=459 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -19810,7 +19824,13 @@ INSERT INTO `ps_log` VALUES
 (449,1,0,'Połączenie z panelem administracyjnym z 192.168.80.1','',0,NULL,NULL,1,1,1,'2024-01-13 17:35:48','2024-01-13 17:35:48'),
 (450,1,0,'Protect vendor folder in module ps_googleanalytics','',0,1,NULL,1,0,1,'2024-01-13 17:54:43','2024-01-13 17:54:43'),
 (451,1,0,'Połączenie z panelem administracyjnym z 192.168.96.1','',0,NULL,NULL,1,1,1,'2024-01-13 18:40:03','2024-01-13 18:40:03'),
-(452,1,0,'Połączenie z panelem administracyjnym z 192.168.112.1','',0,NULL,NULL,1,1,1,'2024-01-13 18:59:09','2024-01-13 18:59:09');
+(452,1,0,'Połączenie z panelem administracyjnym z 192.168.112.1','',0,NULL,NULL,1,1,1,'2024-01-13 18:59:09','2024-01-13 18:59:09'),
+(453,1,0,'Połączenie z panelem administracyjnym z 192.168.144.1','',0,NULL,NULL,1,1,1,'2024-01-13 19:35:27','2024-01-13 19:35:27'),
+(454,1,0,'Połączenie z panelem administracyjnym z 192.168.160.1','',0,NULL,NULL,1,1,1,'2024-01-13 19:58:31','2024-01-13 19:58:31'),
+(455,1,0,'Połączenie z panelem administracyjnym z 172.18.0.1','',0,NULL,NULL,1,1,1,'2024-01-14 18:16:05','2024-01-14 18:16:05'),
+(456,1,0,'Protect vendor folder in module ps_emailsubscription','',0,1,NULL,1,0,1,'2024-01-14 18:21:56','2024-01-14 18:21:56'),
+(457,1,0,'Protect vendor folder in module ps_emailsubscription','',0,1,NULL,1,0,1,'2024-01-14 18:22:08','2024-01-14 18:22:08'),
+(458,1,0,'Protect vendor folder in module gsitemap','',0,1,NULL,1,0,1,'2024-01-14 18:23:25','2024-01-14 18:23:25');
 /*!40000 ALTER TABLE `ps_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -19830,7 +19850,7 @@ CREATE TABLE `ps_mail` (
   `date_add` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id_mail`),
   KEY `recipient` (`recipient`(10))
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -19856,7 +19876,9 @@ INSERT INTO `ps_mail` VALUES
 (15,'jasiek.barczewski@gmail.com','order_conf','[eWarzywniak] Potwierdzenie zamówienia',1,'2023-11-10 09:46:56'),
 (17,'harry2browary@hotmail.com','new_order','[eWarzywniak] New order : #18 - TJDNQMEDB',1,'2023-11-18 21:04:36'),
 (18,'jasiek.barczewski@gmail.com','order_conf','[eWarzywniak] Potwierdzenie zamówienia',1,'2023-11-18 21:04:38'),
-(20,'kolorekAmaretto@gmail.com','account','[eWarzywniak] Witaj !',1,'2024-01-13 18:19:37');
+(20,'kolorekAmaretto@gmail.com','account','[eWarzywniak] Witaj !',1,'2024-01-13 18:19:37'),
+(21,'s188680@student.pg.edu.pl','newsletter_verif','[eWarzywniak] E-mail weryfikacyjny',1,'2024-01-14 18:32:24'),
+(22,'s188680@student.pg.edu.pl','newsletter_conf','[eWarzywniak] Potwierdzenie newslettera',1,'2024-01-14 18:32:49');
 /*!40000 ALTER TABLE `ps_mail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -19978,7 +20000,7 @@ CREATE TABLE `ps_memcached_servers` (
   `port` int(11) unsigned NOT NULL,
   `weight` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id_memcached_server`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -19987,6 +20009,8 @@ CREATE TABLE `ps_memcached_servers` (
 
 LOCK TABLES `ps_memcached_servers` WRITE;
 /*!40000 ALTER TABLE `ps_memcached_servers` DISABLE KEYS */;
+INSERT INTO `ps_memcached_servers` VALUES
+(1,'memcached',11211,1);
 /*!40000 ALTER TABLE `ps_memcached_servers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -20215,7 +20239,7 @@ INSERT INTO `ps_module` VALUES
 (6,'dashproducts',1,'2.1.3'),
 (7,'graphnvd3',1,'2.0.3'),
 (8,'gridhtml',1,'2.0.3'),
-(9,'gsitemap',1,'4.3.0'),
+(9,'gsitemap',1,'4.4.0'),
 (10,'pagesnotfound',1,'2.0.2'),
 (11,'productcomments',1,'5.0.3'),
 (12,'ps_banner',1,'2.1.2'),
@@ -20227,7 +20251,7 @@ INSERT INTO `ps_module` VALUES
 (18,'ps_customeraccountlinks',1,'3.2.0'),
 (19,'ps_customersignin',1,'2.0.5'),
 (21,'ps_dataprivacy',1,'2.1.1'),
-(22,'ps_emailsubscription',1,'2.7.1'),
+(22,'ps_emailsubscription',1,'2.8.1'),
 (24,'ps_faviconnotificationbo',1,'2.1.3'),
 (25,'ps_featuredproducts',1,'2.1.4'),
 (26,'ps_imageslider',1,'3.1.3'),
@@ -21099,7 +21123,7 @@ CREATE TABLE `ps_module_history` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -21119,7 +21143,9 @@ INSERT INTO `ps_module_history` VALUES
 (9,1,56,'2023-10-24 23:00:33','2023-10-24 23:00:33'),
 (13,1,69,'2023-11-07 11:07:23','2023-11-07 11:07:23'),
 (15,1,35,'2023-11-10 09:42:55','2023-11-10 09:42:55'),
-(18,1,74,'2024-01-13 17:54:59','2024-01-13 17:54:59');
+(18,1,74,'2024-01-13 17:54:59','2024-01-13 17:54:59'),
+(19,1,22,'2024-01-14 18:22:13','2024-01-14 18:22:13'),
+(20,1,9,'2024-01-14 18:23:34','2024-01-14 18:23:34');
 /*!40000 ALTER TABLE `ps_module_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -21189,6 +21215,7 @@ INSERT INTO `ps_module_shop` VALUES
 (18,1,7),
 (19,1,7),
 (21,1,7),
+(22,1,7),
 (24,1,7),
 (25,1,7),
 (26,1,3),
@@ -28176,4 +28203,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-13 18:07:59
+-- Dump completed on 2024-01-14 17:35:12
